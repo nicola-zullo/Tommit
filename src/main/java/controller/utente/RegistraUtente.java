@@ -21,11 +21,6 @@ public class RegistraUtente extends HttpServlet {
         String surname = request.getParameter("surname");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String via = request.getParameter("via");
-        int civico = Integer.parseInt(request.getParameter("numero_civ"));
-        int cap = Integer.parseInt(request.getParameter("cap"));
-        String regione = request.getParameter("regione");
-        String provincia = request.getParameter("provincia");
 
         UtenteBean u = new UtenteBean();
 
