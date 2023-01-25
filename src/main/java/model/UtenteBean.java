@@ -6,6 +6,7 @@ public class UtenteBean {
     private String CF;
     private String name;
     private String surname;
+    private String username;
     private String email;
     private String password;
     private boolean ruolo;
@@ -14,12 +15,20 @@ public class UtenteBean {
         this.ruolo=false;
     }
 
-    public void setRuolo(boolean x){
-        this.ruolo=x;
+    public String getUsername() {
+        return username;
     }
 
-    public boolean getRuolo(){
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public boolean isRuolo() {
         return ruolo;
+    }
+
+    public void setRuolo(boolean x){
+        this.ruolo=x;
     }
 
     public int getId() {

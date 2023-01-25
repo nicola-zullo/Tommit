@@ -17,8 +17,10 @@ public class RegistraUtente extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
+        String name = request.getParameter("nome");
+        String surname = request.getParameter("cognome");
+        String cf = request.getParameter("cf");
+        String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -27,6 +29,8 @@ public class RegistraUtente extends HttpServlet {
         u.setName(name);
         u.setSurname(surname);
         u.setEmail(email);
+        u.setCF(cf);
+        u.setUsername(username);
         u.setPassword(password);
 
         UtenteDAO utenteDAO = new UtenteDAO();
