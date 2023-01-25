@@ -14,11 +14,6 @@ public class UtenteDAO {
             ps.setString(2, utente.getSurname());
             ps.setString(3, utente.getEmail());
             ps.setString(4, utente.getPassword());
-            ps.setString(5,utente.getVia());
-            ps.setInt(6,utente.getCivico());
-            ps.setInt(7,utente.getCap());
-            ps.setString(8,utente.getRegione());
-            ps.setString(9,utente.getProvincia());
 
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
@@ -51,11 +46,6 @@ public class UtenteDAO {
                 u.setSurname(rs.getString(3));
                 u.setEmail(rs.getString(4));
                 u.setPassword(rs.getString(5));
-                u.setVia(rs.getString(6));
-                u.setCivico(rs.getInt(7));
-                u.setCap(rs.getInt(8));
-                u.setRegione(rs.getString(9));
-                u.setProvincia(rs.getString(10));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
