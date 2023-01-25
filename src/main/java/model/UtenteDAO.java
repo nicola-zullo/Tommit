@@ -7,13 +7,14 @@ public class UtenteDAO {
     public void doSave(UtenteBean utente) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
-                    "INSERT INTO utenti (Name, Surname, Email, Password, Role)  VALUES(?,?,?,?,?)",
+                    "INSERT INTO user (Username,Name, Surname, Email, Password)  VALUES(?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
             //associamo i "?" a i  valori dell'utente
-            ps.setString(1, utente.getName());
-            ps.setString(2, utente.getSurname());
-            ps.setString(3, utente.getEmail());
-            ps.setString(4, utente.getPassword());
+            ps.setString(1, utente.getUsername());
+            ps.setString(2, utente.getName());
+            ps.setString(3, utente.getSurname());
+            ps.setString(4, utente.getEmail());
+            ps.setString(5, utente.getPassword());
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }
