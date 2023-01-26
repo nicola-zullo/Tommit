@@ -9,8 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.GSBean;
 import model.GSDAO;
-import model.UtenteBean;
-import model.UtenteDAO;
 
 import java.io.IOException;
 
@@ -33,6 +31,10 @@ public class RichiestaGS extends HttpServlet {
 
         GSDAO dao = new GSDAO();
         dao.doSave(gs);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("RichiestaGSInviata.jsp");
+
+        dispatcher.forward(request,response);
     }
 
 }
