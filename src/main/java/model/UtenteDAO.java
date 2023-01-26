@@ -39,7 +39,7 @@ public class UtenteDAO {
         try(Connection con = ConPool.getConnection()) {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT *" +
-                    "from utenti where id ="+x+";");
+                    "from user where id ="+x+";");
             while (rs.next()) {
                 u.setId(rs.getInt(1));
                 u.setName(rs.getString(2));
@@ -61,7 +61,7 @@ public class UtenteDAO {
 
         try (Connection con = ConPool.getConnection()) {
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT email from utenti where email ='" + email + "';");
+            ResultSet rs = stmt.executeQuery("SELECT email from user where email ='" + email + "';");
             if (rs.next()) {
                 check=true;
             }else
