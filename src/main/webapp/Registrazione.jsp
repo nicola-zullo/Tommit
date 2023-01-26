@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Registrazione</title>
     <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="static/css/navbar.css">
@@ -22,20 +22,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
 
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Appunti</a></li>
+                    <li><a href="index.jsp">Home</a></li>
+                    <li><a href="PaginaAppunti.jsp">Appunti</a></li>
                     <li><a href="#">Gruppi Studio</a></li>
                     <li><a href="#">Timer</a></li>
-                    <li><a href="#">icona</a></li>
+                    <li><a href="login.jsp">icona</a></li>
                 </ul>
-            </div>
+            </div><!--/.nav-collapse -->
         </div>
     </nav>
-
 <div class="content">
 
     <div class="form-wrapper">
