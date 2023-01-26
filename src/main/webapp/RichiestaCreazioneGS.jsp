@@ -33,9 +33,9 @@
                 <li><a href="PaginaAppunti.jsp">Appunti</a></li>
                 <li><a href="#">Gruppi Studio</a></li>
                 <li><a href="#">Timer</a></li>
-                <li><a href="login.jsp">icona</a></li>
+                <li><a href="login.jsp">Login</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
 <div id="form-main">
@@ -66,7 +66,5 @@
             </div>
         </form>
     </div>
-    <!-- partial -->
-
 </body>
 </html>
