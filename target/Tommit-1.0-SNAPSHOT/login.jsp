@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'><link rel="stylesheet" href="../css/navbar.css">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="static/css/navbar.css">
 
   <link rel="stylesheet" href="static/css/login.css">
   <link rel="stylesheet" href="static/css/background.css">
@@ -27,10 +28,10 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Appunti</a></li>
+        <li><a href="PaginaAppunti.jsp">Appunti</a></li>
         <li><a href="#">Gruppi Studio</a></li>
         <li><a href="#">Timer</a></li>
-        <li><a href="#">icona</a></li>
+        <li><a href="index.jsp">icona</a></li>
       </ul>
     </div>
   </div>
@@ -53,7 +54,7 @@
       <input type="text" name="username" placeholder="username" />
       <input type="password" name="password" placeholder="password" />
       <button type="submit">Log in</button>
-      <a href="#">Registrati!</a>
+      <a href="Registrazione.jsp">Registrati!</a>
 
     </form>
   </div>

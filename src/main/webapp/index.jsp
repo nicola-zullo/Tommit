@@ -26,18 +26,15 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
 			</button>
 
 		</div>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="index.jsp">Home</a></li>
 				<li><a href="PaginaAppunti.jsp">Appunti</a></li>
 				<li><a href="#">Gruppi Studio</a></li>
 				<li><a href="#">Timer</a></li>
-				<li><a href="login.jsp">icona</a></li>
+				<li><a href="login.jsp">Login</a></li>
 			</ul>
 		</div><!--/.nav-collapse -->
 	</div>
@@ -487,7 +484,7 @@
 </main>
 <!-- partial -->
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script><script  src="static/js/script.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script><script  src="../js/script.js"></script>
 
 </body>
 </html>

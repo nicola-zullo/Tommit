@@ -5,6 +5,11 @@ public class GSBean {
     private String materia;
     private String luogo;
     private String obiettivo;
+    private boolean stato;
+
+    public boolean getStato() { return stato; }
+
+    public void setStato(boolean stato) { this.stato = stato; }
 
     public String getNome() {
         return nome;
