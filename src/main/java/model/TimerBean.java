@@ -2,24 +2,19 @@ package model;
 
 public class TimerBean {
 
-    private int name;
+    private String name;
     private int sessionTime;
     private int breakTime;
+    private int utenteId;
 
     public TimerBean() {
     }
 
-    public TimerBean(int name, int sessionTime, int breakTime) {
-        this.name = name;
-        this.sessionTime = sessionTime;
-        this.breakTime = breakTime;
-    }
-
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -33,6 +28,14 @@ public class TimerBean {
 
     public int getBreakTime() {
         return breakTime;
+    }
+
+    public int getUtenteId() {
+        return utenteId;
+    }
+
+    public void setUtenteId(int utenteId) {
+        this.utenteId = utenteId;
     }
 
     public void setBreakTime(int breakTime) {
