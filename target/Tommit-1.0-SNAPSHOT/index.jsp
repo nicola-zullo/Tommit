@@ -31,7 +31,7 @@
 		</div>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Appunti</a></li>
+				<li><a href="PaginaAppunti.jsp">Appunti</a></li>
 				<li><a href="#">Gruppi Studio</a></li>
 				<li><a href="#">Timer</a></li>
 				<li><a href="login.jsp">Login</a></li>
