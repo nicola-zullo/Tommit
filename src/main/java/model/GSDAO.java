@@ -8,7 +8,7 @@ public class GSDAO {
     public void doSave(GSBean gs) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
-                    "INSERT INTO user (Nome,Materia,Luogo,Obiettivo,Stato)  VALUES(?,?,?,?,?)",
+                    "INSERT INTO gruppistudio (Nome,Materia,Luogo,Obiettivo,Stato)  VALUES(?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
             //associamo i "?" a i  valori dell'utente
             ps.setString(1, gs.getNome());
