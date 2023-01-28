@@ -1,0 +1,8 @@
+create table timer
+(
+    nome    varchar(20)    not null,
+    break   int default 5  null,
+    session int default 25 null,
+    userId  int            not null
+);
+
