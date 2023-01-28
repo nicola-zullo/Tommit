@@ -1,3 +1,25 @@
+create table gruppistudio
+(
+    Nome      varchar(50)          not null
+        primary key,
+    Materia   varchar(50)          not null,
+    Luogo     varchar(50)          not null,
+    Obiettivo varchar(500)         not null,
+    Stato     tinyint(1) default 0 null
+);
+
+create table user
+(
+    id       int auto_increment
+        primary key,
+    Username varchar(50)          null,
+    Name     varchar(50)          not null,
+    Surname  varchar(50)          not null,
+    Email    varchar(100)         not null,
+    Password varchar(25)          not null,
+    Role     tinyint(1) default 0 null
+);
+
 create table timer
 (
     nome    varchar(20)    not null,
@@ -8,8 +30,12 @@ create table timer
 
 create table appunti
 (
-    titolo   varchar(50)   not null,
-    testo    varchar(8000) not null,
-    materia  varchar(30)   not null,
-    creatore int           not null
+    id       int auto_increment
+        primary key,
+    testo    varchar(8000)        not null,
+    materia  varchar(30)          not null,
+    creatore int                  not null,
+    stato    tinyint(1) default 0 not null,
+    titolo   varchar(50)          not null
 );
+
