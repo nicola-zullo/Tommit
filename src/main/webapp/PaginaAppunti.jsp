@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>HomePage</title>
+  <title>Appunti</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
   <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
   <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
@@ -29,17 +29,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
 
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Appunti</a></li>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="PaginaAppunti.jsp">Appunti</a></li>
         <li><a href="#">Gruppi Studio</a></li>
         <li><a href="#">Timer</a></li>
-        <li><a href="login.jsp">icona</a></li>
+        <li><a href="login.jsp">Login</a></li>
       </ul>
-    </div><!--/.nav-collapse -->
+    </div>
   </div>
 </nav>
 <main>
