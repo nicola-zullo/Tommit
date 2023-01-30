@@ -7,7 +7,6 @@
 
 </head>
 <body>
-
 <div class="container">
     <div class="popup">
         <div class="popup-content">
