@@ -2,10 +2,11 @@ package model;
 
 public class AppuntiBean {
 
+    int id;
     String titolo;
     String testo;
     String materia;
-    String idUtente; //utente che li ha creati
+    int idUtente; //utente che li ha creati
 
     public AppuntiBean() {
     }
@@ -34,11 +35,19 @@ public class AppuntiBean {
         this.materia = materia;
     }
 
-    public String getIdUtente() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getIdUtente() {
         return idUtente;
     }
 
-    public void setIdUtente(String idUtente) {
+    public void setIdUtente(int idUtente) {
         this.idUtente = idUtente;
     }
 }
