@@ -30,6 +30,12 @@ public class UtenteDAO {
     }
 
     public void doRemove(int id){
+        try (Connection con = ConPool.getConnection()){
+            PreparedStatement preparedStmt = con.prepareStatement("delete from user where id ="+id+";");
+            preparedStmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public UtenteBean ricercaId(int x) throws SQLException{   //funxiona con la listaUtenti già presa dal db

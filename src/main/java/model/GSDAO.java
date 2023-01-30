@@ -30,6 +30,15 @@ public class GSDAO {
         }
     }
 
+    public void doRemove(String nome){
+        try (Connection con = ConPool.getConnection()){
+            PreparedStatement preparedStmt = con.prepareStatement("delete from gruppistudio where Nome ="+nome+";");
+            preparedStmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     //Setta il parametro stato del gs selezionato a True
     public void setTrue(String name) {
         try (Connection con = ConPool.getConnection()) {
