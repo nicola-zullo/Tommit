@@ -27,6 +27,15 @@ public class AppuntiDAO {
         }
     }
 
+    public void doRemove(int id){
+        try (Connection con = ConPool.getConnection()){
+            PreparedStatement preparedStmt = con.prepareStatement("delete from appunti where id ="+id+";");
+            preparedStmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     //Setta il parametro stato degli appunti selezionati a True
     public void setTrue(int id) {
         try (Connection con = ConPool.getConnection()) {
