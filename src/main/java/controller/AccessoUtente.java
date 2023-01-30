@@ -40,7 +40,7 @@ public class AccessoUtente extends HttpServlet {
                         utenteLoggato.setPassword(rs.getString(6));
                         utenteLoggato.setRuolo(true);
                         request.getSession().setAttribute("utenteLoggato", utenteLoggato);
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("areaAdmin.jsp");
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("PaginaAdmin.jsp");
                         dispatcher.forward(request, response);
                     /*Utente Admin*/
                 }else{
@@ -51,7 +51,7 @@ public class AccessoUtente extends HttpServlet {
                     utenteLoggato.setEmail(rs.getString(4));
                     utenteLoggato.setPassword(rs.getString(5));
                     request.getSession().setAttribute("utenteLoggato", utenteLoggato);
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("PaginaUtente.jsp");
                     dispatcher.forward(request, response);
                 }
             }else {
