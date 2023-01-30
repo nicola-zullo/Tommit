@@ -20,8 +20,9 @@
 <div class="total">
     <div class="row">
         <div class="col-12 mt-3 mb-1">
-            <h4 class="text-uppercase">Benvenuto!</h4>
+            <h2 class="text-uppercase">Benvenuto!</h2>
             <h6>Questa &egrave la tua area personale</h6>
+            <h6><a href="index.jsp">Torna alla Homepage</a></h6>
         </div>
     </div>
     <div class="row">

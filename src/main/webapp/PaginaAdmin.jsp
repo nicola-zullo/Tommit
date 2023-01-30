@@ -19,7 +19,7 @@
 <div class="total">
     <div class="row">
       <div class="col-12 mt-3 mb-1">
-        <h4 class="text-uppercase">Benvenuto!</h4>
+        <h2 class="text-uppercase">Benvenuto!</h2>
         <h6>Questa &egrave la tua pagina personale</h6>
       </div>
     </div>
@@ -41,6 +41,7 @@
           </div>
         </div>
       </div>
+
       <div class="col-xl-3 col-sm-6 col-12">
         <div class="card">
           <div class="card-content">
@@ -75,6 +76,8 @@
           </div>
         </div>
       </div>
-
+    </div>
+  <h6><a href="index.jsp">Torna alla Homepage</a></h6>
+</div>
 </body>
 </html>
