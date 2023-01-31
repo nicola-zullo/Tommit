@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <title>Richiesta Creazione Gruppo Studio</title>
 
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'><link rel="stylesheet" href="static/css/navbar.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
     <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'><link rel="stylesheet" href="static/css/navbar.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
 
     <link rel="stylesheet" href="static/css/RichiestaCreazioneGS.css">
 
 </head>
 <body>
-<%@ include file="navbar.jsp"%>
+
 <div id="form-main">
+    <%@ include file="/static/html/navbar.html"%>
+
 
     <div id="form-div">
+
         <form class="form" id="form1">
 
             <p class="nome">

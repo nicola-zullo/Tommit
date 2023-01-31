@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>HomePage</title>
+  <title>Appunti</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
   <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
   <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'><link rel="stylesheet" href="static/css/navbar.css">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/5.5.0/css/foundation.css'>
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
   <link rel="stylesheet" href="static/css/PaginaAppunti.css">
@@ -21,34 +21,11 @@
 
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
 
-    </div>
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.jsp">Home</a></li>
-        <li><a href="PaginaAppunti.jsp">Appunti</a></li>
-        <li><a href="#">Gruppi Studio</a></li>
-        <li><a href="#">Timer</a></li>
-        <li><a href="login.jsp">icona</a></li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</nav>
 <main>
 
   <section class="hero-unit">
-
+    <%@ include file="/static/html/navbar.html"%>
     <div class="row">
       <div class="large-12 columns">
         <hgroup>

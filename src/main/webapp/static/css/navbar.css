@@ -1,31 +1,3 @@
-.image {
-    background-color: #490D40;
-    background: url(https://sonorangirl.github.io/Earth-Quotes/img/google-earth-view-South-Iceland3.jpg) no-repeat center center;
-    background-size: cover;
-    height: 570px;
-    margin-top: -20px;
-}
-.image .heading {
-    color: white;
-    text-align: center;
-    padding-top: 200px;
-}
-.image p {
-    text-align: center;
-    padding: 20px 60px;
-}
-.image p .btn {
-    position: relative;
-    background-color: transparent;
-    color: white;
-    border: 1px solid white;
-    padding: 10px;
-    font-size: 1.2em;
-}
-.image p .btn:hover {
-    color: #C57ED3;
-    border-color: #C57ED3;
-}
 
 .navbar {
     position: relative;
@@ -42,56 +14,56 @@
     color: white;
 }
 .navbar-default .navbar-brand:hover {
-    color: #C57ED3;
-    border: 1px solid #C57ED3;
+    color: white;
+    border: 1px solid white;
 }
 .navbar-default .navbar-nav > li > a {
     color: white;
     margin: 10px 5px 5px 5px;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
-    color: #C57ED3;
-    border: 1px solid #C57ED3;
+    color: white;
+    border: 1px solid white;
 }
 .navbar-default .navbar-nav > li > a:visited {
-    color: #C57ED3;
+    color: white;
     text-decoration: none;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     background-color: transparent;
-    color: #C57ED3;
+    color: white;
 }
 .navbar-default .navbar-toggle {
-    border-color: #C57ED3;
+    border-color: white;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #490D40;
+    background-color: white;
 }
 .navbar-default .navbar-toggle .icon-bar {
-    color: #C57ED3;
-    background-color: #C57ED3;
+    color: white;
+    background-color: white;
 }
 .navbar-default .navbar-collapse.collapse.in ul {
-    background-color: #490D40;
+    background-color: white;
 }
 
 /* Solid class attached on scroll past first section */
 .navbar.solid {
-    background-color: #490D40;
+    background-color: white;
     transition: background-color 1s ease 0s;
     box-shadow: 0 0 4px grey;
 }
 .navbar.solid .navbar-brand {
-    color: #C57ED3;
+    color: white;
     transition: color 1s ease 0s;
 }
 .navbar.solid .navbar-nav > li > a {
-    color: #C57ED3;
+    color: white;
     transition: color 1s ease 0s;
 }
 .about {
-    background-color: #C57ED3;
-    color: #490D40;
+    background-color: white;
+    color: white;
     height: 600px;
     text-align: center;
     margin-top: -20px;
