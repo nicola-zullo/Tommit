@@ -5,7 +5,7 @@ a:hover {
 /* Hero Unit ----------------------*/
 .hero-unit {
     height: 640px;
-    background: linear-gradient(#e26742, white);
+    background: linear-gradient(#e26742, white) no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
