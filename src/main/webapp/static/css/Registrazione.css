@@ -1,5 +1,7 @@
 body {
     background-image:url(https://www.w3cplus.com/demo/css3/loginform_rbbrt/bg.jpg);
+    background: linear-gradient(#e26742, white) no-repeat;
+    background-size: cover;
 }
 .content {
     width:680px;
