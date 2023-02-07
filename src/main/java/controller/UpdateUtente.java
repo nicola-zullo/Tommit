@@ -37,6 +37,10 @@ import java.io.IOException;
             UtenteDAO dao = new UtenteDAO();
             dao.doUpdate(user);
 
+            //redirect alla PaginaUtente con i dati aggiornati
+            RequestDispatcher dispatcher = request.getRequestDispatcher("PaginaUtente.jsp");
+            dispatcher.forward(request,response);
+
         }
 
 }
