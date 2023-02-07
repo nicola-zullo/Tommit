@@ -79,4 +79,11 @@ public class UtenteDAO {
         return check;
     }
 
+    public void doUpdate(UtenteBean u){
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("update user set Username="+u.getUsername()+", Name='"+u.getName()+"', Surname='"+u.getSurname()+"', Email='"+u.getEmail()+"', Password='"+u.getPassword()+"', CF='"+u.getCF()+"' where id='"+u.getId()+"'");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
