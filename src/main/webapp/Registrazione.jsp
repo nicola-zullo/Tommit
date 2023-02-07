@@ -5,16 +5,16 @@
     <title>Registrazione</title>
     <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="static/css/navbar.css">
+    <link rel="stylesheet" href="static/css/background.css">
 
     <link rel="stylesheet" href="static/css/Registrazione.css">
-    <link rel="stylesheet" href="static/css/background.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
 </head>
 <body>
 <div class="bg-img">
-    <%@ include file="/static/html/navbar.html"%>
+    <%@ include file="/navbar.jsp"%>
 <div class="content">
 
     <div class="form-wrapper">
