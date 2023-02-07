@@ -1,3 +1,4 @@
+<%@ page import="model.UtenteBean" %>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -26,9 +27,22 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.jsp">Home</a></li>
         <li><a href="PaginaAppunti.jsp">Appunti</a></li>
-        <li><a href="PaginaGS.jsp">Gruppi Studio</a></li>
-        <li><a href="timer.jsp">Timer</a></li>
+        <li><a href="#">Gruppi Studio</a></li>
+        <li><a href="#">Timer</a></li>
+        <%
+        //utente non loggato
+        if( (UtenteBean)request.getSession().getAttribute("utenteLoggato")==null ){
+        %>
         <li><a href="login.jsp">Login</a></li>
+        <% //admin
+        }else if( (UtenteBean)request.getSession().getAttribute("utenteLoggato")!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==true) {
+        %>
+        <li><a href="PaginaAdmin.jsp">Area Admin</a></li>
+        <% //utente loggato
+        }else if ( (UtenteBean)request.getSession().getAttribute("utenteLoggato")!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==false){
+        %>
+        <li><a href="PaginaUtente.jsp">Area Utente</a> </li>
+        <% } %>
       </ul>
     </div>
   </div>

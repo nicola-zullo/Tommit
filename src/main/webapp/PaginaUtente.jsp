@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Area Utente</title>
-    <link rel="stylesheet" href="static/css/PaginaAdmin.css">
+    <link rel="stylesheet" href="static/css/PaginaUtente.css">
 
 
 </head>
@@ -20,7 +20,7 @@
 <div class="total">
     <div class="row">
         <div class="col-12 mt-3 mb-1">
-            <h2 class="text-uppercase">Benvenuto!</h2>
+            <h2>Benvenuto,${utenteLoggato.getName()} ${utenteLoggato.getSurname()}</h2>
             <h6>Questa &egrave la tua area personale</h6>
             <h6><a href="index.jsp">Torna alla Homepage</a></h6>
         </div>
@@ -63,7 +63,27 @@
         <% UtenteBean utente = (UtenteBean) request.getSession().getAttribute("utenteLoggato");%>
         <div class="col-12 mt-3 mb-1">
             <h4 class="text-dati">Ecco i tuoi dati!</h4>
-            <h6 class = "text-dati">//dati</h6>
+
+            <table id = "utenti">
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>COGNOME</th>
+                    <th>EMAIL</th>
+                    <th>USERNAME</th>
+                    <th>CF</th>
+                    <th>PASSWORD</th>
+                </tr>
+                <tr>
+                    <td>${utenteLoggato.getId()}</td>
+                    <td>${utenteLoggato.getName()}</td>
+                    <td>${utenteLoggato.getSurname()}</td>
+                    <td>${utenteLoggato.getEmail()}</td>
+                    <td>${utenteLoggato.getUsername()}</td>
+                    <td>${utenteLoggato.getCF()}</td>
+                    <td>${utenteLoggato.getPassword()}</td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
