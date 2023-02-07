@@ -29,7 +29,7 @@ public class AccessoUtente extends HttpServlet {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM user WHERE Username = '"+username+"' AND Password = '"+password + "'");
             if(rs.next()){
-                if (rs.getBoolean(7)==true){
+                if (rs.getBoolean(8)==true){
                     /*Utente Admin*/
                         UtenteBean utenteLoggato = new UtenteBean();
                         utenteLoggato.setId(rs.getInt(1));
@@ -46,10 +46,13 @@ public class AccessoUtente extends HttpServlet {
                 }else{
                     UtenteBean utenteLoggato = new UtenteBean();
                     utenteLoggato.setId(rs.getInt(1));
-                    utenteLoggato.setName(rs.getString(2));
-                    utenteLoggato.setSurname(rs.getString(3));
-                    utenteLoggato.setEmail(rs.getString(4));
-                    utenteLoggato.setPassword(rs.getString(5));
+                    utenteLoggato.setUsername(rs.getString(2));
+                    utenteLoggato.setName(rs.getString(3));
+                    utenteLoggato.setSurname(rs.getString(4));
+                    utenteLoggato.setEmail(rs.getString(5));
+                    utenteLoggato.setPassword((rs.getString(6)));
+                    utenteLoggato.setCF(rs.getString(7));
+                    System.out.print(utenteLoggato);
                     request.getSession().setAttribute("utenteLoggato", utenteLoggato);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("PaginaUtente.jsp");
                     dispatcher.forward(request, response);

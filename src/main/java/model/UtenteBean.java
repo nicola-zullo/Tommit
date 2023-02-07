@@ -73,9 +73,9 @@ public class UtenteBean {
 
 
 
-    public String getCF(){ return CF;}
+    public String getCF(){ return CF; }
 
-        public void setCF (String CF){this.CF = CF;}
+    public void setCF (String CF){ this.CF = CF;}
 
     @Override
     public String toString() {
