@@ -15,7 +15,7 @@
 <body>
 
 <div id="form-main">
-  <%@ include file="/static/html/navbar.html"%>
+  <%@ include file="/navbar.jsp"%>
   <div id="form-div">
     <form class="form" id="form1">
 

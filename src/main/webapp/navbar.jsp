@@ -27,7 +27,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.jsp">Home</a></li>
         <li><a href="PaginaAppunti.jsp">Appunti</a></li>
-        <li><a href="#">Gruppi Studio</a></li>
+        <li><a href="PaginaGS.jsp">Gruppi Studio</a></li>
         <li><a href="#">Timer</a></li>
         <%
         //utente non loggato

@@ -25,7 +25,7 @@
 <main>
 
   <section class="hero-unit">
-    <%@ include file="/static/html/navbar.html"%>
+    <%@ include file="/navbar.jsp"%>
     <div class="row">
       <div class="large-12 columns">
         <hgroup>

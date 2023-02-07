@@ -20,7 +20,7 @@
 
 
 <main>
-	<%@ include file="/static/html/navbar.html"%>
+	<%@ include file="/navbar.jsp"%>
 	<header>
 		<h1 id="title-element">Tommit</h1>
 	</header>
