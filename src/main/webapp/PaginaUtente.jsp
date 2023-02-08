@@ -15,14 +15,14 @@
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
 
 <div class="total">
     <div class="row">
         <div class="col-12 mt-3 mb-1">
-            <h2>Benvenuto,${utenteLoggato.getName()} ${utenteLoggato.getSurname()}</h2>
-            <h6>Questa &egrave la tua area personale</h6>
-            <h6><a href="index.jsp">Torna alla Homepage</a></h6>
+            <h2 style="color: white">Benvenuto,${utenteLoggato.getName()} ${utenteLoggato.getSurname()}</h2>
+            <h6 style="color: white"> Questa &egrave la tua area personale</h6>
+            <h6><a style="color: white" href="index.jsp">Torna alla Homepage</a></h6>
         </div>
     </div>
     <div class="row">
@@ -62,7 +62,7 @@
         </div>
         <% UtenteBean utente = (UtenteBean) request.getSession().getAttribute("utenteLoggato");%>
         <div class="col-12 mt-3 mb-1">
-            <h4 class="text-dati">Ecco i tuoi dati!</h4>
+            <h4 style="color: white" class="text-dati">Ecco i tuoi dati!</h4>
 
             <table id = "utenti">
                 <tr>
@@ -75,7 +75,7 @@
                     <th>PASSWORD</th>
                 </tr>
                 <tr>
-                    <td>${utenteLoggato.getId()}</td>
+                    <td>${user.setId}</td>
                     <td>${utenteLoggato.getName()}</td>
                     <td>${utenteLoggato.getSurname()}</td>
                     <td>${utenteLoggato.getEmail()}</td>
@@ -84,8 +84,12 @@
                     <td>${utenteLoggato.getPassword()}</td>
                 </tr>
             </table>
+
         </div>
+
     </div>
+
+    <button style="background-color: #b20002"><a style="color: white" href="ModificaDatiUtenti.jsp"><span>Modifica dati</span></a> </button>
 </div>
 
 </body>

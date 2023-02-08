@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="static/css/background.css">
 
     <link rel="stylesheet" href="static/css/Registrazione.css">
-
+z
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
 </head>
