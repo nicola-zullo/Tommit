@@ -93,7 +93,7 @@ public class UtenteDAO {
         ArrayList<UtenteBean> list = new ArrayList<>();
         try (Connection con = ConPool.getConnection())
         {
-            //seleziona tutti gli utenti con ruolo 0 = Studenti
+
             PreparedStatement ps = con.prepareStatement("select * from user where role = 0");
             ResultSet rs = ps.executeQuery();
             while(rs.next())
