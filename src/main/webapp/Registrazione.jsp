@@ -35,13 +35,12 @@ z
             </ul>
         <fieldset>
             <h2 class="fs-title">Crea il tuo account</h2>
-            <input type="text" name="nome" placeholder="Nome" />
-            <input type="text" name="cognome" placeholder="Cognome" />
+            <input type="text" name="name" placeholder="Nome" />
+            <input type="text" name="surname" placeholder="Cognome" />
             <input type="text" name="cf" placeholder="CF" />
             <input type="text" name="username" placeholder="Username" />
             <input type="text" name="email" placeholder="Email" />
             <input type="password" name="pass" placeholder="Password" />
-            <input type="password" name="cpass" placeholder="Conferma Password" />
             <input type="submit" name="next" class="next action-button" value="Conferma" />
         </fieldset>
         </form>
