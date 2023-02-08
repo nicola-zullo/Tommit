@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UtenteDAO {
 
@@ -83,6 +84,34 @@ public class UtenteDAO {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("update user set Username="+u.getUsername()+", Name='"+u.getName()+"', Surname='"+u.getSurname()+"', Email='"+u.getEmail()+"', Password='"+u.getPassword()+"', CF='"+u.getCF()+"' where id='"+u.getId()+"'");
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<UtenteBean> listUser()
+    {
+        ArrayList<UtenteBean> list = new ArrayList<>();
+        try (Connection con = ConPool.getConnection())
+        {
+            //seleziona tutti gli utenti con ruolo 0 = Studenti
+            PreparedStatement ps = con.prepareStatement("select * from user where role = 0");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                UtenteBean user = new UtenteBean();
+                user.setName(rs.getString("Name"));
+                user.setSurname(rs.getString("Surname"));
+                user.setUsername(rs.getString("Username"));
+                user.setEmail(rs.getString("Email"));
+                user.setPassword(rs.getString("Password"));
+                user.setId(rs.getInt("id"));
+                user.setCF(rs.getString("CF"));
+                list.add(user);
+            }
+            System.out.print(list);
+            return list;
+        }
+        catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

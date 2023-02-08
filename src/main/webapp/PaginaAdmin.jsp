@@ -33,8 +33,7 @@
                   <i class="icon-user success font-large-2 float-right"></i>
                 </div>
                 <div class="media-body text-right">
-
-                  <span><a href="visualizzaUtenti.jsp">Utenti</a></span>
+                  <span><a href="listUser">Utenti</a></span>
                 </div>
               </div>
             </div>

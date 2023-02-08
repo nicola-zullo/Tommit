@@ -33,15 +33,15 @@
           </thead>
 
 
-           <c:forEach var="utente" items="${listaUtenti}">
+           <c:forEach  items="${listaUtenti}" var="utente">
              <tbody>
                 <tr>
-                  <td>${utenteLoggato.getId()}</td>
-                  <td>${utenteLoggato.getName()}</td>
-                 <td>${utenteLoggato.getSurname()}</td>
-                  <td>${utenteLoggato.getEmail()}</td>
-                 <td>${utenteLoggato.getUsername()}</td>
-                    <td>${utenteLoggato.getCF()}</td>
+                  <td>${utente.getId()}</td>
+                  <td>${utente.getName()}</td>
+                 <td>${utente.getSurname()}</td>
+                  <td>${utente.getEmail()}</td>
+                 <td>${utente.getUsername()}</td>
+                    <td>${utente.getCF()}</td>
                  </tr>
              </tbody>
            </c:forEach>
