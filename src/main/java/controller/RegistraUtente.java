@@ -17,8 +17,8 @@ public class RegistraUtente extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String name = request.getParameter("nome");
-        String surname = request.getParameter("cognome");
+        String name = request.getParameter("name");
+        String surname = request.getParameter("surname");
         String cf = request.getParameter("cf");
         String username = request.getParameter("username");
         String email = request.getParameter("email");

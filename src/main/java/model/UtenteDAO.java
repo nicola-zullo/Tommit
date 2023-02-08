@@ -8,7 +8,7 @@ public class UtenteDAO {
     public void doSave(UtenteBean utente) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
-                    "INSERT INTO user (Username,Name, Surname, Email, Password, CF)  VALUES(?,?,?,?,?,?)",
+                    "INSERT INTO user (Username, Name, Surname, Email, Password, CF)  VALUES(?,?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
             //associamo i "?" a i  valori dell'utente
             ps.setString(1, utente.getUsername());
