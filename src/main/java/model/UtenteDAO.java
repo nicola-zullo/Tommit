@@ -16,7 +16,7 @@ public class UtenteDAO {
             ps.setString(3, utente.getSurname());
             ps.setString(4, utente.getEmail());
             ps.setString(5, utente.getPassword());
-            ps.setString(5,utente.getCF());
+            ps.setString(6,utente.getCF());
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }
