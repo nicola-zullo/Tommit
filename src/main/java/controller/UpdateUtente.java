@@ -11,7 +11,7 @@ import model.UtenteDAO;
 
 import java.io.IOException;
 
-    @WebServlet(name="update-utente-servlet", value ="/registrazione-utente-servlet")
+    @WebServlet(name="update-utente-servlet", value ="/update-utente-servlet")
     public class UpdateUtente extends HttpServlet {
         public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             //prendo i dati utente MODIFICATI
