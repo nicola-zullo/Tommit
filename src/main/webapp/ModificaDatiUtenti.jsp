@@ -28,14 +28,13 @@
                 <span class="ring"></span>
 
             </div>
-            <form id="msform" action="/
-            update-utente-servlet" method="post">
+            <form id="msform" action="update-utente-servlet" method="post">
                 <ul id="progressbar">
                     <li class="active">Registrazione</li>
                 </ul>
                 <fieldset>
-                    <h2 style="font-size: 15px" class="fs-title">Modifica dati</h2>
-                    <input type="hidden" name="id" value = "utenteLoggato.getId()" placeholder="Id" />
+                    <h2 style="font-size: 15px" class="fs-title">Ciao ${utenteLoggato.getName()} Modifica dati</h2>
+                    <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
                     <input type="text" name="name" placeholder="Nome" />
                     <input type="text" name="surname" placeholder="Cognome" />
                     <input type="text" name="cf" placeholder="CF" />

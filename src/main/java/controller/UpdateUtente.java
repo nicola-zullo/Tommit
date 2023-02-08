@@ -10,18 +10,19 @@ import model.UtenteBean;
 import model.UtenteDAO;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
-    @WebServlet(name="update-utente-servlet", value ="/update-utente-servlet")
+@WebServlet(name="update-utente-servlet", value ="/update-utente-servlet")
     public class UpdateUtente extends HttpServlet {
         public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             //prendo i dati utente MODIFICATI
-            String name = request.getParameter("nome");
-            String surname = request.getParameter("cognome");
+            String name = request.getParameter("name");
+            String surname = request.getParameter("surname");
             String cf = request.getParameter("cf");
             String username = request.getParameter("username");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            int id = Integer.parseInt(request.getParameter("idUtente"));
+            int id = Integer.parseInt(request.getParameter("id"));
 
             // inizializzo user con i dat di pagina utente MODIFICATI
             UtenteBean user = new UtenteBean();
@@ -32,11 +33,17 @@ import java.io.IOException;
             user.setUsername(username);
             user.setEmail(email);
             user.setPassword(password);
-
             //salvo nel db i dati MODIFICATI in base a ID (vedi doUpdate in UtenteDAO)
             UtenteDAO dao = new UtenteDAO();
             dao.doUpdate(user);
+            try {
+                user = dao.ricercaId(user.getId());
+                System.out.print(user);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
+            request.getSession().setAttribute("utenteLoggato", user);
             //redirect alla PaginaUtente con i dati aggiornati
             RequestDispatcher dispatcher = request.getRequestDispatcher("PaginaUtente.jsp");
             dispatcher.forward(request,response);

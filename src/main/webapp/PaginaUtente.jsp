@@ -75,7 +75,7 @@
                     <th>PASSWORD</th>
                 </tr>
                 <tr>
-                    <td>${user.setId}</td>
+                    <td>${utenteLoggato.getId()}</td>
                     <td>${utenteLoggato.getName()}</td>
                     <td>${utenteLoggato.getSurname()}</td>
                     <td>${utenteLoggato.getEmail()}</td>

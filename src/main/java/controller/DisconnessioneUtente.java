@@ -13,7 +13,6 @@ import java.io.IOException;
 
         public void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-
             request.getSession().invalidate();
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);

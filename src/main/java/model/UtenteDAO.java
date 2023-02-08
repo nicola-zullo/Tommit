@@ -49,16 +49,17 @@ public class UtenteDAO {
             ResultSet rs = stmt.executeQuery("SELECT *" +
                     "from user where id ="+x+";");
             while (rs.next()) {
-                u.setId(rs.getInt(1));
-                u.setName(rs.getString(2));
-                u.setSurname(rs.getString(3));
-                u.setEmail(rs.getString(4));
-                u.setPassword(rs.getString(5));
+                u.setId(x);
+                u.setUsername(rs.getString(2));
+                u.setName(rs.getString(3));
+                u.setSurname(rs.getString(4));
+                u.setEmail(rs.getString(5));
+                u.setPassword(rs.getString(6));
+                u.setCF(rs.getString(7));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         return u;
 
     }
@@ -82,7 +83,8 @@ public class UtenteDAO {
 
     public void doUpdate(UtenteBean u){
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("update user set Username="+u.getUsername()+", Name='"+u.getName()+"', Surname='"+u.getSurname()+"', Email='"+u.getEmail()+"', Password='"+u.getPassword()+"', CF='"+u.getCF()+"' where id='"+u.getId()+"'");
+            PreparedStatement ps = con.prepareStatement("update user set Username='"+u.getUsername()+"', Name='"+u.getName()+"', Surname='"+u.getSurname()+"', Email='"+u.getEmail()+"', Password='"+u.getPassword()+"', CF='"+u.getCF()+"' where id='"+u.getId()+"'");
+            ps.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
