@@ -34,7 +34,7 @@
                 </div>
                 <div class="media-body text-right">
 
-                  <span><a href="index.jsp">Utenti</a></span>
+                  <span><a href="visualizzaUtenti.jsp">Utenti</a></span>
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="media-body text-right">
 
-                  <span><a href="index.jsp">Appunti</a></span>
+                  <span><a href="VisualizzaAppuntiAdmin.jsp">Appunti</a></span>
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="media-body text-right">
 
-                  <span><a href="index.jsp">Gruppi Studio</a></span>
+                  <span><a href="VisualizzaGSAdmin.jsp">Gruppi Studio</a></span>
                 </div>
               </div>
             </div>
