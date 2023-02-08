@@ -27,6 +27,8 @@
           <th>MATERIA</th>
           <th>LUOGO</th>
           <th>OBIETTIVO</th>
+          <th></th>
+          <th></th>
 
         </tr>
         </thead>
@@ -39,8 +41,11 @@
             <td>${gs.getLuogo()}</td>
             <td>${gs.getMateria()}</td>
             <td>${gs.getObiettivo()}</td>
+            <button style="background-color: #943e2f"><a href="approva-gs-servlet"><span>Conferma</span></a> </button>
+            <button style="background-color: #943e2f"><a href="#"><span>Rifiuta</span></a> </button>
           </tbody>
         </c:forEach>
+
       </table>
     </div>
   </section>
