@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.ConPool;
 import model.UtenteBean;
 
+import java.awt.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -52,7 +53,6 @@ public class AccessoUtente extends HttpServlet {
                     utenteLoggato.setEmail(rs.getString(5));
                     utenteLoggato.setPassword((rs.getString(6)));
                     utenteLoggato.setCF(rs.getString(7));
-                    System.out.print(utenteLoggato);
                     request.getSession().setAttribute("utenteLoggato", utenteLoggato);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("PaginaUtente.jsp");
                     dispatcher.forward(request, response);

@@ -21,6 +21,7 @@
 
 <main>
 	<%@ include file="/navbar.jsp"%>
+	<% UtenteBean utente = (UtenteBean) request.getSession().getAttribute("utenteLoggato");%>
 	<header>
 		<h1 id="title-element">Tommit</h1>
 	</header>

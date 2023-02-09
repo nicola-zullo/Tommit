@@ -24,24 +24,24 @@
           <thead>
             <tr>
                 <th>ID</th>
-               <th>NOME</th>
+                <th>NOME</th>
                 <th>COGNOME</th>
-              <th>EMAIL</th>
-               <th>USERNAME</th>
-              <th>CF</th>
+                <th>EMAIL</th>
+                <th>USERNAME</th>
+                <th>CF</th>
              </tr>
           </thead>
 
 
-           <c:forEach  items="${listaUtenti}" var="utente">
+           <c:forEach  items="${listaUtenti}" var="user">
              <tbody>
                 <tr>
-                  <td>${utente.getId()}</td>
-                  <td>${utente.getName()}</td>
-                 <td>${utente.getSurname()}</td>
-                  <td>${utente.getEmail()}</td>
-                 <td>${utente.getUsername()}</td>
-                    <td>${utente.getCF()}</td>
+                    <td>${user.getId()}</td>
+                    <td>${user.getName()}</td>
+                    <td>${user.getSurname()}</td>
+                    <td>${user.getEmail()}</td>
+                    <td>${user.getUsername()}</td>
+                    <td>${user.getCF()}</td>
                  </tr>
              </tbody>
            </c:forEach>

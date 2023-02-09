@@ -11,7 +11,7 @@ import java.io.IOException;
     @WebServlet("/DisconnessioneUtente")
     public class DisconnessioneUtente extends HttpServlet {
 
-        public void doPost(HttpServletRequest request, HttpServletResponse response)
+        public void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             request.getSession().invalidate();
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");

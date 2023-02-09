@@ -3,58 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Gruppi Studio</title>
-<<<<<<< HEAD
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel="stylesheet" href="static/css/PaginaGS.css">
-=======
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel="stylesheet" href="static/css/PaginaGS.css">
-
-
-
-
-
->>>>>>> b96b1730e0d68bf5bfdd331755f5382d0204ada3
-
+    <link rel="stylesheet" href="static/css/ComboBox.css">
+    <link rel="stylesheet" href="static/css/search_bar.css">
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<<<<<<< HEAD
-<h1 class="page_title">Unisciti a noi per prepararti al meglio!</h1>
-
-
-
-=======
-
-<%@ include file="static/html/navbar.html" %>
-<%@ include file="static/html/search_bar.html" %>
-
-
-<div class="comboBox">
-    <div class="select" tabindex="1">
-        <input class="selectopt" name="test" type="radio" id="opt1" checked>
-        <label for="opt1" class="option">Informatica</label>
-        <input class="selectopt" name="test" type="radio" id="opt2">
-        <label for="opt2" class="option">Sociale</label>
-        <input class="selectopt" name="test" type="radio" id="opt3">
-        <label for="opt3" class="option">Economia</label>
-        <input class="selectopt" name="test" type="radio" id="opt4">
-        <label for="opt4" class="option">Umanistica</label>
-        <input class="selectopt" name="test" type="radio" id="opt5">
-        <label for="opt5" class="option">Scientifica</label>
-        <input class="selectopt" name="test" type="radio" id="opt6">
-        <label for="opt6" class="option">Santitaria</label>
-        <input class="selectopt" name="test" type="radio" id="opt7">
-        <label for="opt7" class="option">Storica</label>
-        <input class="selectopt" name="test" type="radio" id="opt8">
-        <label for="opt8" class="option">Artistica</label>
-    </div>
-</div>
 
 
 
 <main>
->>>>>>> b96b1730e0d68bf5bfdd331755f5382d0204ada3
-<div class="row">
+
+    <section class="hero-unit">
+    <%@ include file="navbar.jsp" %>
+
+        <div class="comboBox">
+            <div class="select" tabindex="1">
+                <input class="selectopt" name="test" type="radio" id="opt1" checked>
+                <label for="opt1" class="option">Informatica</label>
+                <input class="selectopt" name="test" type="radio" id="opt2">
+                <label for="opt2" class="option">Sociale</label>
+                <input class="selectopt" name="test" type="radio" id="opt3">
+                <label for="opt3" class="option">Economia</label>
+                <input class="selectopt" name="test" type="radio" id="opt4">
+                <label for="opt4" class="option">Umanistica</label>
+                <input class="selectopt" name="test" type="radio" id="opt5">
+                <label for="opt5" class="option">Scientifica</label>
+                <input class="selectopt" name="test" type="radio" id="opt6">
+                <label for="opt6" class="option">Santitaria</label>
+                <input class="selectopt" name="test" type="radio" id="opt7">
+                <label for="opt7" class="option">Storica</label>
+                <input class="selectopt" name="test" type="radio" id="opt8">
+                <label for="opt8" class="option">Artistica</label>
+            </div>
+        </div>
+
+        <div class="wrap">
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="What are you looking for?">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+
     <div class="container">
         <div class="test_box box-01 col-xs-6 col-md-4">
             <div class="inner">
@@ -117,11 +111,8 @@
             </div>
         </div>
     </div>
-</div>
-<<<<<<< HEAD
-=======
+    </section>
 </main>
->>>>>>> b96b1730e0d68bf5bfdd331755f5382d0204ada3
 <!-- partial -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script><script  src="./script.js"></script>
