@@ -6,6 +6,7 @@ create table gruppistudio
     Luogo     varchar(50)          not null,
     Obiettivo varchar(500)         not null,
     Stato     tinyint(1) default 0 null
+    idCreatore int                 not null
 );
 
 create table user

@@ -20,7 +20,7 @@
 
     <div id="form-div">
 
-        <form class="form" id="form1" action="richiesta-creazione-gs-servlet">
+        <form class="form" id="form1" action="richiesta-creazione-gs-servlet" method="post">
             <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
             <p class="nome">
                 <input name="nome" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Nome Gruppo" id="nomegruppo" />

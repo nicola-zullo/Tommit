@@ -20,20 +20,20 @@ public class RichiestaGS extends HttpServlet {
         String nome = request.getParameter("nome");
         String materia = request.getParameter("materia");
         String luogo = request.getParameter("luogo");
-        String obiettivo = request.getParameter("obettivi");
-
+        String obiettivo = request.getParameter("obiettivi");
+        int id= Integer.parseInt(request.getParameter("id"));
         GSBean gs= new GSBean();
         gs.setNome(nome);
         gs.setMateria(materia);
         gs.setLuogo(luogo);
         gs.setObiettivo(obiettivo);
         gs.setStato(false);
-
+        gs.setIdCreatore(id);
+        System.out.print(gs.toString());
         GSDAO dao = new GSDAO();
         dao.doSave(gs);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("RichiestaGSInviata.jsp");
-
         dispatcher.forward(request,response);
     }
 

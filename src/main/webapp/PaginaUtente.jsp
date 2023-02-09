@@ -38,7 +38,7 @@
                             <div class="media-body text-right">
                                 <form>
                                     <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
-                                    <span><a href="VisualizzaGSUtente.jsp">Gruppi Studio</a></span>
+                                    <span><a href="listUserGS">Gruppi Studio</a></span>
                                 </form>
                             </div>
                         </div>
