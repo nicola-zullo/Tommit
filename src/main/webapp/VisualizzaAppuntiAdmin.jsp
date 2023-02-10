@@ -31,18 +31,16 @@
                 </thead>
 
 
-                <c:forEach var="appunti" items="${listAdminAppunti}">
+                <c:forEach var="appunti" items="${listAppunti}">
                     <tbody>
                     <tr>
                         <td>${appunti.getId()}</td>
                         <td>${appunti.getTitolo()}</td>
                         <td>${appunti.getMateria()}</td>
-                        <form id="aform" action="approva-appunti-servlet" method="post">
-                            <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
+                        <form id="aform" action="" method="post">
                             <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Conferma" placeholder="Conferma"></td>
                         </form>
                         <form id="rform" action="" method="post">
-                            <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
                             <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Rifiuta" placeholder="Rifiuta"></td>
                         </form>
                     </tbody>
