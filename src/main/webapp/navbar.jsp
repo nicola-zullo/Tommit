@@ -39,7 +39,7 @@
         }else if( (UtenteBean)request.getSession().getAttribute("utenteLoggato")!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==true) {
         %>
         <li><a href="PaginaAdmin.jsp">Area Admin</a></li>
-        <li><a href="DisconnessioneUtente">Logout<</a></li>
+        <li><a href="DisconnessioneUtente">Logout</a></li>
         <% //utente loggato
         }else if ( (UtenteBean)request.getSession().getAttribute("utenteLoggato")!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==false){
         %>

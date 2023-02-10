@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="static/css/PaginaGS.css">
     <link rel="stylesheet" href="static/css/ComboBox.css">
     <link rel="stylesheet" href="static/css/search_bar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -16,7 +17,13 @@
 <main>
 
     <section class="hero-unit">
+
+
     <%@ include file="navbar.jsp" %>
+
+        <button class="btn5">
+            Crea Gruppo Studio
+        </button>
 
         <div class="comboBox">
             <div class="select" tabindex="1">
@@ -39,20 +46,17 @@
             </div>
         </div>
 
-        <div class="wrap">
-            <div class="search">
-                <input type="text" class="searchTerm" placeholder="What are you looking for?">
-                <button type="submit" class="searchButton">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
-        </div>
+
+        <form class="example" action="action_page.php">
+            <input type="text" placeholder="che gruppo cerchi?" name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
 
 
     <div class="container">
         <div class="test_box box-01 col-xs-6 col-md-4">
             <div class="inner">
-                <a href="#" class="test_click">
+                <a href="PaginaGSsingola.jsp" class="test_click">
                     <div class="flex_this">
                         <h1 class="test_title">Nome Gruppo</h1>
                         <span class="test_link">Link</span>
@@ -60,6 +64,7 @@
                 </a>
             </div>
         </div>
+
         <div class="test_box box-02 col-xs-6 col-md-4">
             <div class="inner">
                 <a href="#" class="test_click">
