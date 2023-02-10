@@ -24,6 +24,7 @@ public class DisiscrizioneGS extends HttpServlet {
 
         utentiGSDAO.doRemove(id_utente,nome_gs);
 
+
     }
 
 }
