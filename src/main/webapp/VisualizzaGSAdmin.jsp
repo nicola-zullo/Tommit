@@ -41,8 +41,13 @@
             <td>${gs.getLuogo()}</td>
             <td>${gs.getMateria()}</td>
             <td>${gs.getObiettivo()}</td>
-            <button style="background-color: #943e2f"><a href="approva-gs-servlet"><span>Conferma</span></a> </button>
-            <button style="background-color: #943e2f"><a href="#"><span>Rifiuta</span></a> </button>
+            <form id="aform" action="approva-appunti-servlet" method="post">
+            <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Conferma" placeholder="Conferma"></td>
+            </form>
+            <form id="rform" action="" method="post">
+              <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Rifiuta" placeholder="Rifiuta"></td>
+            </form>
+
           </tbody>
         </c:forEach>
 

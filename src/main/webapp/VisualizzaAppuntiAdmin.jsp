@@ -37,6 +37,12 @@
                         <td>${appunti.getId()}</td>
                         <td>${appunti.getTitolo()}</td>
                         <td>${appunti.getMateria()}</td>
+                        <form id="aform" action="" method="post">
+                            <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Conferma" placeholder="Conferma"></td>
+                        </form>
+                        <form id="rform" action="" method="post">
+                            <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Rifiuta" placeholder="Rifiuta"></td>
+                        </form>
                     </tbody>
                 </c:forEach>
             </table>
