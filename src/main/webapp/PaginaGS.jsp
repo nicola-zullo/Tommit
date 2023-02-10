@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
@@ -15,15 +16,15 @@
 
 
 <main>
-
+    <%@ include file="navbar.jsp" %>
     <section class="hero-unit">
 
 
-    <%@ include file="navbar.jsp" %>
-
+        <div class="bottone">
         <button class="btn5">
             Crea Gruppo Studio
         </button>
+    </div>
 
         <div class="comboBox">
             <div class="select" tabindex="1">
@@ -46,76 +47,36 @@
             </div>
         </div>
 
+        <div class="ricerca">
+            <div class="wrap">
+                <div class="search">
+                    <input type="text" class="searchTerm" placeholder="What are you looking for?">
+                    <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-        <form class="example" action="action_page.php">
-            <input type="text" placeholder="che gruppo cerchi?" name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
+
+    <c:forEach var="gs" items="${listaGS}">
+        <form action="">
+        <input type="hidden" name="nome" value="${gs.getNome()}">
+            <div class="container">
+                 <div class="test_box box-01 col-xs-6 col-md-4">
+                    <div class="inner">
+                        <a href="" class="test_click">
+                    <div class="flex_this">
+                        <h1 class="test_title">${gs.getNome()}</h1>
+                        <span class="test_link">Link</span>
+                    </div>
+                </a>
+                     </div>
+                 </div>
+            </div>
         </form>
+    </c:forEach>
 
-
-    <div class="container">
-        <div class="test_box box-01 col-xs-6 col-md-4">
-            <div class="inner">
-                <a href="PaginaGSsingola.jsp" class="test_click">
-                    <div class="flex_this">
-                        <h1 class="test_title">Nome Gruppo</h1>
-                        <span class="test_link">Link</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="test_box box-02 col-xs-6 col-md-4">
-            <div class="inner">
-                <a href="#" class="test_click">
-                    <div class="flex_this">
-                        <h1 class="test_title">Nome Gruppo</h1>
-                        <span class="test_link">Link</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="test_box box-03 col-xs-6 col-md-4">
-            <div class="inner">
-                <a href="#" class="test_click">
-                    <div class="flex_this">
-                        <h1 class="test_title">Nome Gruppo</h1>
-                        <span class="test_link">Link</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="test_box box-04 col-xs-6 col-md-4">
-            <div class="inner">
-                <a href="#" class="test_click">
-                    <div class="flex_this">
-                        <h1 class="test_title">Nome Gruppo</h1>
-                        <span class="test_link">Link</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="test_box box-05 col-xs-6 col-md-4">
-            <div class="inner">
-                <a href="#" class="test_click">
-                    <div class="flex_this">
-                        <h1 class="test_title">Nome Gruppo</h1>
-                        <span class="test_link">Link</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="test_box box-06 col-xs-6 col-md-4">
-            <div class="inner">
-                <a href="#" class="test_click">
-                    <div class="flex_this">
-                        <h1 class="test_title">Nome Gruppo</h1>
-                        <span class="test_link">Link</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
     </section>
 </main>
 <!-- partial -->
