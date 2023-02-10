@@ -29,7 +29,7 @@
         <li><a href="index.jsp">Home</a></li>
         <li><a href="PaginaAppunti.jsp">Appunti</a></li>
         <li><a href="PaginaGS.jsp">Gruppi Studio</a></li>
-        <li><a href="#">Timer</a></li>
+        <li><a href="timer.jsp">Timer</a></li>
         <%
         //utente non loggato
         if( (UtenteBean)request.getSession().getAttribute("utenteLoggato")==null ){
@@ -39,7 +39,7 @@
         }else if( (UtenteBean)request.getSession().getAttribute("utenteLoggato")!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==true) {
         %>
         <li><a href="PaginaAdmin.jsp">Area Admin</a></li>
-        <li><a href="DisconnessioneUtente">Logout</a></li>
+        <li><a href="DisconnessioneUtente">Logout<z</a></li>
         <% //utente loggato
         }else if ( (UtenteBean)request.getSession().getAttribute("utenteLoggato")!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==false){
         %>
