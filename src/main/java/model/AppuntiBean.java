@@ -6,7 +6,18 @@ public class AppuntiBean {
     String titolo;
     String testo;
     String materia;
-    int idUtente; //utente che li ha creati
+    int idUtente;//utente che li ha creati
+    boolean stato;
+
+    public boolean isStato() {
+        return stato;
+    }
+
+    public void setStato(boolean stato) {
+        this.stato = stato;
+    }
+
+
 
     public AppuntiBean() {
     }

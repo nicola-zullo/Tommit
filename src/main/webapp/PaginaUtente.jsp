@@ -58,7 +58,7 @@
 
                                 <form>
                                     <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
-                                    <span><a href="visualizzaAppuntiUtente.jsp">Appunti</a></span>
+                                    <span><a href="listUserAppunti">Appunti</a></span>
                                 </form>
                             </div>
                         </div>
