@@ -1,0 +1,23 @@
+main{
+    height:100vh;
+    background: linear-gradient(#e26742, white) no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.w3-border{
+    position:absolute;
+    height:60vw;
+    height: 60vh;
+    margin-left:20vh;
+}
+
+.testo{
+    align:centre;
+    position:absolute;
+    margin-top:5vh;
+    margin-left:60vw;
+
+}
