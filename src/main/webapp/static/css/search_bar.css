@@ -1,12 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-.searchBar {
+.ricerca{
+    left:5vw;
+    position:absolute;
+    background: #f2f2f2;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.search {
     width: 100%;
     position: relative;
     display: flex;
 }
 
-.searchTerm2 {
+.searchTerm {
     width: 100%;
     border: 3px solid #00B4CC;
     border-right: none;
@@ -21,7 +29,7 @@
     color: #00B4CC;
 }
 
-.searchButton2 {
+.searchButton {
     width: 40px;
     height: 36px;
     border: 1px solid #00B4CC;
@@ -34,10 +42,9 @@
 }
 
 /*Resize the wrap to see the search bar change!*/
-.wrapp{
-    z-index: 1;
+.wrap2{
     width: 30%;
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

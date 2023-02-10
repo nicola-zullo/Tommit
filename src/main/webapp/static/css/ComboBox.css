@@ -1,5 +1,6 @@
 .comboBox {
-    right:5vw;
+    top:10vh;
+    right:10vh;
     position: absolute;
     justify-content: center;
     align-items:center;
