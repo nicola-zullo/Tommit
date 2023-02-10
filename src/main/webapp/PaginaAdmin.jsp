@@ -51,7 +51,7 @@
                 </div>
                 <div class="media-body text-right">
 
-                  <span><a href="VisualizzaAppuntiAdmin.jsp">Appunti</a></span>
+                  <span><a href="listAdminAppunti">Appunti</a></span>
                 </div>
               </div>
             </div>

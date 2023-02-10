@@ -26,6 +26,9 @@
                     <th>ID utente</th>
                     <th>TITOLO</th>
                     <th>MATERIA</th>
+                    <th>TESTO</th>
+                    <th>ID CREATORE</th>
+                    <th>STATO</th>
 
                 </tr>
                 </thead>
@@ -37,6 +40,9 @@
                         <td>${appunti.getId()}</td>
                         <td>${appunti.getTitolo()}</td>
                         <td>${appunti.getMateria()}</td>
+                        <td>${appunti.getTesto()}</td>
+                        <td>${appunti.getIdUtente()}</td>
+                        <td>${appunti.isStato()}</td>
                     </tbody>
                 </c:forEach>
             </table>

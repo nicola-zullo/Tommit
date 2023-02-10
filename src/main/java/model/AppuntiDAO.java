@@ -59,8 +59,10 @@ public class AppuntiDAO {
                 AppuntiBean appuntiBean = new AppuntiBean();
                 appuntiBean.setId(rs.getInt("id"));
                 appuntiBean.setTitolo(rs.getString("titolo"));
+                appuntiBean.setTesto(rs.getString("testo"));
                 appuntiBean.setMateria(rs.getString("materia"));
                 appuntiBean.setIdUtente(rs.getInt("creatore"));
+                appuntiBean.setStato(rs.getBoolean("stato"));
                 list.add(appuntiBean);
 
             }
@@ -71,4 +73,28 @@ public class AppuntiDAO {
         }
     }
 
+    public ArrayList<AppuntiBean> listUserAppunti(int id)
+    {
+        ArrayList<AppuntiBean> list = new ArrayList<>();
+        try (Connection con = ConPool.getConnection())
+        {
+            PreparedStatement ps = con.prepareStatement("select * from appunti where creatore='"+id+"' and stato='1'");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                AppuntiBean gs = new AppuntiBean();
+                gs.setId(rs.getInt("id"));
+                gs.setMateria((rs.getString("materia")));
+                gs.setTitolo(rs.getString("titolo"));
+                gs.setTesto(rs.getString("testo"));
+                gs.setStato(rs.getBoolean("stato"));
+                gs.setIdUtente(rs.getInt("creatore"));
+                list.add(gs);
+            }
+            return list;
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
