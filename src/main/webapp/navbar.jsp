@@ -26,23 +26,31 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.jsp">Home</a></li>
-        <li><a href="PaginaAppunti.jsp">Appunti</a></li>
-        <li><a href="PaginaGS.jsp">Gruppi Studio</a></li>
-        <li><a href="#">Timer</a></li>
         <%
         //utente non loggato
         if( (UtenteBean)request.getSession().getAttribute("utenteLoggato")==null ){
         %>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="utenteNonRegistratoError.jsp">Appunti</a></li>
+        <li><a href="utenteNonRegistratoError.jsp">Gruppi Studio</a></li>
+        <li><a href="utenteNonRegistratoError.jsp">Timer</a></li>
         <li><a href="login.jsp">Login</a></li>
         <% //admin
         }else if( (UtenteBean)request.getSession().getAttribute("utenteLoggato")!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==true) {
         %>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="PaginaAppunti.jsp">Appunti</a></li>
+        <li><a href="PaginaGS.jsp">Gruppi Studio</a></li>
+        <li><a href="timer.jsp">Timer</a></li>
         <li><a href="PaginaAdmin.jsp">Area Admin</a></li>
         <li><a href="DisconnessioneUtente">Logout</a></li>
         <% //utente loggato
         }else if ( (UtenteBean)request.getSession().getAttribute("utenteLoggato")!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==false){
         %>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="PaginaAppunti.jsp">Appunti</a></li>
+        <li><a href="PaginaGS.jsp">Gruppi Studio</a></li>
+        <li><a href="timer.jsp">Timer</a></li>
         <li><a href="PaginaUtente.jsp">Area Utente</a> </li>
         <li><a href="DisconnessioneUtente">Logout</a></li>
         <% } %>

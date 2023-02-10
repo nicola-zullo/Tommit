@@ -31,7 +31,8 @@
       <p>Non puoi accedere a questo servizio</p>
 
     </hgroup>
-    <a href="Registrazione.jsp" title="Back to site" class="error-back">Registrati!</a>
+    <a href="Registrazione.jsp" title="Back to site" class="error-back">Registrati!</a><br>
+    <a href="index.jsp" title="Back to site" class="error-back">Torna alla home!</a>
   </article>
 </div>
 </body>
