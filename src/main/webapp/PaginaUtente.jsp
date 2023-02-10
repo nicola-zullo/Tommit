@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Area Utente</title>
-    <link rel="stylesheet" href="static/css/PaginaAdmin.css">
+    <link rel="stylesheet" href="static/css/PaginaUtente.css">
 
 
 </head>
@@ -15,14 +15,15 @@
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
 
 <div class="total">
+    <% UtenteBean utente = (UtenteBean) request.getSession().getAttribute("utenteLoggato");%>
     <div class="row">
         <div class="col-12 mt-3 mb-1">
-            <h2 class="text-uppercase">Benvenuto!</h2>
-            <h6>Questa &egrave la tua area personale</h6>
-            <h6><a href="index.jsp">Torna alla Homepage</a></h6>
+            <h2 style="color: white">Benvenuto, ${utenteLoggato.getName()} ${utenteLoggato.getSurname()}</h2>
+            <h6 style="color: white"> Questa &egrave la tua area personale</h6>
+            <h6><a style="color: white" href="index.jsp">Torna alla Homepage</a></h6>
         </div>
     </div>
     <div class="row">
@@ -35,8 +36,10 @@
                                 <i class="icon-bubbles warning font-large-2 float-right"></i>
                             </div>
                             <div class="media-body text-right">
-
-                                <span><a href="#">Gruppi Studio</a></span>
+                                <form>
+                                    <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
+                                    <span><a href="listUserGS">Gruppi Studio</a></span>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -53,19 +56,45 @@
                             </div>
                             <div class="media-body text-right">
 
-                                <span><a href="#">Appunti</a></span>
+                                <form>
+                                    <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
+                                    <span><a href="visualizzaAppuntiUtente.jsp">Appunti</a></span>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <% UtenteBean utente = (UtenteBean) request.getSession().getAttribute("utenteLoggato");%>
         <div class="col-12 mt-3 mb-1">
-            <h4 class="text-dati">Ecco i tuoi dati!</h4>
-            <h6 class = "text-dati">//dati</h6>
+            <h4 style="color: white" class="text-dati">Ecco i tuoi dati!</h4>
+
+            <table id = "utenti">
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>COGNOME</th>
+                    <th>EMAIL</th>
+                    <th>USERNAME</th>
+                    <th>CF</th>
+                    <th>PASSWORD</th>
+                </tr>
+                <tr>
+                    <td>${utenteLoggato.getId()}</td>
+                    <td>${utenteLoggato.getName()}</td>
+                    <td>${utenteLoggato.getSurname()}</td>
+                    <td>${utenteLoggato.getEmail()}</td>
+                    <td>${utenteLoggato.getUsername()}</td>
+                    <td>${utenteLoggato.getCF()}</td>
+                    <td>${utenteLoggato.getPassword()}</td>
+                </tr>
+            </table>
+
         </div>
+
     </div>
+
+    <button style="background-color: #b20002"><a style="color: white" href="ModificaDatiUtenti.jsp"><span>Modifica dati</span></a> </button>
 </div>
 
 </body>

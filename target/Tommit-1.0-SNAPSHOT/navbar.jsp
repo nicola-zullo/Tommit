@@ -1,9 +1,10 @@
+<%@ page import="model.UtenteBean" %>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Transparent to Solid navbar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
   <link rel="stylesheet" href="static/css/navbar.css">
 
 </head>
@@ -19,6 +20,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
 
     </div>
@@ -26,9 +28,24 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.jsp">Home</a></li>
         <li><a href="PaginaAppunti.jsp">Appunti</a></li>
-        <li><a href="#">Gruppi Studio</a></li>
+        <li><a href="PaginaGS.jsp">Gruppi Studio</a></li>
         <li><a href="#">Timer</a></li>
+        <%
+        //utente non loggato
+        if( (UtenteBean)request.getSession().getAttribute("utenteLoggato")==null ){
+        %>
         <li><a href="login.jsp">Login</a></li>
+        <% //admin
+        }else if( (UtenteBean)request.getSession().getAttribute("utenteLoggato")!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==true) {
+        %>
+        <li><a href="PaginaAdmin.jsp">Area Admin</a></li>
+        <li><a href="DisconnessioneUtente">Logout<</a></li>
+        <% //utente loggato
+        }else if ( (UtenteBean)request.getSession().getAttribute("utenteLoggato")!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==false){
+        %>
+        <li><a href="PaginaUtente.jsp">Area Utente</a> </li>
+        <li><a href="DisconnessioneUtente">Logout</a></li>
+        <% } %>
       </ul>
     </div>
   </div>

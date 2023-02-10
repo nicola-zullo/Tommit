@@ -15,13 +15,13 @@
 <body>
 
 <div id="form-main">
-    <%@ include file="/static/html/navbar.html"%>
+    <%@ include file="/navbar.jsp"%>
 
 
     <div id="form-div">
 
-        <form class="form" id="form1">
-
+        <form class="form" id="form1" action="richiesta-creazione-gs-servlet" method="post">
+            <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
             <p class="nome">
                 <input name="nome" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Nome Gruppo" id="nomegruppo" />
             </p>
@@ -40,7 +40,7 @@
 
 
             <div class="submit">
-                <input type="submit" value="Richiedi approvazione" id="button-blue"/>
+                <input type="submit" value="Richiedi approvazione"  id="button-blue"/>
                 <div class="ease"></div>
             </div>
         </form>

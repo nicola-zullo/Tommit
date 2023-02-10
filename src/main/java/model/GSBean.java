@@ -7,6 +7,12 @@ public class GSBean {
     private String obiettivo;
     private boolean stato;
 
+    public int getIdCreatore() { return idCreatore; }
+
+    public void setIdCreatore(int idCreatore) { this.idCreatore = idCreatore;}
+
+    private int idCreatore;
+
     public boolean getStato() { return stato; }
 
     public void setStato(boolean stato) { this.stato = stato; }
