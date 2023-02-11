@@ -17,7 +17,7 @@ public class ListAppunti extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AppuntiDAO action = new AppuntiDAO();
         ArrayList<AppuntiBean> list = new ArrayList<>();
-        list= action.listAppunti();
+        list= action.listAppuntiAdmin();
         String destPage="VisualizzaAppuntiAdmin.jsp";
         request.setAttribute("listAppunti", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
