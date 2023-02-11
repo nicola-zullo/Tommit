@@ -20,6 +20,7 @@
 </html>
 
 <body>
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
 
 
 <main>
@@ -157,6 +158,7 @@
 
 </main>
 <!-- partial -->
+<%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script><script  src="../js/script.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js'></script>

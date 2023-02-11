@@ -15,6 +15,7 @@
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==false){ %>
 
 
 <div class="total">
@@ -96,7 +97,7 @@
 
     <button style="background-color: #b20002"><a style="color: white" href="ModificaDatiUtenti.jsp"><span>Modifica dati</span></a> </button>
 </div>
-
+<%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>
 </html>
 

@@ -18,7 +18,7 @@
 
 </head>
 <body>
-
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
     <main>
         <%@ include file="navbar.jsp" %>
 
@@ -43,5 +43,7 @@
 
         </section>
     </main>
+    <%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>
+
 </html>

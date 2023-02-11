@@ -15,6 +15,7 @@
 
 </head>
 <body>
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
 <main>
 
     <section class="hero-unit">
@@ -46,6 +47,6 @@
 </main>
 
 <!-- partial -->
-
+<%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>
 </html>

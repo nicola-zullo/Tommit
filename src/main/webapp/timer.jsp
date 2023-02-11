@@ -1,3 +1,4 @@
+<%@ page import="model.TimerBean" %>
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -17,14 +18,17 @@
 </html>
 
 <body>
-
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
 
 <main>
     <%@ include file="/navbar.jsp"%>
     <% UtenteBean utente = (UtenteBean) request.getSession().getAttribute("utenteLoggato");%>
     <header>
-        <h1 id="title-element">Tommit</h1>
+        <h1 id="title-element">Timer</h1>
     </header>
+    <form>
+       <% TimerBean timer = (TimerBean) request.getSession().getAttribute("utenteLoggato"); %>
+    </form>
     <section class="timer">
         <div class="timer__container">
             <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -466,6 +470,6 @@
 
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script><script  src="static/js/script.js"></script>
-
+<%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>
 </html>

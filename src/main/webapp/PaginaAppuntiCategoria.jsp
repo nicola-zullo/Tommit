@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="static/css/PaginaAppuntiCategoria.css">
 </head>
 <body>
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
 <%@ include file="navbar.jsp" %>
 
 <div class="wrapper">
@@ -52,6 +53,6 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script><script  src="./script.js"></script>
 
-
+<%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>
 </html>
