@@ -23,8 +23,16 @@
         <input name="nome" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Titolo" id="nomegruppo" />
       </p>
 
-      <p class="materia">
-        <input name="materia" type="text" class="validate[required,custom[email]] feedback-input" id="materia" placeholder="Materia" />
+      <p class = "materia">
+        <select style = "width: 25em" name="categorie" id="categorie">
+            <option value="umanistica">Umanistica</option>
+            <option value="scientifico">Scientifico</option>
+            <option value="artistica">Artistica</option>
+            <option value="informatica">Informatica</option>
+            <option value="lingue">Lingue</option>
+            <option value="sanitario">Sanitario</option>
+
+        </select>
       </p>
 
       <p class="obiettivi">
