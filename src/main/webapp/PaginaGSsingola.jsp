@@ -34,9 +34,9 @@
             <form action="iscrizione-gs" method="post">
                 <input type="hidden" value="${gs.getNome()}" name="nome">
             <div class="bottone">
-                <input type="button" class="btn5">
+                <button class="btn5">
                     unisciti al gruppo
-                </input>
+                </button>
             </div>
             </form>
 
