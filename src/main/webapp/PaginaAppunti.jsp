@@ -26,7 +26,7 @@
 
   <section class="hero-unit">
     <%@ include file="/navbar.jsp"%>
-    <div class="row">
+    <div class="row2">
       <div class="large-12 columns">
         <hgroup>
           <h1>Appunti</h1>

@@ -98,4 +98,30 @@ public class GSDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public ArrayList<GSBean> listGSAccessibili()
+    {
+        ArrayList<GSBean> list = new ArrayList<>();
+        try (Connection con = ConPool.getConnection())
+        {
+            PreparedStatement ps = con.prepareStatement("select * from gruppistudio where Stato = 1");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                GSBean gs = new GSBean();
+                gs.setNome(rs.getString("Nome"));
+                gs.setMateria((rs.getString("Materia")));
+                gs.setLuogo(rs.getString("Luogo"));
+                gs.setObiettivo(rs.getString("obiettivo"));
+                gs.setStato(rs.getBoolean("Stato"));
+                gs.setIdCreatore(rs.getInt("idCreatore"));
+                list.add(gs);
+            }
+            return list;
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
