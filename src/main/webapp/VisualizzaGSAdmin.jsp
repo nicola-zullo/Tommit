@@ -42,11 +42,11 @@
             <td>${gs.getMateria()}</td>
             <td>${gs.getObiettivo()}</td>
             <form id="aform" action="approva-gs-servlet" method="post">
-              <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
+              <input type="hidden" name="name" value ='${gs.getNome()}' />
               <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Conferma" placeholder="Conferma"></td>
             </form>
-            <form id="rform" action="" method="post">
-              <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
+            <form id="rform" action="rifiuta-gs-servlet" method="post">
+              <input type="hidden" name="name" value ='${gs.getNome()}' />
               <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Rifiuta" placeholder="Rifiuta"></td>
             </form>
 

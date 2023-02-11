@@ -30,9 +30,11 @@ public class GSDAO {
     }
 
     public void doRemove(String nome){
+
         try (Connection con = ConPool.getConnection()){
-            PreparedStatement preparedStmt = con.prepareStatement("delete from gruppistudio where Nome ="+nome+";");
+            PreparedStatement preparedStmt = con.prepareStatement("delete from gruppistudio where Nome = '"+nome+"' ;");
             preparedStmt.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,7 +57,7 @@ public class GSDAO {
         ArrayList<GSBean> list = new ArrayList<>();
         try (Connection con = ConPool.getConnection())
         {
-            PreparedStatement ps = con.prepareStatement("select * from gruppistudio");
+            PreparedStatement ps = con.prepareStatement("select * from gruppistudio where Stato = 0");
             ResultSet rs = ps.executeQuery();
             while(rs.next())
             {

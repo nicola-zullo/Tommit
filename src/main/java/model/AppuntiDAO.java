@@ -73,6 +73,8 @@ public class AppuntiDAO {
         }
     }
 
+
+
     public ArrayList<AppuntiBean> listUserAppunti(int id)
     {
         ArrayList<AppuntiBean> list = new ArrayList<>();

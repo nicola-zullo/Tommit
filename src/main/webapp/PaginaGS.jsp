@@ -21,10 +21,12 @@
 
 
         <div class="bottone">
+            <a href="RichiestaCreazioneGS.jsp">
         <button class="btn5">
             Crea Gruppo Studio
         </button>
-    </div>
+            </a>
+         </div>
 
         <div class="comboBox">
             <div class="select" tabindex="1">
