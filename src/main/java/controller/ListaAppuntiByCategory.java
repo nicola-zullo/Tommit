@@ -12,14 +12,17 @@ import model.AppuntiDAO;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "listAdminAppunti", value = "/listAdminAppunti")
-public class ListAppuntiAdmin extends HttpServlet {
+@WebServlet(name = "listAppuntiCategory", value = "/listAppuntiCategory")
+
+public class ListaAppuntiByCategory extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String materia = request.getParameter("category");
+        System.out.print(materia);
         AppuntiDAO action = new AppuntiDAO();
         ArrayList<AppuntiBean> list = new ArrayList<>();
-        list= action.listAppuntiAdmin();
-        String destPage="VisualizzaAppuntiAdmin.jsp";
-        request.setAttribute("listAppunti", list);
+        list= action.listAppuntiByMateria(materia);
+        String destPage="PaginaAppuntiCategoria.jsp";
+        request.setAttribute("listaAppunti", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
         dispatcher.forward(request, response);
     }

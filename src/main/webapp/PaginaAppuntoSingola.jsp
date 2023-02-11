@@ -38,11 +38,10 @@
                 <label for='rating_opt1'><span>Non sprecare il tuo tempo!</span></label>
             </div>
         </form>
-        <form>
-            <% AppuntiBean appuntiBean = (AppuntiBean) request.getAttribute("currentAppunto");%>
+        <div>
             <h1> ${currentAppunto.getTitolo()}</h1>
             <p>${currentAppunto.getTesto()}</p>
-        </form>
+        </div>
     </section>
 </main>
 

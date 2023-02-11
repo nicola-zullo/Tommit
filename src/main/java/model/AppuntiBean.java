@@ -61,4 +61,16 @@ public class AppuntiBean {
     public void setIdUtente(int idUtente) {
         this.idUtente = idUtente;
     }
+
+    @Override
+    public String toString() {
+        return "AppuntiBean{" +
+                "id=" + id +
+                ", titolo='" + titolo + '\'' +
+                ", testo='" + testo + '\'' +
+                ", materia='" + materia + '\'' +
+                ", idUtente=" + idUtente +
+                ", stato=" + stato +
+                '}';
+    }
 }

@@ -17,8 +17,7 @@
 <div id="form-main">
   <%@ include file="/navbar.jsp"%>
   <div id="form-div">
-    <form class="form" id="form1">
-
+    <form class="form" id="form1" action="richiesta-creazione-appunti-servlet" method="post">
       <p class="nome">
         <input name="nome" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Titolo" id="nomegruppo" />
       </p>
@@ -35,8 +34,8 @@
         </select>
       </p>
 
-      <p class="obiettivi">
-        <textarea name="obiettivi" class="validate[required,length[6,300]] feedback-input" id="obiettivi" placeholder="Obiettivi"></textarea>
+      <p class="testo">
+        <textarea name="testo" class="validate[required,length[6,300]] feedback-input" id="testo" placeholder="Testo"></textarea>
       </p>
 
 

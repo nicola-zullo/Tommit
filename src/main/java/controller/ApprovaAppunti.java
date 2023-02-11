@@ -24,7 +24,7 @@ public class ApprovaAppunti extends HttpServlet {
 
         //Aggiorna il parametro gsList per la jsp con il nuovo db aggiornato tramite listGS del dao
         ArrayList<AppuntiBean> appuntiList;
-        appuntiList= dao.listAppunti();
+        appuntiList= dao.listAppuntiAdmin();
         request.setAttribute("appuntiList", appuntiList);
 
         //Reindirizza alla pagina listGS con il db gruppistudio aggiornato

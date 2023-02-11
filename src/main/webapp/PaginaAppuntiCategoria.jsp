@@ -7,6 +7,7 @@
 --%>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
     <title>PaginaAppuntiCategoria</title>
@@ -27,16 +28,16 @@
 <section class="hero-unit">
 
 
-    <c:forEach var="gs" items="${listaAppunti}">
-        <form action="">
-            <input type="hidden" name="nome" value="${appunti.getNome()}">
+    <c:forEach var="item" items="${listaAppunti}">
+        <form action="pagina-appunto-servlet">
+            <input type="hidden" name="id" value="${item.getId()}">
             <div class="container">
                 <div class="test_box box-01 col-xs-6 col-md-4">
                     <div class="inner">
                         <a href="" class="test_click">
                             <div class="flex_this">
-                                <h1 class="test_title">${appunti.getNome()}</h1>
-                                <span class="test_link">Link</span>
+                                <h1 class="test_title">${item.getTitolo()}</h1>
+                                <input type="submit" value="${item.getTitolo()}">
                             </div>
                         </a>
                     </div>

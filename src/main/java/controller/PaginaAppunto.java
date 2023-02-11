@@ -10,16 +10,23 @@ import model.AppuntiBean;
 import model.AppuntiDAO;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-@WebServlet(name = "listAdminAppunti", value = "/listAdminAppunti")
-public class ListAppuntiAdmin extends HttpServlet {
+@WebServlet(name = "pagina-appunto-servlet", value = "/pagina-appunto-servlet")
+
+public class PaginaAppunto extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
         AppuntiDAO action = new AppuntiDAO();
-        ArrayList<AppuntiBean> list = new ArrayList<>();
-        list= action.listAppuntiAdmin();
-        String destPage="VisualizzaAppuntiAdmin.jsp";
-        request.setAttribute("listAppunti", list);
+        AppuntiBean appunto = new AppuntiBean();
+        try {
+            appunto = action.ricercaId(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String destPage="PaginaAppuntoSingola.jsp";
+        request.setAttribute("currentAppunto", appunto);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
         dispatcher.forward(request, response);
     }
