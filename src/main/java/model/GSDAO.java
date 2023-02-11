@@ -30,12 +30,36 @@ public class GSDAO {
     }
 
     public void doRemove(String nome){
+
         try (Connection con = ConPool.getConnection()){
-            PreparedStatement preparedStmt = con.prepareStatement("delete from gruppistudio where Nome ="+nome+";");
+            PreparedStatement preparedStmt = con.prepareStatement("delete from gruppistudio where Nome = '"+nome+"' ;");
             preparedStmt.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public GSBean retriveGS(String nome){
+
+        GSBean gs = new GSBean();
+        System.out.println("nome passato retrive: "+ nome);
+        try(Connection con = ConPool.getConnection()) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * from gruppistudio where Nome ='"+nome+"';");
+            while (rs.next()) {
+                gs.setNome(rs.getString(1));
+                gs.setLuogo(rs.getString(2));
+                gs.setObiettivo(rs.getString(3));
+                gs.setMateria(rs.getString(4));
+                gs.setStato(rs.getBoolean(5));
+                gs.setIdCreatore(rs.getInt(6));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return gs;
+
     }
 
     //Setta il parametro stato del gs selezionato a True
@@ -55,7 +79,7 @@ public class GSDAO {
         ArrayList<GSBean> list = new ArrayList<>();
         try (Connection con = ConPool.getConnection())
         {
-            PreparedStatement ps = con.prepareStatement("select * from gruppistudio");
+            PreparedStatement ps = con.prepareStatement("select * from gruppistudio where Stato = 0");
             ResultSet rs = ps.executeQuery();
             while(rs.next())
             {

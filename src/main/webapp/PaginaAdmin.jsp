@@ -68,7 +68,7 @@
                 </div>
                 <div class="media-body text-right">
 
-                  <span><a href="listGS">Gruppi Studio</a></span>
+                  <span><a href="listGSAdmin">Gruppi Studio</a></span>
                 </div>
               </div>
             </div>

@@ -12,17 +12,17 @@ import model.GSDAO;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name="approva-gs-servlet", value ="/approva-gs-servlet")
-public class ApprovaGS extends HttpServlet {
+@WebServlet(name="rifiuta-gs-servlet", value ="/rifiuta-gs-servlet")
+public class RifiutaGS extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
-        //Trova nel db il GS con nome == name(da input nella listGS accessibile solo da admin) e setta Stato a True
+        //Elimina nel db il GS con nome == name(da input nella listGS accessibile solo da admin) e setta Stato a True
         GSDAO dao = new GSDAO();
-        dao.setTrue(name);
+        dao.doRemove(name);
 
         //Aggiorna il parametro gsList per la jsp con il nuovo db aggiornato tramite listGS del dao
         ArrayList<GSBean> gsList;
-        gsList= dao.listGS();
+        gsList = dao.listGS();
         request.setAttribute("listGS", gsList);
 
         //Reindirizza alla pagina listGS con il db gruppistudio aggiornato

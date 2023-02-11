@@ -12,7 +12,7 @@ import model.GSDAO;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "listGS", value = "/listGS")
+@WebServlet(name = "list-GS", value = "/list-GS")
 public class ListGS extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
@@ -21,10 +22,12 @@
 
 
         <div class="bottone">
+            <a href="RichiestaCreazioneGS.jsp">
         <button class="btn5">
             Crea Gruppo Studio
         </button>
-    </div>
+            </a>
+         </div>
 
         <div class="comboBox">
             <div class="select" tabindex="1">
@@ -59,22 +62,20 @@
         </div>
 
 
-    <c:forEach var="gs" items="${listaGS}">
-        <form action="">
-        <input type="hidden" name="nome" value="${gs.getNome()}">
+    <c:forEach var="gs" items="${listGS}">
             <div class="container">
                  <div class="test_box box-01 col-xs-6 col-md-4">
                     <div class="inner">
-                        <a href="" class="test_click">
+                        <input type="submit">
+                        <a href="visualizza-gs?nome=${gs.getNome()}" class="test_click">
                     <div class="flex_this">
                         <h1 class="test_title">${gs.getNome()}</h1>
-                        <span class="test_link">Link</span>
+                            <span class="test_link">Link</span>
                     </div>
                 </a>
                      </div>
                  </div>
             </div>
-        </form>
     </c:forEach>
 
     </section>
