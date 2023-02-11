@@ -54,7 +54,7 @@ public class AppuntiDAO {
     public ArrayList<AppuntiBean> listAppuntiAdmin() {
         ArrayList<AppuntiBean> list = new ArrayList<>();
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("select * from appunti");
+            PreparedStatement ps = con.prepareStatement("select * from appunti where stato='0'");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 AppuntiBean appuntiBean = new AppuntiBean();
