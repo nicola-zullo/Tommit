@@ -17,7 +17,7 @@ import java.util.ArrayList;
 @WebServlet(name="approva-appunti-servlet", value ="/approva-appunti-servlet")
 public class ApprovaAppunti extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int idAppunti = Integer.parseInt(request.getParameter("idAppunti"));
+        int idAppunti = Integer.parseInt(request.getParameter("id"));
         //Trova nel db gli appunti con id == id(da input nella listAppunti accessibile solo da admin) e setta Stato a True
         AppuntiDAO dao = new AppuntiDAO();
         dao.setTrue(idAppunti);
@@ -28,7 +28,7 @@ public class ApprovaAppunti extends HttpServlet {
         request.setAttribute("appuntiList", appuntiList);
 
         //Reindirizza alla pagina listGS con il db gruppistudio aggiornato
-        String destPage="listApunti.jsp"; //aggiornare con nome pagina lista dei gs in sezione admin
+        String destPage="VisualizzaAppuntiAdmin.jsp"; //aggiornare con nome pagina lista dei gs in sezione admin
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
         dispatcher.forward(request, response);
     }
