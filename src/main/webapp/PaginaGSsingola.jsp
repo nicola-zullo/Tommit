@@ -21,24 +21,24 @@
 
     <main>
         <%@ include file="navbar.jsp" %>
+
         <section class="hero-unit">
             <img src="https://marketplace.canva.com/EAEdhZMmjlU/1/0/1600w/canva-viola-moderno-tecnologia-e-gaming-logo-mDRZg0vq1eY.jpg" class="w3-border" alt="my image">
             <div class="testo" >
-                <h1> ${gs.getNome()}</h1>
-                <h4>${gs.getMaterie()}</h4>
-                <h4>${gs.getLuogo}</h4>
-                <h4>${gs.getObiettivi}</h4>
+                <h1> ${gruppo.getNome()}</h1>
+                <h4>${gruppo.getMateria()}</h4>
+                <h4>${gruppo.getLuogo()}</h4>
+                <h4>${gruppo.getObiettivo()}</h4>
 
             </div>
 
-            <form action="iscrizione-gs" method="post">
-                <input type="hidden" value="${gs.getNome()}" name="nome">
+
             <div class="bottone">
                 <button class="btn5">
-                    unisciti al gruppo
+                    <a href="iscrizione-gs?nome=${gruppo.getNome()}">unisciti al gruppo</a>
                 </button>
             </div>
-            </form>
+
 
 
         </section>

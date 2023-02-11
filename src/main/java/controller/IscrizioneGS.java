@@ -1,5 +1,6 @@
 package controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -24,6 +25,15 @@ public class IscrizioneGS extends HttpServlet {
 
         utentiGSDAO.doSave(id_utente,nome_gs);
 
+        //aggiungere pagina redirect
+        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        dispatcher.forward(request,response);
+
+    }
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request,response);
     }
 
 }

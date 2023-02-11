@@ -40,7 +40,7 @@
         %>
         <li><a href="index.jsp">Home</a></li>
         <li><a href="PaginaAppunti.jsp">Appunti</a></li>
-        <li><a href="PaginaGS.jsp">Gruppi Studio</a></li>
+        <li><a href="list-GS">Gruppi Studio</a></li>
         <li><a href="timer.jsp">Timer</a></li>
         <li><a href="PaginaAdmin.jsp">Area Admin</a></li>
         <li><a href="DisconnessioneUtente">Logout</a></li>
@@ -49,7 +49,7 @@
         %>
         <li><a href="index.jsp">Home</a></li>
         <li><a href="PaginaAppunti.jsp">Appunti</a></li>
-        <li><a href="PaginaGS.jsp">Gruppi Studio</a></li>
+        <li><a href="list-GS">Gruppi Studio</a></li>
         <li><a href="timer.jsp">Timer</a></li>
         <li><a href="PaginaUtente.jsp">Area Utente</a> </li>
         <li><a href="DisconnessioneUtente">Logout</a></li>

@@ -40,6 +40,28 @@ public class GSDAO {
         }
     }
 
+    public GSBean retriveGS(String nome){
+
+        GSBean gs = new GSBean();
+        System.out.println("nome passato retrive: "+ nome);
+        try(Connection con = ConPool.getConnection()) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * from gruppistudio where Nome ='"+nome+"';");
+            while (rs.next()) {
+                gs.setNome(rs.getString(1));
+                gs.setLuogo(rs.getString(2));
+                gs.setObiettivo(rs.getString(3));
+                gs.setMateria(rs.getString(4));
+                gs.setStato(rs.getBoolean(5));
+                gs.setIdCreatore(rs.getInt(6));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return gs;
+
+    }
+
     //Setta il parametro stato del gs selezionato a True
     public void setTrue(String name) {
         try (Connection con = ConPool.getConnection()) {
