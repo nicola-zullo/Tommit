@@ -12,6 +12,8 @@
 
 </head>
 <body>
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==false){ %>
+
 <div class="bg-img">
     <%@ include file="/navbar.jsp"%>
     <div class="content">
@@ -48,5 +50,6 @@
     </div>
 
 </div>
+<%} else{ response.sendRedirect("./errorPage.jsp");}%>
 </body>
 </html>
