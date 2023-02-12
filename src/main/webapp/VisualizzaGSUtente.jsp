@@ -14,6 +14,8 @@
 
 
 <body>
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==false){ %>
+
 <main>
   <section class="hero-unit">
     <%@ include file="/navbar.jsp"%>
@@ -46,6 +48,7 @@
     </div>
   </section>
 </main>
+<%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>
 
 

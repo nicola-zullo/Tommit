@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-  <title>Visualizza Appunti</title>
+  <title>Visualizza Gruppi Studio</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
   <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
@@ -41,8 +41,15 @@
             <td>${gs.getLuogo()}</td>
             <td>${gs.getMateria()}</td>
             <td>${gs.getObiettivo()}</td>
-            <button style="background-color: #943e2f"><a href="approva-gs-servlet"><span>Conferma</span></a> </button>
-            <button style="background-color: #943e2f"><a href="#"><span>Rifiuta</span></a> </button>
+            <form id="aform" action="approva-gs-servlet" method="post">
+              <input type="hidden" name="name" value ='${gs.getNome()}' />
+              <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Conferma" placeholder="Conferma"></td>
+            </form>
+            <form id="rform" action="rifiuta-gs-servlet" method="post">
+              <input type="hidden" name="name" value ='${gs.getNome()}' />
+              <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Rifiuta" placeholder="Rifiuta"></td>
+            </form>
+
           </tbody>
         </c:forEach>
 
