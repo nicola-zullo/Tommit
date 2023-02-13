@@ -5,7 +5,12 @@ import java.util.ArrayList;
 
 public class UtenteDAO {
 
-    public void doSave(UtenteBean utente) {
+    public UtenteBean doSave(UtenteBean utente) {
+
+        //controlli
+        if(!controlliRegistrazione(utente))
+            return null;
+
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
                     "INSERT INTO user (Username, Name, Surname, Email, Password, CF)  VALUES(?,?,?,?,?,?)",
@@ -17,6 +22,7 @@ public class UtenteDAO {
             ps.setString(4, utente.getEmail());
             ps.setString(5, utente.getPassword());
             ps.setString(6,utente.getCF());
+
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }
@@ -26,9 +32,28 @@ public class UtenteDAO {
             int id = rs.getInt(1);
             utente.setId(id);
 
+            return utente;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+    }
+
+    public boolean controlliRegistrazione(UtenteBean utente){
+        if(!utente.controlloLunghezzaStringa(utente.getName(),50))
+            return false;
+        if(!utente.controlloLunghezzaStringa(utente.getSurname(),50))
+            return false;
+        if(!utente.controlloLunghezzaStringa(utente.getPassword(),16))
+            return false;
+        if (utente == null)
+            return false;
+        if (!utente.getPassword().equals(utente.getConfermaPass()))
+            return false;
+        if (!utente.getEmail().contains("@"))
+            return false;
+
+        return true;
     }
 
     public void doRemove(int id){

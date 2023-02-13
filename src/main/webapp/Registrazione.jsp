@@ -40,6 +40,7 @@
             <input type="text" name="username" placeholder="Username" />
             <input type="text" name="email" placeholder="Email" />
             <input type="password" name="pass" placeholder="Password" />
+            <input type="password" name="confPass" placeholder="Conferma Password" />
             <input type="submit" name="next" class="next action-button" value="Conferma" />
         </fieldset>
         </form>

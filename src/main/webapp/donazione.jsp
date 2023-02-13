@@ -9,12 +9,22 @@
 <html>
 <head>
     <title>Donazione</title>
-
+    <link rel="stylesheet" href="static/css/donazione.css">
+    <link rel="stylesheet" href="static/css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 </head>
 <body>
+<%@ include file="navbar.jsp" %>
 
+
+
+<div class="wrapperino">
+    <div class="immagine">
+        <img  src="static/immagini/Logo.png">
+    </div>
 <label for="metodo">Metodo Di Pagamento</label>
-<select name="metodo" id="metodo" onchange="popolaNome(this.id)" required>
+<select class="info" name="metodo" id="metodo" onchange="popolaNome(this.id)" required>
     <option value="">Scegli Metodo Di Pagamento</option>
     <option value="cartadicredito">Carta Di Credito</option>
     <option value="paypal">PayPal</option>
@@ -22,8 +32,8 @@
 </select>
 
 <!-- form carta di credito -->
-<form action="donazione" method="post" id="m1" style="display: none">
-    <div>
+<form class="testo" action="donazione" method="post" id="m1" style="display: none">
+    <div class="wrap">
         <input type="hidden" name="metodoPagamento" value="cartadicredito">
         <label for="nome">Nome Titolare</label>
         <input type="text" name="nome" id="nome">
@@ -35,14 +45,14 @@
         <input type="text" name="scadenza" id="scadenza">
     </div>
     <div>
-        <input type="number" name="amount">
+        <label for="amount1">importo offerta</label>
+        <input type="number" name="amount" id="amount1">
     </div>
-    <input type="submit" value="Paga">
+    <input class ="bottone3" type="submit" value="Paga">
 </form>
-
 <!-- form PayPal -->
-<form action="donazione" method="post" id="m2" style="display: none">
-    <div>
+<form class="testo" action="donazione" method="post" id="m2" style="display: none">
+    <div class="wrap">
         <input type="hidden" name="metodoPagamento" value="paypal">
         <label for="email">Email</label>
         <input type="email" name="email" id="email">
@@ -50,24 +60,25 @@
         <input type="password" name="password" id="password">
     </div>
     <div>
-        <input type="number" name="amount">
+        <label for="amount2">ammonto offerta</label>
+        <input type="number" name="amount" id="amount2">
     </div>
-    <input type="submit" value="Paga">
+    <input class ="bottone3" type="submit" value="Paga">
 </form>
-<!-- form PayPal -->
-<form action="donazione" method="post" id="m3" style="display: none">
-    <!-- Bitcoin -->
-    <div>
+<!-- form Bitcoin -->
+<form class="testo" ction="donazione" method="post" id="m3" style="display: none">
+    <div class="wrap">
         <input type="hidden" name="metodoPagamento" value="bitcoin">
         <label for="wallet">Indirizzo wallet</label>
         <input type="text" name="wallet" id="wallet">
     </div>
     <div>
-        <input type="number" name="amount">
+        <label for="amount3">ammonto offerta</label>
+        <input type="number" name="amount" id="amount3">
     </div>
-    <input type="submit" value="Paga">
+    <input class ="bottone3" type="submit" value="Paga">
 </form>
-
+</div>
 <script>
 
     function popolaNome(s1){

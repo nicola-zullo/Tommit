@@ -9,6 +9,7 @@ public class UtenteBean {
     private String username;
     private String email;
     private String password;
+    private String confermaPass;
     private boolean ruolo;
 
     public UtenteBean() {
@@ -71,11 +72,23 @@ public class UtenteBean {
         this.password = password;
     }
 
+    public String getConfermaPass() {
+        return confermaPass;
+    }
 
+    public void setConfermaPass(String confermaPass) {
+        this.confermaPass = confermaPass;
+    }
 
     public String getCF(){ return CF; }
 
     public void setCF (String CF){ this.CF = CF;}
+
+    public boolean controlloLunghezzaStringa(String str,int x){
+        if (str.length()>x)
+            return false;
+        return true;
+    }
 
     @Override
     public String toString() {
