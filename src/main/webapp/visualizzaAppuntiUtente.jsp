@@ -43,7 +43,7 @@
     </div>
   </section>
 </main>
-<%} else{ response.sendRedirect("./utenteNonRegistratoError");}%>
+<%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>
 
 
