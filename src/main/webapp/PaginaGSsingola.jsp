@@ -3,7 +3,7 @@
   User: laimb
   Date: 09/02/2023
   Time: 11:51
-  To change this template use File | Settings | File Templates.
+  To change this template use File | SettincurrentGS | File Templates.
 --%>
 <!DOCTYPE html>
 <html lang="en" >
@@ -22,20 +22,20 @@
 <main>
     <%@ include file="navbar.jsp" %>
     <div class="testo" >
-        <h1 class="titolo"> ${gs.getNome()} </h1>
-        <h2>${gs.getMaterie()} </h2>
-        <h2>${gs.getLuogo} </h2>
-        <h2 class="obbiettivi">${gs.getObiettivi}</h2>
+        <h1 class="titolo"> ${currentGS.getNome()} </h1>
+        <h2>${currentGS.getMateria()} </h2>
+        <h2>${currentGS.getLuogo()} </h2>
+        <h2 class="obbiettivi">${currentGS.getObiettivo()}</h2>
 
     </div>
 
     <div class="wrapper">
-        <img src="static/immagini/${gs.getMaterie()}.png" class="w3-border" alt="my image">
+        <img src="static/immagini/${currentGS.getMateria()}.png" class="w3-border" alt="my image">
         <div class="bottone">
             <form action="iscrizione-gs" method="post">
-                <input type="hidden" value="${gs.getNome()}" name="nome">
+                <input type="hidden" value="${currentGS.getNome()}" name="nome">
                 <button class="btn5">
-                    unisciti al gruppo
+                    Unisciti al gruppo
                 </button>
             </form>
         </div>

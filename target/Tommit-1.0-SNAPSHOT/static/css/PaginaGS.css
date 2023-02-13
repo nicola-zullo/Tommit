@@ -4,8 +4,10 @@
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
 
- main{
+main{
+    min-height:70vw;
     height: 100%;
+    width:100%;
     background: linear-gradient(#e26742, white) no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
@@ -122,83 +124,46 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.box-02 .inner {
-    background-image: url('https://picsum.photos/1024/768?image=967');
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+
+.btn5{
+    display:inline-block;
+    padding:0.7em 1.4em;
+    margin:0 0.3em 0.3em 0;
+    border:none;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:400;
+    font-weight: bold;
+    font-family: sans-serif;
+    color:#ffffff;
+    background-color:#e33939;
+    box-shadow:inset 0 -0.6em 0 -0.3em rgba(0,0,0,0.20);
+    text-align:center;
+    position:relative;
+    cursor:pointer;
 }
-.box-03 .inner {
-    background-image: url('https://picsum.photos/1024/768?image=924');
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+.btn5:hover{
+    background:#E64B3E;
 }
-.box-04 .inner {
-    background-image: url('https://picsum.photos/1024/768?image=1073');
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.box-05 .inner {
-    background-image: url('https://picsum.photos/1024/768?image=1032');
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.box-06 .inner {
-    background-image: url('https://picsum.photos/1024/768?image=1080');
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+.btn5:active{
+    background:#e33000;
+    top:0.15em;
+    color:#D9D9D9;
+    box-shadow:none;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
-body{
-    background: #f2f2f2;
-    font-family: 'Open Sans', sans-serif;
+.bottone{
+    position:absolute;
+    left:30%;
+    right:30%;
+    z-index:10;
 }
 
-.search {
-    width: 100%;
-    position: relative;
-    display: flex;
+
+.gruppi{
+    width:100%;
+    margin-right:0;
 }
 
-.searchTerm {
-    width: 100%;
-    border: 3px solid #00B4CC;
-    border-right: none;
-    padding: 5px;
-    height: 20px;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    color: #9DBFAF;
-}
-
-.searchTerm:focus{
-    color: #00B4CC;
-}
-
-.searchButton {
-    width: 40px;
-    height: 36px;
-    border: 1px solid #00B4CC;
-    background: #00B4CC;
-    text-align: center;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-/*Resize the wrap to see the search bar change!*/
-.wrap{
-    width: 30%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 

@@ -15,12 +15,14 @@
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
 <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==false){ %>
 
 
 <div class="total">
+    <% UtenteBean utente = (UtenteBean) request.getSession().getAttribute("utenteLoggato");%>
     <div class="row">
         <div class="col-12 mt-3 mb-1">
-            <h2 style="color: white">Benvenuto,${utenteLoggato.getName()} ${utenteLoggato.getSurname()}</h2>
+            <h2 style="color: white">Benvenuto, ${utenteLoggato.getName()} ${utenteLoggato.getSurname()}</h2>
             <h6 style="color: white"> Questa &egrave la tua area personale</h6>
             <h6><a style="color: white" href="index.jsp">Torna alla Homepage</a></h6>
         </div>
@@ -35,8 +37,10 @@
                                 <i class="icon-bubbles warning font-large-2 float-right"></i>
                             </div>
                             <div class="media-body text-right">
-
-                                <span><a href="#">Gruppi Studio</a></span>
+                                <form>
+                                    <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
+                                    <span><a href="listUserGS">Gruppi Studio</a></span>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -53,14 +57,16 @@
                             </div>
                             <div class="media-body text-right">
 
-                                <span><a href="#">Appunti</a></span>
+                                <form>
+                                    <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
+                                    <span><a href="listUserAppunti">Appunti</a></span>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <% UtenteBean utente = (UtenteBean) request.getSession().getAttribute("utenteLoggato");%>
         <div class="col-12 mt-3 mb-1">
             <h4 style="color: white" class="text-dati">Ecco i tuoi dati!</h4>
 
@@ -91,7 +97,7 @@
 
     <button style="background-color: #b20002"><a style="color: white" href="ModificaDatiUtenti.jsp"><span>Modifica dati</span></a> </button>
 </div>
-
+<%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>
 </html>
 

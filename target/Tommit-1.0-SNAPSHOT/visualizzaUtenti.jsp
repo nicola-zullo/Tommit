@@ -14,6 +14,8 @@
 
 
 <body>
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==true){ %>
+
   <main>
     <section class="hero-unit">
       <%@ include file="/navbar.jsp"%>
@@ -24,24 +26,24 @@
           <thead>
             <tr>
                 <th>ID</th>
-               <th>NOME</th>
+                <th>NOME</th>
                 <th>COGNOME</th>
-              <th>EMAIL</th>
-               <th>USERNAME</th>
-              <th>CF</th>
+                <th>EMAIL</th>
+                <th>USERNAME</th>
+                <th>CF</th>
              </tr>
           </thead>
 
 
-           <c:forEach var="utente" items="${listaUtenti}">
+           <c:forEach  items="${listaUtenti}" var="user">
              <tbody>
                 <tr>
-                  <td>${utenteLoggato.getId()}</td>
-                  <td>${utenteLoggato.getName()}</td>
-                 <td>${utenteLoggato.getSurname()}</td>
-                  <td>${utenteLoggato.getEmail()}</td>
-                 <td>${utenteLoggato.getUsername()}</td>
-                    <td>${utenteLoggato.getCF()}</td>
+                    <td>${user.getId()}</td>
+                    <td>${user.getName()}</td>
+                    <td>${user.getSurname()}</td>
+                    <td>${user.getEmail()}</td>
+                    <td>${user.getUsername()}</td>
+                    <td>${user.getCF()}</td>
                  </tr>
              </tbody>
            </c:forEach>
@@ -49,6 +51,7 @@
       </div>
     </section>
   </main>
+<%} else{ response.sendRedirect("./errorPage.jsp");}%>
 </body>
 
 
