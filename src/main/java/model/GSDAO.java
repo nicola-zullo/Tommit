@@ -147,5 +147,26 @@ public class GSDAO {
             throw new RuntimeException(e);
         }
     }
+    public ArrayList<GSBean> listGSByMateria(String materia) {
+        ArrayList<GSBean> list = new ArrayList<>();
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("select * from gruppistudio where Stato ='1' and Materia='" + materia + "'");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                GSBean gs = new GSBean();
+              gs.setNome(rs.getString("Nome"));
+              gs.setMateria(rs.getString("Materia"));
+              gs.setLuogo(rs.getString("Luogo"));
+              gs.setObiettivo(rs.getString("Obiettivo"));
+              gs.setIdCreatore(rs.getInt("idCreatore"));
+              gs.setStato(rs.getBoolean("stato"));
+                list.add(gs);
+            }
+            System.out.print(list);
+            return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

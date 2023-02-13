@@ -20,13 +20,14 @@
 </html>
 
 <body>
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
 
 
 <main>
 
   <section class="hero-unit">
-    <%@ include file="/static/html/navbar.html"%>
-    <div class="row">
+    <%@ include file="/navbar.jsp"%>
+    <div class="row2">
       <div class="large-12 columns">
         <hgroup>
           <h1>Appunti</h1>
@@ -44,7 +45,10 @@
             <div class="panel card-back">
               <i class="fa fa-book card-icon"></i>
               <div class="hub-info">
-                <a href="#">linkAppunti</a>
+                <form action="listAppuntiCategory" method="get">
+                    <input type="hidden" name="category" value="umanistica" />
+                    <input type="submit" value="Clicca qui">
+                </form>
                 <p>Qui puoi trovare gli appunti di Italiano, Storia, Letteratura, Latino...</p>
               </div>
 
@@ -60,7 +64,10 @@
             <div class="panel card-back">
               <i class="fa fa-calculator card-icon"></i>
               <div class="hub-info">
-                <a href="">linkAppunti</a>
+                <form action="listAppuntiCategory" method="get">
+                  <input type="hidden" name="category" value="scientifico" />
+                  <input type="submit" value="Clicca qui">
+                </form>
                 <p>Qui puoi trovare appunti di Matematica, Fisica, Chimica...</p>
               </div>
 
@@ -76,7 +83,10 @@
             <div class="panel card-back">
               <i class="fa fa-paint-brush card-icon"></i>
               <div class="hub-info">
-                <a href=""></a>
+                <form action="listAppuntiCategory" method="get">
+                  <input type="hidden" name="category" value="artistico" />
+                  <input type="submit" value="Clicca qui">
+                </form>
                 <p>Qui puoi trovare appunti di Storia dell'arte, Tecnologia, Architettura...</p>
               </div>
 
@@ -92,7 +102,10 @@
             <div class="panel card-back">
               <i class="fa fa-code card-icon"></i>
               <div class="hub-info">
-                <a href="">link</a>
+                <form action="listAppuntiCategory" method="get">
+                  <input type="hidden" name="category" value="informatica" />
+                  <input type="submit" value="Clicca qui">
+                </form>
                 <p>Qui puoi trovare appunti di programmazione(C, C++, Java...), Software Engineering... </p>
               </div>
 
@@ -108,7 +121,10 @@
             <div class="panel card-back">
               <i class="fa fa-language card-icon"></i>
               <div class="hub-info">
-                <a href="">link</a>
+                <form action="listAppuntiCategory" method="get">
+                  <input type="hidden" name="category" value="lingue" />
+                  <input type="submit" value="Clicca qui">
+                </form>
                 <p>Qui puoi trovare appunti di Inglese, Francese, Spagnolo, Tedesco...</p>
               </div>
 
@@ -124,7 +140,10 @@
             <div class="panel card-back">
               <i class="fa fa-stethoscope card-icon"></i>
               <div class="hub-info">
-                <a href="">link</a>
+                <form action="listAppuntiCategory" method="get">
+                  <input type="hidden" name="category" value="sanitario" />
+                  <input type="submit" value="Clicca qui">
+                </form>
                 <p>Qui puoi trovare appunti per prepararti al meglio per il test di Medicina e per i futuri esami</p>
               </div>
 
@@ -139,6 +158,7 @@
 
 </main>
 <!-- partial -->
+<%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script><script  src="../js/script.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js'></script>

@@ -13,22 +13,29 @@
 
 </head>
 <body>
-
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
 <div id="form-main">
-  <%@ include file="/static/html/navbar.html"%>
+  <%@ include file="/navbar.jsp"%>
   <div id="form-div">
-    <form class="form" id="form1">
-
+    <form class="form" id="form1" action="richiesta-creazione-appunti-servlet" method="post">
       <p class="nome">
         <input name="nome" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Titolo" id="nomegruppo" />
       </p>
 
-      <p class="materia">
-        <input name="materia" type="text" class="validate[required,custom[email]] feedback-input" id="materia" placeholder="Materia" />
+      <p class = "materia">
+        <select style = "width: 27em; height: 3em;" name="categorie" id="categorie">
+          <option value="umanistica">Umanistica</option>
+          <option value="scientifico">Scientifico</option>
+          <option value="artistica">Artistica</option>
+          <option value="informatica">Informatica</option>
+          <option value="lingue">Lingue</option>
+          <option value="sanitario">Sanitario</option>
+
+        </select>
       </p>
 
-      <p class="obiettivi">
-        <textarea name="obiettivi" class="validate[required,length[6,300]] feedback-input" id="obiettivi" placeholder="Obiettivi"></textarea>
+      <p class="testo">
+        <textarea name="testo" class="validate[required,length[6,300]] feedback-input" id="testo" placeholder="Testo"></textarea>
       </p>
 
 
@@ -38,5 +45,6 @@
       </div>
     </form>
   </div>
+      <%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>
 </html>
