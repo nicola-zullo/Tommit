@@ -5,6 +5,7 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
 
 main{
+    min-height:70vw;
     height: 100%;
     width:100%;
     background: linear-gradient(#e26742, white) no-repeat;
@@ -124,54 +125,6 @@ main{
     background-size: cover;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
-body{
-    background: #f2f2f2;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.search {
-    width: 100%;
-    position: relative;
-    display: flex;
-}
-
-.searchTerm {
-    width: 100%;
-    border: 3px solid #00B4CC;
-    border-right: none;
-    padding: 5px;
-    height: 20px;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    color: #9DBFAF;
-}
-
-.searchTerm:focus{
-    color: #00B4CC;
-}
-
-.searchButton {
-    width: 40px;
-    height: 36px;
-    border: 1px solid #00B4CC;
-    background: #00B4CC;
-    text-align: center;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-/*Resize the wrap to see the search bar change!*/
-.wrap{
-    width: 30%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 .btn5{
     display:inline-block;
@@ -201,58 +154,16 @@ body{
 }
 
 .bottone{
-    top:13vh;
     position:absolute;
     left:30%;
     right:30%;
     z-index:10;
-
-
-}
-
-:root {
-    --color-1: #186cb8;
-    --color-2: #2a9a9f;
-    --color-3: #f1b211;
-    --color-4: #e83611;
-    --color-5: #f9002f;
 }
 
 
-.wrapper {
-
+.gruppi{
     width:100%;
-    height:4vw;
+    margin-right:0;
 }
 
-h1 {
-    font-family: "Exo", sans-serif;
-    font-size: 20vw;
-    font-weight: 900;
-    width: -webkit-min-content;
-    width: -moz-min-content;
-    width: min-content;
-    margin: auto;
-    text-transform: uppercase;
-    background: linear-gradient(219deg,
-    var(--color-1) 19%,
-    transparent 19%,transparent 20%,
-    var(--color-2) 20%, var(--color-2)  39%,
-    transparent 39%,transparent 40%,
-    var(--color-3) 40%,var(--color-3) 59% ,
-    transparent 59%,transparent 60%,
-    var(--color-4) 60%, var(--color-4) 79%,
-    transparent 79%, transparent 80%,
-    var(--color-5) 80%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-
-@media screen and (min-width: 768px) {
-    h1 {
-        font-size: 6.5rem;
-    }
-}
 

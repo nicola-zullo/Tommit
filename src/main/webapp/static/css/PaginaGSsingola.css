@@ -10,21 +10,24 @@ main{
 
 .w3-border{
     position:relative;
-    height:60vw;
-    height: 60vh;
-    margin-left:20vh;
+    height:30vw;
+    width: 30vw;
+
 }
 
 .testo{
-    align:centre;
     position:absolute;
-    margin-top:5vh;
-    margin-left:60vw;
-
+    width:50%;
+    height:40vw;
+    text-align:center;
+    right:2vw;
 }
 
-.btn5{
 
+
+.btn5{
+    top:1vw;
+    width:60%;
     padding:0.7em 1.4em;
     border:none;
     box-sizing: border-box;
@@ -49,8 +52,58 @@ main{
     box-shadow:none;
 }
 
+.wrapper{
+    position:relative;
+    height:40vw;
+    width: 30vw;
+    margin-left:20vh;
+}
+
 .bottone{
-    position:absolute;
-    top:75vh;
-    margin-left:40vh;
+    text-align:center;
+    position:relative;
+
+
+}
+* {
+    box-sizing: border-box
+}
+
+:root {
+    --color-1: #186cb8;
+    --color-2: #2a9a9f;
+    --color-3: #f1b211;
+    --color-4: #e83611;
+    --color-5: #f9002f;
+}
+
+.titolo {
+    font-family: "Exo", sans-serif;
+    font-size:7vw;
+    font-weight:1000;
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    margin: auto;
+    text-transform: uppercase;
+    background: linear-gradient(219deg,
+    var(--color-1) 19%,
+    transparent 19%,transparent 20%,
+    var(--color-2) 20%, var(--color-2)  39%,
+    transparent 39%,transparent 40%,
+    var(--color-3) 40%,var(--color-3) 59% ,
+    transparent 59%,transparent 60%,
+    var(--color-4) 60%, var(--color-4) 79%,
+    transparent 79%, transparent 80%,
+    var(--color-5) 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 6.5rem;
+    }
 }
