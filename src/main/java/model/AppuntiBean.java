@@ -67,6 +67,11 @@ public class AppuntiBean {
     public void setIdUtente(int idUtente) {
         this.idUtente = idUtente;
     }
+    public boolean controlloLunghezzaStringa(String str){
+        if (str.length()<=0)
+            return false;
+        return true;
+    }
 
     @Override
     public String toString() {

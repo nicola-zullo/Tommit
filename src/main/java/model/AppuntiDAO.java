@@ -32,6 +32,14 @@ public class AppuntiDAO {
         }
 
     }
+    public boolean controlliRichiesta(AppuntiBean appunti){
+        if(appunti.controlloLunghezzaStringa(appunti.getTitolo()))
+            return false;
+        if(appunti.controlloLunghezzaStringa(appunti.getMateria()))
+            return false;
+
+        return true;
+    }
 
     public void doRemove(int id) {
         try (Connection con = ConPool.getConnection()) {
