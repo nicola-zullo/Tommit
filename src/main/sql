@@ -52,3 +52,10 @@ create table utenti_gs
     constraint utenti_gs_user_id_fk
         foreign key (id_utenti) references user (id)
 );
+
+create table donazione
+(
+    id     int not null
+        primary key,
+    totale int null
+);

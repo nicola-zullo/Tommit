@@ -1,13 +1,13 @@
 package model;
 
-public class CartaDICreditoStrategy implements PagamentoStrategy{
+public class CartaDICredito implements Pagamento {
 
     private String nome;
     private String numeroCarta;
     private String cvv;
     private String dataDiScadenza;
 
-    public CartaDICreditoStrategy (String nome, String ccNum, String cvv, String scadenza){
+    public CartaDICredito(String nome, String ccNum, String cvv, String scadenza){
         this.nome=nome;
         this.numeroCarta=ccNum;
         this.cvv=cvv;
@@ -16,6 +16,8 @@ public class CartaDICreditoStrategy implements PagamentoStrategy{
 
     @Override
     public String paga(int importo) {
-        return "Grazie per aver pagato "+importo+" con Carta Di Credito";
+        FondiDAO dao = new FondiDAO();
+        dao.doUpdate(importo);
+        return "Grazie per aver donato "+importo+"€ con Carta Di Credito";
     }
 }
