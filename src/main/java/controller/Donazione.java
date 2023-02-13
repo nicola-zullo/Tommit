@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Donazione extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //RaccoltaFondi raccoltaFondi = new RaccoltaFondi();
+        //RaccoltaFondi raccoltaFondi = new RaccoltaFondi();//
 
         Fondi fondi = new Fondi();
 
