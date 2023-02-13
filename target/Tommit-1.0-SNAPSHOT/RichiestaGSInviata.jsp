@@ -1,3 +1,4 @@
+<%@ page import="model.UtenteBean" %>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -7,6 +8,7 @@
 
 </head>
 <body>
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
 <div class="container">
     <div class="popup">
         <div class="popup-content">
@@ -17,7 +19,7 @@
         </div>
     </div>
 </div>
-
+<%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>
 </html>
 

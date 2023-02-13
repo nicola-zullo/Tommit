@@ -31,9 +31,9 @@
         if( (UtenteBean)request.getSession().getAttribute("utenteLoggato")==null ){
         %>
         <li><a href="index.jsp">Home</a></li>
-        <li><a href="utenteNonRegistratoError.jsp">Appunti</a></li>
-        <li><a href="utenteNonRegistratoError.jsp">Gruppi Studio</a></li>
-        <li><a href="utenteNonRegistratoError.jsp">Timer</a></li>
+        <li><a href="utenteNonRegistrato.jsp">Appunti</a></li>
+        <li><a href="utenteNonRegistrato.jsp">Gruppi Studio</a></li>
+        <li><a href="utenteNonRegistrato.jsp">Timer</a></li>
         <li><a href="login.jsp">Login</a></li>
         <% //admin
         }else if( (UtenteBean)request.getSession().getAttribute("utenteLoggato")!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==true) {

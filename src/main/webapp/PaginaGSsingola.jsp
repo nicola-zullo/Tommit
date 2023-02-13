@@ -3,7 +3,7 @@
   User: laimb
   Date: 09/02/2023
   Time: 11:51
-  To change this template use File | Settings | File Templates.
+  To change this template use File | SettincurrentGS | File Templates.
 --%>
 <!DOCTYPE html>
 <html lang="en" >
@@ -19,29 +19,29 @@
 </head>
 <body>
 
-    <main>
-        <%@ include file="navbar.jsp" %>
+<main>
+    <%@ include file="navbar.jsp" %>
+    <div class="testo" >
+        <h1 class="titolo"> ${currentGS.getNome()} </h1>
+        <h2>${currentGS.getMateria()} </h2>
+        <h2>${currentGS.getLuogo()} </h2>
+        <h2 class="obbiettivi">${currentGS.getObiettivo()}</h2>
 
-        <section class="hero-unit">
-            <img src="https://marketplace.canva.com/EAEdhZMmjlU/1/0/1600w/canva-viola-moderno-tecnologia-e-gaming-logo-mDRZg0vq1eY.jpg" class="w3-border" alt="my image">
-            <div class="testo" >
-                <h1> ${gruppo.getNome()}</h1>
-                <h4>${gruppo.getMateria()}</h4>
-                <h4>${gruppo.getLuogo()}</h4>
-                <h4>${gruppo.getObiettivo()}</h4>
+    </div>
 
-            </div>
-
-
-            <div class="bottone">
+    <div class="wrapper">
+        <img src="static/immagini/${currentGS.getMateria()}.png" class="w3-border" alt="my image">
+        <div class="bottone">
+            <form action="iscrizione-gs" method="post">
+                <input type="hidden" value="${currentGS.getNome()}" name="nome">
                 <button class="btn5">
-                    <a href="iscrizione-gs?nome=${gruppo.getNome()}">unisciti al gruppo</a>
+                    Unisciti al gruppo
                 </button>
-            </div>
+            </form>
+        </div>
+    </div>
 
 
-
-        </section>
-    </main>
+</main>
 </body>
 </html>

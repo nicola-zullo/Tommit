@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="apache.shale.test" type="repository">
+    <properties maven-id="org.apache.shale:shale-test:1.0.4" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/shale/shale-test/1.0.4/shale-test-1.0.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/shale/shale-test/1.0.4/shale-test-1.0.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

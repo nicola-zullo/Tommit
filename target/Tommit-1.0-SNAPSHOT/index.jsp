@@ -20,7 +20,8 @@
 
 
 <main>
-	<%@ include file="/static/html/navbar.html"%>
+	<%@ include file="/navbar.jsp"%>
+	<% UtenteBean utente = (UtenteBean) request.getSession().getAttribute("utenteLoggato");%>
 	<header>
 		<h1 id="title-element">Tommit</h1>
 	</header>
@@ -36,8 +37,6 @@
 				<radialGradient id="_Radial2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(204.227,0,0,204.227,30.3,63.8633)"><stop offset="0%" style="stop-color:#fff;stop-opacity:0.12549"/><stop offset="100%" style="stop-color:#ff674c;stop-opacity:0.0196078"/></radialGradient><radialGradient id="_Radial3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(101.269,0,0,101.269,82.0457,39.188)"><stop offset="0%" style="stop-color:#fff;stop-opacity:0.12549"/><stop offset="100%" style="stop-color:#ff674c;stop-opacity:0.0196078"/></radialGradient><radialGradient id="_Radial4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(402.626,0,0,402.626,177.888,81.9518)"><stop offset="0%" style="stop-color:#000;stop-opacity:0"/><stop offset="100%" style="stop-color:#e45c43;stop-opacity:0.25098"/></radialGradient><radialGradient id="_Radial5" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(118.407,0,0,118.407,138.739,41.2851)"><stop offset="0%" style="stop-color:#000;stop-opacity:0"/><stop offset="100%" style="stop-color:#e45c43;stop-opacity:0.25098"/></radialGradient><radialGradient id="_Radial6" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(82.0797,0,0,82.0797,80.6609,37.549)"><stop offset="0%" style="stop-color:#000;stop-opacity:0"/><stop offset="100%" style="stop-color:#e45c43;stop-opacity:0.25098"/></radialGradient><radialGradient id="_Radial7" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(77.6458,0,0,77.6458,85.0664,37.1873)"><stop offset="0%" style="stop-color:#000;stop-opacity:0"/><stop offset="100%" style="stop-color:#e45c43;stop-opacity:0.25098"/></radialGradient><linearGradient id="_Linear8" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(8.43364,15.9422,-15.9422,8.43364,84.7897,20.547)"><stop offset="0%" style="stop-color:#b9c261;stop-opacity:1"/><stop offset="100%" style="stop-color:#99a14b;stop-opacity:1"/></linearGradient></defs></svg>
 
 			<div class="timer__countdown-container cf">
-				<button class="timer__button timer__button--left" id="timer-decrease"><i class="ion-ios-minus-empty"></i></button>
-				<button class="timer__button timer__button--right" id="timer-increase"><i class="ion-ios-plus-empty"></i></button>
 				<div class="timer__countdown" id="timer-countdown">
 					<span class="timer__countdown-char">2</span><span class="timer__countdown-char">5</span>:<span class="timer__countdown-char">0</span><span class="timer__countdown-char">0</span>
 				</div>

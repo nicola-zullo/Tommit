@@ -14,6 +14,8 @@
 
 
 <body>
+<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null && ((UtenteBean) request.getSession().getAttribute("utenteLoggato")).isRuolo()==true){ %>
+
 <main>
     <section class="hero-unit">
         <%@ include file="/navbar.jsp"%>
@@ -37,12 +39,21 @@
                         <td>${appunti.getId()}</td>
                         <td>${appunti.getTitolo()}</td>
                         <td>${appunti.getMateria()}</td>
+                        <form id="aform" action="approva-appunti-servlet" method="post">
+                            <input type="hidden" name="id" value ='${appunti.getId()}' />
+                            <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Conferma" placeholder="Conferma"></td>
+                        </form>
+                        <form id="rform" action="rifiuta-Appunti-servlet" method="post">
+                            <input type="hidden" name="id" value ='${appunti.getId()}' />
+                            <td><input style="background-color: #943e2f" type = "submit" name = "next" value = "Rifiuta" placeholder="Rifiuta"></td>
+                        </form>
                     </tbody>
                 </c:forEach>
             </table>
         </div>
     </section>
 </main>
+<%} else{ response.sendRedirect("./errorPage.jsp");}%>
 </body>
 
 

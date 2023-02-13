@@ -19,8 +19,9 @@ public class ListGS extends HttpServlet {
         GSDAO action = new GSDAO();
         ArrayList<GSBean> list = new ArrayList<>();
         list = action.listGSAccessibili();
+        System.out.print(list.toString());
         String destPage="PaginaGS.jsp";
-        request.setAttribute("listGS", list);
+        request.setAttribute("listaGS", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
         dispatcher.forward(request, response);
     }
