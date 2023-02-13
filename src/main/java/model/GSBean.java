@@ -49,5 +49,15 @@ public class GSBean {
         this.obiettivo = obiettivo;
     }
 
-
+    @Override
+    public String toString() {
+        return "GSBean{" +
+                "nome='" + nome + '\'' +
+                ", materia='" + materia + '\'' +
+                ", luogo='" + luogo + '\'' +
+                ", obiettivo='" + obiettivo + '\'' +
+                ", stato=" + stato +
+                ", idCreatore=" + idCreatore +
+                '}';
+    }
 }

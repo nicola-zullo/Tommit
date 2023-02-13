@@ -10,22 +10,20 @@ import model.GSBean;
 import model.GSDAO;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-@WebServlet(name = "list-GS", value = "/list-GS")
-public class ListGS extends HttpServlet {
+@WebServlet(name = "pagina-gs-servlet", value = "/pagina-gs-servlet")
 
+public class PaginaGS extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String nome = request.getParameter("nome");
         GSDAO action = new GSDAO();
-        ArrayList<GSBean> list = new ArrayList<>();
-        list = action.listGSAccessibili();
-        System.out.print(list.toString());
-        String destPage="PaginaGS.jsp";
-        request.setAttribute("listaGS", list);
+        GSBean gs = new GSBean();
+        gs = action.retriveGS(nome);
+        String destPage="PaginaGSsingola.jsp";
+        request.setAttribute("currentGS", gs);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
         dispatcher.forward(request, response);
     }
-
 }
-
-

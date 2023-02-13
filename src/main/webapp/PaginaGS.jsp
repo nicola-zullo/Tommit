@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="static/css/search_bar.css">
@@ -24,53 +26,54 @@
         </div>
 
         <div class ="box">
-            <form action="selectByCategory" method="get"></form>
+            <form action="listGSCategory" method="get">
             <div class="comboBox">
                 <div class="select" tabindex="1">
-                    <input class="selectopt" name="test" type="radio" id="opt1" checked>
-                    <label for="opt1" class="option">Informatica</label>
-                    <input class="selectopt" name="test" type="radio" id="opt2">
-                    <label for="opt2" class="option">Sociale</label>
-                    <input class="selectopt" name="test" type="radio" id="opt3">
-                    <label for="opt3" class="option">Economia</label>
-                    <input class="selectopt" name="test" type="radio" id="opt4">
-                    <label for="opt4" class="option">Umanistica</label>
-                    <input class="selectopt" name="test" type="radio" id="opt5">
-                    <label for="opt5" class="option">Scientifica</label>
-                    <input class="selectopt" name="test" type="radio" id="opt6">
-                    <label for="opt6" class="option">Santitaria</label>
-                    <input class="selectopt" name="test" type="radio" id="opt7">
-                    <label for="opt7" class="option">Storica</label>
-                    <input class="selectopt" name="test" type="radio" id="opt8">
-                    <label for="opt8" class="option">Artistica</label>
+                    <input class="selectopt" name="category" type="radio" id="opt0" checked>
+                    <label for="opt0" class="option">Seleziona il filtro</label>
+                    <input class="selectopt" name="category" type="radio" id="opt1" value="artistica">
+                    <label for="opt1" class="option">Artistica</label>
+                    <input class="selectopt" name="category" type="radio" id="opt2" value="umanistica">
+                    <label for="opt2" class="option">Umanistica</label>
+                    <input class="selectopt" name="category" type="radio" id="opt3" value="scientifico">
+                    <label for="opt3" class="option">Scientifico</label>
+                    <input class="selectopt" name="category" type="radio" id="opt4" value="informatica">
+                    <label for="opt4" class="option">Informatica</label>
+                    <input class="selectopt" name="category" type="radio" id="opt5" value="sanitario">
+                    <label for="opt5" class="option">Sanitaria</label>
+                    <input class="selectopt" name="category" type="radio" id="opt6" value="lingue">
+                    <label for="opt6" class="option">Lingue</label>
                 </div>
             </div>
             <div class="bottone2">
                 <button class="btn6" onsubmit="ApplicaFiltro">
-                    unisciti al gruppo
+                    Filtra per materia
                 </button>
             </div>
             </form>
         </div>
 
         <div class="gruppi">
-            <c:forEach var="gs" items="${listaGS}">
-                <form action="">
-                    <input type="hidden" name="nome" value="${gs.getNome()}">
-                    <div class="container">
-                        <div class="test_box box-01 col-xs-6 col-md-4">
-                            <div class="inner">
-                                <a href="" class="test_click">
-                                    <div class="flex_this">
-                                        <h1 class="test_title">${gs.getNome()}</h1>
-                                        <span class="test_link">Link</span>
-                                    </div>
-                                </a>
+                <c:forEach var="gs" items="${listaGS}">
+                    <form action="pagina-gs-servlet" method="get">
+                        <input type="hidden" name="nome" value="${gs.getNome()}">
+                        <div class="container">
+                            <div class="test_box box-01 col-xs-6 col-md-4">
+                                <div class="inner">
+                                    <a href="pagina-gs-servlet" class="test_click">
+                                        <div class="flex_this">
+                                            <h1 class="test_title">${gs.getNome()}</h1>
+                                            <span class="test_link">
+                                                <input type="submit" class="test_link">Vai al Gruppo Studio</input>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
-            </c:forEach>
+                    </form>
+                </c:forEach>
+
         </div>
 
     </section>

@@ -12,20 +12,18 @@ import model.GSDAO;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "list-GS", value = "/list-GS")
-public class ListGS extends HttpServlet {
+@WebServlet(name = "listGSCategory", value = "/listGSCategory")
 
+public class ListaGSByCategory extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String materia = request.getParameter("category");
+        System.out.print(materia);
         GSDAO action = new GSDAO();
         ArrayList<GSBean> list = new ArrayList<>();
-        list = action.listGSAccessibili();
-        System.out.print(list.toString());
+        list= action.listGSByMateria(materia);
         String destPage="PaginaGS.jsp";
         request.setAttribute("listaGS", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
         dispatcher.forward(request, response);
     }
-
 }
-
-
