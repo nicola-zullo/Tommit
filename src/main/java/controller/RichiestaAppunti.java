@@ -16,26 +16,6 @@ import java.io.IOException;
 @WebServlet(name="richiesta-creazione-appunti-servlet", value ="/richiesta-creazione-appunti-servlet")
 public class RichiestaAppunti extends HttpServlet {
 
-    public void richiesta(HttpServletRequest request, HttpServletResponse response, AppuntiDAO appuntiDAO){
-        String titolo = request.getParameter("titolo");
-        String materia = request.getParameter("materia");
-        String testo = request.getParameter("testo");
-
-        int flag = 0;
-        System.out.println(appuntiDAO.isValidTitolo(titolo)+titolo);
-        if(!appuntiDAO.isValidTitolo(titolo)) {
-            request.setAttribute("errTitolo", "Titolo non valido");
-            flag++;
-        }
-        if(!appuntiDAO.isValidMateria(materia)){
-            request.setAttribute("errMateria", "Materia non valida");
-            flag++;
-        }
-        if(!appuntiDAO.isValidTesto(testo)){
-            request.setAttribute("errTesto", "Testo non valido");
-            flag++;
-        }
-    }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
