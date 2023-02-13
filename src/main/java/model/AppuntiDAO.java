@@ -6,12 +6,12 @@ import java.util.regex.Pattern;
 
 public class AppuntiDAO {
 
-        public void doSave(AppuntiBean appuntiBean) {
+        public AppuntiBean doSave(AppuntiBean appuntiBean) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
                     "INSERT INTO appunti (testo, materia, creatore, stato, titolo)  VALUES(?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
-            //associamo i "?" a i  valori dell'appuntiBean
+            //associamo i "?" a i valori dell'appuntiBean
             ps.setString(1, appuntiBean.getTesto());
             ps.setString(2, appuntiBean.getMateria());
             ps.setInt(3, appuntiBean.getIdUtente());
@@ -26,10 +26,11 @@ public class AppuntiDAO {
             int id = rs.getInt(1);
             appuntiBean.setId(id);
             System.out.print(appuntiBean.toString());
-
+            return appuntiBean;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     public void doRemove(int id) {

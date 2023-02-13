@@ -13,7 +13,7 @@ public class RichiestaAppuntiTest {
         appuntiBean.setTitolo("");
         appuntiBean.setMateria("Scientifico");
         appuntiBean.setTesto("hjdankas");
-        Assertion.assertNull(dao.doSave(appuntiBean));
+        Assertions.assertNull(dao.doSave(appuntiBean));
     }
 
     @Test
@@ -22,7 +22,7 @@ public class RichiestaAppuntiTest {
         appuntiBean.setTitolo("Napoleone");
         appuntiBean.setMateria("Scientifico");
         appuntiBean.setTesto("");
-        Assertion.assertNull(dao.doSave(appuntiBean));
+        Assertions.assertNull(dao.doSave(appuntiBean));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class RichiestaAppuntiTest {
         appuntiBean.setTitolo("");
         appuntiBean.setMateria("Scientifico");
         appuntiBean.setTesto("");
-        Assertion.assertNull(dao.doSave(appuntiBean));
+        Assertions.assertNull(dao.doSave(appuntiBean));
     }
 
     @Test
@@ -40,7 +40,7 @@ public class RichiestaAppuntiTest {
         appuntiBean.setTitolo("");
         appuntiBean.setMateria("baksnksnalknsa");
         appuntiBean.setTesto("Psicologia");
-        Assertion.assertNull(dao.doSave(appuntiBean));
+        Assertions.assertNull(dao.doSave(appuntiBean));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class RichiestaAppuntiTest {
         appuntiBean.setTitolo("Napoleone");
         appuntiBean.setMateria("Umanistica");
         appuntiBean.setTesto("bdskjnslnls");
-        Assertion.assertNull(dao.doSave(appuntiBean));
+        Assertions.assertNull(dao.doSave(appuntiBean));
     }
 
 }
