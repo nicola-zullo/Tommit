@@ -1,6 +1,6 @@
 package model;
 
-public interface PagamentoStrategy {
+public interface Pagamento {
 
     public String paga(int importo);
 

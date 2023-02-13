@@ -5,6 +5,7 @@ public class RaccoltaFondi {
     int fondiRicevuti;
 
     public RaccoltaFondi() {
+
         this.fondiRicevuti = 0;
     }
 
@@ -12,11 +13,12 @@ public class RaccoltaFondi {
         return fondiRicevuti;
     }
 
-    public void setFondiRicevuti(int fondiRicevuti) {
+    public void setFondiRicevuti(
+            int fondiRicevuti) {
         this.fondiRicevuti = fondiRicevuti;
     }
 
-    public String riceviFondi(PagamentoStrategy paymenthMethod, int amount){
+    public String riceviFondi(Pagamento paymenthMethod, int amount){
         setFondiRicevuti(amount);
         return paymenthMethod.paga(amount);
     }
