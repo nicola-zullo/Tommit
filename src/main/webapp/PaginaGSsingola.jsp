@@ -18,32 +18,30 @@
 
 </head>
 <body>
-<% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
-    <main>
-        <%@ include file="navbar.jsp" %>
 
-        <section class="hero-unit">
-            <img src="https://marketplace.canva.com/EAEdhZMmjlU/1/0/1600w/canva-viola-moderno-tecnologia-e-gaming-logo-mDRZg0vq1eY.jpg" class="w3-border" alt="my image">
-            <div class="testo" >
-                <h1> ${gruppo.getNome()}</h1>
-                <h4>${gruppo.getMateria()}</h4>
-                <h4>${gruppo.getLuogo()}</h4>
-                <h4>${gruppo.getObiettivo()}</h4>
+<main>
+    <%@ include file="navbar.jsp" %>
+    <div class="testo" >
+        <h1 class="titolo"> ${gs.getNome()} </h1>
+        <h2>${gs.getMaterie()} </h2>
+        <h2>${gs.getLuogo} </h2>
+        <h2 class="obbiettivi">${gs.getObiettivi}</h2>
 
-            </div>
+    </div>
 
-
-            <div class="bottone">
+    <div class="wrapper">
+        <img src="static/immagini/${gs.getMaterie()}.png" class="w3-border" alt="my image">
+        <div class="bottone">
+            <form action="iscrizione-gs" method="post">
+                <input type="hidden" value="${gs.getNome()}" name="nome">
                 <button class="btn5">
-                    <a href="iscrizione-gs?nome=${gruppo.getNome()}">unisciti al gruppo</a>
+                    unisciti al gruppo
                 </button>
-            </div>
+            </form>
+        </div>
+    </div>
 
 
-
-        </section>
-    </main>
-    <%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
+</main>
 </body>
-
 </html>
