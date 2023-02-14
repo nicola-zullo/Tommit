@@ -3,31 +3,51 @@ package model;
 import java.sql.*;
 import java.util.ArrayList;
 
+
 public class GSDAO {
 
-    public void doSave(GSBean gs) {
+    public GSBean doSave(GSBean gsBean) {
+
+        if(!controlliRichiesta(gsBean))
+            return null;
+
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
-                    "INSERT INTO gruppistudio (Nome,Materia,Luogo,Obiettivo,Stato,idCreatore)  VALUES(?,?,?,?,?,?)",
+                    "INSERT INTO GS (nome, materia, luogo, obiettivi, stato)  VALUES(?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
-            //associamo i "?" a i  valori dell'utente
-            ps.setString(1, gs.getNome());
-            ps.setString(2, gs.getMateria());
-            ps.setString(3, gs.getLuogo());
-            ps.setString(4, gs.getObiettivo());
-            ps.setBoolean(5, gs.getStato());
-            ps.setInt(6,gs.getIdCreatore());
+            //associamo i "?" a i valori dell'appuntiBean
+            ps.setString(1, gsBean.getNome());
+            ps.setString(2, gsBean.getMateria());
+            ps.setString(3, gsBean.getLuogo());
+            ps.setString(4, gsBean.getObiettivo());
+            ps.setBoolean(5, gsBean.getStato());
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }
 
-            ResultSet rs = ps.getGeneratedKeys();
-            rs.next();
-
+            System.out.print(gsBean.toString());
+            return gsBean;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
+
+    private boolean controlliRichiesta(GSBean gsBean) {
+
+        if (gsBean.getNome() == "" || gsBean.getNome() == null)
+            return false;
+        if (gsBean.getObiettivo() == "" || gsBean.getObiettivo() == null)
+            return false;
+        if (gsBean.getLuogo() == "" || gsBean.getLuogo() == null)
+            return false;
+        if (!(gsBean.getMateria().equalsIgnoreCase("umanistica") || gsBean.getMateria().equalsIgnoreCase("scientifico") || gsBean.getMateria().equalsIgnoreCase("artistica") || gsBean.getMateria().equalsIgnoreCase("informatica") || gsBean.getMateria().equalsIgnoreCase("lingue") || gsBean.getMateria().equalsIgnoreCase("sanitario")))
+            return false;
+
+
+        return true;
+    }
+
 
     public void doRemove(String nome){
 

@@ -12,15 +12,14 @@
 </head>
 <body>
 
-
-
 <main>
+    <% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
     <%@ include file="navbar.jsp" %>
     <section class="hero-unit">
 
 
-        <div class="bottone">
-            <button class="btn5">
+        <div class="bottone" >
+            <button onclick="location.href='RichiestaCreazioneGS.jsp'" class="btn5">
                 Crea Gruppo Studio
             </button>
         </div>
@@ -54,33 +53,28 @@
         </div>
 
         <div class="gruppi">
-                <c:forEach var="gs" items="${listaGS}">
-                    <form action="pagina-gs-servlet" method="get">
-                        <input type="hidden" name="nome" value="${gs.getNome()}">
-                        <div class="container">
-                            <div class="test_box box-01 col-xs-6 col-md-4">
-                                <div class="inner">
-                                    <a href="pagina-gs-servlet" class="test_click">
-                                        <div class="flex_this">
-                                            <h1 class="test_title">${gs.getNome()}</h1>
-                                            <span class="test_link">
-                                                <input type="submit" class="test_link">Vai al Gruppo Studio</input>
-                                            </span>
-                                        </div>
-                                    </a>
-                                </div>
+            <div class="container">
+                <c:forEach var="item" items="${ListGS}">
+                    <form action="pagina-appunto-servlet"><input type="hidden" name="id" value="${item.getId()}">
+                        <div class="test_box box-01 col-xs-6 col-md-4">
+                            <div class="inner" style="background-image:url('static/immagini/${item.getTitolo()}.png')" >
+                                <a href="" class="test_click">
+                                    <div class="flex_this">
+                                        <h1 class="test_title">${item.getTitolo()}</h1>
+                                        <input type="submit" value="${item.getTitolo()}">
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </form>
                 </c:forEach>
-
+            </div>
         </div>
-
     </section>
 </main>
 <!-- partial -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script><script  src="./script.js"></script>
-
+<%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>
 </html>

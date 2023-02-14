@@ -119,7 +119,6 @@ main{
 }
 
 .box-01 .inner {
-    background-image: url('https://picsum.photos/1024/768?image=1033');
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;

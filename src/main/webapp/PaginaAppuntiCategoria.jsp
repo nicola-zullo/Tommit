@@ -22,19 +22,17 @@
 <div class="wrapper">
     <div class="container">
         <h1>Appunti!</h1>
+        <a class="pubblica" href="RichiestaAggiuntaAppunti.jsp">pubblica</a>
     </div>
 </div>
 
 
 <section class="hero-unit">
-
-
-    <c:forEach var="item" items="${listaAppunti}">
-        <form action="pagina-appunto-servlet">
-            <input type="hidden" name="id" value="${item.getId()}">
-            <div class="container">
+    <div class="container">
+        <c:forEach var="item" items="${ListAppunti}">
+            <form action="pagina-appunto-servlet"><input type="hidden" name="id" value="${item.getId()}">
                 <div class="test_box box-01 col-xs-6 col-md-4">
-                    <div class="inner">
+                    <div class="inner" style="background-image:url('static/immagini/${item.getTitolo()}.png')" >
                         <a href="" class="test_click">
                             <div class="flex_this">
                                 <h1 class="test_title">${item.getTitolo()}</h1>
@@ -43,9 +41,9 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </form>
-    </c:forEach>
+            </form>
+        </c:forEach>
+    </div>
 
 </section>
 </main>
