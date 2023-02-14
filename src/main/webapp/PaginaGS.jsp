@@ -54,14 +54,14 @@
 
         <div class="gruppi">
             <div class="container">
-                <c:forEach var="item" items="${ListGS}">
-                    <form action="pagina-appunto-servlet"><input type="hidden" name="id" value="${item.getId()}">
+                <c:forEach var="item" items="${listGS}">
+                    <form action="pagina-gs-servlet"><input type="hidden" name="nome" value="${item.getNome()}">
                         <div class="test_box box-01 col-xs-6 col-md-4">
-                            <div class="inner" style="background-image:url('static/immagini/${item.getTitolo()}.png')" >
+                            <div class="inner" style="background-image:url('static/immagini/${item.getMateria()}.png')" >
                                 <a href="" class="test_click">
                                     <div class="flex_this">
-                                        <h1 class="test_title">${item.getTitolo()}</h1>
-                                        <input type="submit" value="${item.getTitolo()}">
+                                        <h1 class="test_title">${item.getNome()}</h1>
+                                        <input type="submit" value="${item.getNome()}">
                                     </div>
                                 </a>
                             </div>
