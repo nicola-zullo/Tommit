@@ -36,7 +36,7 @@ public class RegistraUtente extends HttpServlet {
 
             UtenteDAO utenteDAO = new UtenteDAO();
 
-            utenteDAO.doSave(u);
+            u = utenteDAO.doSave(u);
 
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
