@@ -11,8 +11,8 @@ public class RichiestaAppuntiTest {
     public void TC_1_1_1() throws Exception{
         AppuntiBean appuntiBean = new AppuntiBean();
         appuntiBean.setTitolo("");
-        appuntiBean.setMateria("Scientifico");
         appuntiBean.setTesto("hjdankas");
+        appuntiBean.setMateria("Scientifico");
         Assertions.assertNull(dao.doSave(appuntiBean));
     }
 
@@ -20,8 +20,8 @@ public class RichiestaAppuntiTest {
     public void TC_1_1_2() throws Exception{
         AppuntiBean appuntiBean = new AppuntiBean();
         appuntiBean.setTitolo("Napoleone");
-        appuntiBean.setMateria("Scientifico");
         appuntiBean.setTesto("");
+        appuntiBean.setMateria("Umanistica");
         Assertions.assertNull(dao.doSave(appuntiBean));
     }
 
@@ -29,8 +29,8 @@ public class RichiestaAppuntiTest {
     public void TC_1_1_3() throws Exception{
         AppuntiBean appuntiBean = new AppuntiBean();
         appuntiBean.setTitolo("");
-        appuntiBean.setMateria("Scientifico");
         appuntiBean.setTesto("");
+        appuntiBean.setMateria("Scientifico");
         Assertions.assertNull(dao.doSave(appuntiBean));
     }
 
@@ -38,8 +38,8 @@ public class RichiestaAppuntiTest {
     public void TC_1_1_4() throws Exception{
         AppuntiBean appuntiBean = new AppuntiBean();
         appuntiBean.setTitolo("");
-        appuntiBean.setMateria("baksnksnalknsa");
         appuntiBean.setTesto("Psicologia");
+        appuntiBean.setMateria("baksnksnalknsa");;
         Assertions.assertNull(dao.doSave(appuntiBean));
     }
 
@@ -47,9 +47,9 @@ public class RichiestaAppuntiTest {
     public void TC_1_1_5() throws Exception{
         AppuntiBean appuntiBean = new AppuntiBean();
         appuntiBean.setTitolo("Napoleone");
-        appuntiBean.setMateria("Umanistica");
         appuntiBean.setTesto("bdskjnslnls");
-        Assertions.assertNull(dao.doSave(appuntiBean));
+        appuntiBean.setMateria("Umanistica");
+        Assertions.assertNotNull(dao.doSave(appuntiBean));
     }
 
 }
