@@ -26,9 +26,6 @@
     <header>
         <h1 id="title-element">Timer</h1>
     </header>
-    <form>
-       <% TimerBean timer = (TimerBean) request.getSession().getAttribute("utenteLoggato"); %>
-    </form>
     <section class="timer">
         <div class="timer__container">
             <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">

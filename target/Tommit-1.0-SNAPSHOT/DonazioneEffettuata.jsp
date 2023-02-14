@@ -9,11 +9,20 @@
 <html>
 <head>
     <title>Donazione Effettuata</title>
+    <link rel="stylesheet" href="static/css/RichiestaGSInviata.css">
 
-   <h1>${ritornoPagamento}</h1>
+
 
 </head>
 <body>
-
+<div class="container">
+    <div class="popup">
+        <div class="popup-content">
+            <h1 class="popup-title">la tua donazione e stata effettuata!</h1>
+            <p class="popup-body">${ritornoPagamento}</p>
+            <a href="index.jsp" class="popup-button">Home Page</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>
