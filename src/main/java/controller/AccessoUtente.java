@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.ConPool;
 import model.UtenteBean;
+import model.UtenteDAO;
 
 import java.awt.*;
 import java.io.IOException;
@@ -24,36 +25,20 @@ public class AccessoUtente extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
+        UtenteDAO dao = new UtenteDAO();
+        UtenteBean user = new UtenteBean();
+        user=dao.doCheck(username,password);
         //verifica se l'utente è registrato oppure no
-        try (Connection con = ConPool.getConnection()) {
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM user WHERE Username = '"+username+"' AND Password = '"+password + "'");
-            if(rs.next()){
-                if (rs.getBoolean(8)==true){
+            if(user!= null){
+                if (user.isRuolo()==true){
                     /*Utente Admin*/
-                        UtenteBean utenteLoggato = new UtenteBean();
-                        utenteLoggato.setId(rs.getInt(1));
-                        utenteLoggato.setUsername(rs.getString(2));
-                        utenteLoggato.setName(rs.getString(3));
-                        utenteLoggato.setSurname(rs.getString(4));
-                        utenteLoggato.setEmail(rs.getString(5));
-                        utenteLoggato.setPassword(rs.getString(6));
-                        utenteLoggato.setRuolo(true);
-                        request.getSession().setAttribute("utenteLoggato", utenteLoggato);
+                        request.getSession().setAttribute("utenteLoggato", user);
                         RequestDispatcher dispatcher = request.getRequestDispatcher("PaginaAdmin.jsp");
                         dispatcher.forward(request, response);
-                    /*Utente Admin*/
+
                 }else{
-                    UtenteBean utenteLoggato = new UtenteBean();
-                    utenteLoggato.setId(rs.getInt(1));
-                    utenteLoggato.setUsername(rs.getString(2));
-                    utenteLoggato.setName(rs.getString(3));
-                    utenteLoggato.setSurname(rs.getString(4));
-                    utenteLoggato.setEmail(rs.getString(5));
-                    utenteLoggato.setPassword((rs.getString(6)));
-                    utenteLoggato.setCF(rs.getString(7));
-                    request.getSession().setAttribute("utenteLoggato", utenteLoggato);
+                    /*Utente Studente*/
+                    request.getSession().setAttribute("utenteLoggato", user);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("PaginaUtente.jsp");
                     dispatcher.forward(request, response);
                 }
@@ -61,11 +46,6 @@ public class AccessoUtente extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
                 dispatcher.forward(request, response);
             }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
 
     }
 

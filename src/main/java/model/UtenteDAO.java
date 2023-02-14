@@ -89,21 +89,29 @@ public class UtenteDAO {
 
     }
 
-    public boolean controlloEmail(String email) {
-
-        boolean check;
-
+    public UtenteBean doCheck(String username, String password) {
+        UtenteBean utenteLoggato = new UtenteBean();
         try (Connection con = ConPool.getConnection()) {
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT email from user where email ='" + email + "';");
-            if (rs.next()) {
-                check=true;
-            }else
-                check=false;
+            ResultSet rs = stmt.executeQuery("SELECT * FROM user WHERE Username = '"+username+"' AND Password = '"+password + "'");
+            while(rs.next()) {
+                utenteLoggato.setId(rs.getInt(1));
+                utenteLoggato.setUsername(rs.getString(2));
+                utenteLoggato.setName(rs.getString(3));
+                utenteLoggato.setSurname(rs.getString(4));
+                utenteLoggato.setEmail(rs.getString(5));
+                utenteLoggato.setPassword(rs.getString(6));
+                utenteLoggato.setCF(rs.getString(7));
+                utenteLoggato.setRuolo(rs.getBoolean(8));
+            }
+            if(utenteLoggato.getUsername()==null) {
+                return null;
+            }else{
+                return utenteLoggato;
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return check;
     }
 
     public void doUpdate(UtenteBean u){
