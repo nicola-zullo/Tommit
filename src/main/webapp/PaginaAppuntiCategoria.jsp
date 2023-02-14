@@ -21,7 +21,7 @@
 
 <div class="wrapper">
     <div class="container">
-        <h1>Appunti!</h1>
+        <h1 class="titoloo">Appunti!</h1>
         <a class="pubblica" href="RichiestaAggiuntaAppunti.jsp">pubblica</a>
     </div>
 </div>
