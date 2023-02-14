@@ -5,46 +5,17 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class AppuntiDAO {
-    private static final Pattern TITOLO = Pattern.compile("^[a-zA-Z0-9\\-_]{1,400}$");
-    private static final Pattern MATERIA = Pattern.compile("^[a-zA-Z0-9\\-_]{1,400}$");
-    private static final Pattern TESTO = Pattern.compile("^[a-zA-Z0-9\\-_]{1,400}$");
 
+        public AppuntiBean doSave(AppuntiBean appuntiBean) {
 
-    /**Questo metodo serve per convalidare lo username dell'utente secondo la regex
-     * <p><b>pre: </b> lo username != null </p>
-     * @param username username dell'utente per verificare la sua correttezza
-     * @return true se l'username è falido, false altrimenti
-     * */
-    public boolean isValidTitolo(String titolo){
+            if(!controlliRichiesta(appuntiBean))
+                return null;
 
-        return TITOLO.matcher(titolo).matches();
-    }
-
-
-    /** Questo metodo consente di validare l’email dell’utente secondo la regex
-     * <p><b>pre: </b>email != null</p>
-     * @param email email dell'utente da convalidare
-     * @return true se l'email rispetta la regex false altrimenti
-     * */
-    public boolean isValidMateria(String materia){
-        return MATERIA.matcher(materia).matches();
-    }
-
-
-    /** Questo metodo consente di validare la password dell’utente secondo la regex
-     * <p><b>pre: </b>password != null</p>
-     * @param passwd password dell'utente da convalidare
-     * @return true se la password rispetta la regex, false altrimenti
-     * */
-    public boolean isValidTesto(String testo) {
-        return TESTO.matcher(testo).matches();
-    }
-        public void doSave(AppuntiBean appuntiBean) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
                     "INSERT INTO appunti (testo, materia, creatore, stato, titolo)  VALUES(?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
-            //associamo i "?" a i  valori dell'appuntiBean
+            //associamo i "?" a i valori dell'appuntiBean
             ps.setString(1, appuntiBean.getTesto());
             ps.setString(2, appuntiBean.getMateria());
             ps.setInt(3, appuntiBean.getIdUtente());
@@ -59,10 +30,23 @@ public class AppuntiDAO {
             int id = rs.getInt(1);
             appuntiBean.setId(id);
             System.out.print(appuntiBean.toString());
-
+            return appuntiBean;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        }
+
+    public boolean controlliRichiesta(AppuntiBean appunti){
+
+            if (appunti.getTitolo() == "" || appunti.getTitolo() == null)
+                return false;
+            if (appunti.getTesto() == "" || appunti.getTesto() == null)
+                return false;
+            if (!(appunti.getMateria().equalsIgnoreCase("umanistica") || appunti.getMateria().equalsIgnoreCase("scientifico") || appunti.getMateria().equalsIgnoreCase("artistica") || appunti.getMateria().equalsIgnoreCase("informatica") || appunti.getMateria().equalsIgnoreCase("lingue") || appunti.getMateria().equalsIgnoreCase("sanitario")))
+                return false;
+
+            return true;
     }
 
     public void doRemove(int id) {

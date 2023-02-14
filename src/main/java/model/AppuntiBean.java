@@ -22,6 +22,12 @@ public class AppuntiBean {
     public AppuntiBean() {
     }
 
+    public AppuntiBean(String titolo, String testo, String materia) {
+        this.titolo = titolo;
+        this.testo = testo;
+        this.materia = materia;
+    }
+
     public String getTitolo() {
         return titolo;
     }
@@ -60,6 +66,11 @@ public class AppuntiBean {
 
     public void setIdUtente(int idUtente) {
         this.idUtente = idUtente;
+    }
+    public boolean controlloLunghezzaStringa(String str){
+        if (str.length()<=0)
+            return false;
+        return true;
     }
 
     @Override
