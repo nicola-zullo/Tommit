@@ -7,6 +7,10 @@ import java.util.regex.Pattern;
 public class AppuntiDAO {
 
         public AppuntiBean doSave(AppuntiBean appuntiBean) {
+
+            if(!controlliRichiesta(appuntiBean))
+                return null;
+
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
                     "INSERT INTO appunti (testo, materia, creatore, stato, titolo)  VALUES(?,?,?,?,?)",
@@ -31,14 +35,18 @@ public class AppuntiDAO {
             throw new RuntimeException(e);
         }
 
-    }
-    public boolean controlliRichiesta(AppuntiBean appunti){
-        if(appunti.controlloLunghezzaStringa(appunti.getTitolo()))
-            return false;
-        if(appunti.controlloLunghezzaStringa(appunti.getMateria()))
-            return false;
+        }
 
-        return true;
+    public boolean controlliRichiesta(AppuntiBean appunti){
+
+            if (appunti.getTitolo() == "" || appunti.getTitolo() == null)
+                return false;
+            if (appunti.getTesto() == "" || appunti.getTesto() == null)
+                return false;
+            if (!(appunti.getMateria().equalsIgnoreCase("umanistica") || appunti.getMateria().equalsIgnoreCase("scientifico") || appunti.getMateria().equalsIgnoreCase("artistica") || appunti.getMateria().equalsIgnoreCase("informatica") || appunti.getMateria().equalsIgnoreCase("lingue") || appunti.getMateria().equalsIgnoreCase("sanitario")))
+                return false;
+
+            return true;
     }
 
     public void doRemove(int id) {
