@@ -18,7 +18,7 @@ public class RichiestaGS extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nome = request.getParameter("nome");
-        String materia = request.getParameter("materia");
+        String materia = request.getParameter("categorie");
         String luogo = request.getParameter("luogo");
         String obiettivo = request.getParameter("obiettivi");
         int id= Integer.parseInt(request.getParameter("id"));
