@@ -27,23 +27,23 @@
 
 
 
-<div class="appunti">
-    <div class="container2">
-        <c:forEach var="item" items="${listAppunti}">
-            <form action="pagina-appunto-servlet"><input type="hidden" name="id" value="${item.getId()}">
-                <div class="test_box box-01 col-xs-6 col-md-4">
-                    <div class="inner" style="background-image:url('static/immagini/${item.getMateria()}.png')" >
-                        <a href="pagina-appunto-servlet?id=${item.getId()}" class="test_click">
-                            <div class="flex_this">
-                                <h1 class="test_title">${item.getTitolo()}</h1>
-                            </div>
-                        </a>
+    <div class="appunti">
+        <div class="container2">
+            <c:forEach var="item" items="${listAppunti}">
+                <form action="pagina-appunto-servlet"><input type="hidden" name="id" value="${item.getId()}">
+                    <div class="test_box box-01 col-xs-6 col-md-4">
+                        <div class="inner" style="background-image:url('static/immagini/${item.getMateria()}.png')" >
+                            <a href="pagina-appunto-servlet?id=${item.getId()}" class="test_click">
+                                <div class="flex_this">
+                                    <h1 class="test_title">${item.getTitolo()}</h1>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </c:forEach>
+                </form>
+            </c:forEach>
+        </div>
     </div>
-</div>
 
 </section>
 </main>

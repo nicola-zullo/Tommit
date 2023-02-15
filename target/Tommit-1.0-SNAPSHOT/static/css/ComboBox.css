@@ -129,7 +129,7 @@ input:checked + label:before {
 }
 
 .box{
-    width: 20vw;
+    width: 15vw;
     position:absolute;
     z-index:10;
 }

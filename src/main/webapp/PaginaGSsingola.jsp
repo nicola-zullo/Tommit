@@ -1,47 +1,84 @@
-<%@ page import="model.GSBean" %><%--
-  Created by IntelliJ IDEA.
-  User: laimb
-  Date: 09/02/2023
-  Time: 11:51
-  To change this template use File | SettincurrentGS | File Templates.
---%>
 <!DOCTYPE html>
 <html lang="en" >
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
     <meta charset="UTF-8">
-
-    <title>Gruppo Studio </title>
-    <link rel="stylesheet" href="static/css/PaginaGSsingola.css">
-    <link rel="stylesheet" href="static/css/navbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/search_bar.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-
+    <link rel="stylesheet" href="static/css/PaginaGS.css">
+    <link rel="stylesheet" href="static/css/ComboBox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 <main>
     <%@ include file="navbar.jsp" %>
-    <div class="testo" >
-        <h1 class="titolo"> ${currentGS.getNome()} </h1>
-        <h2>Materia: ${currentGS.getMateria()} </h2>
-        <h2>Luogo: ${currentGS.getLuogo()} </h2>
-        <h2 class="obbiettivi">Obiettivi: ${currentGS.getObiettivo()}</h2>
+    <section class="hero-unit">
 
-    </div>
 
-    <div class="wrapper">
-        <img src="static/immagini/${currentGS.getMateria()}.png" class="w3-border" alt="my image">
-        <div class="bottone">
-            <form action="iscrizione-gs" method="post">
-                <input type="hidden" value="${currentGS.getNome()}" name="nome">
-                <button class="btn5">
-                    Unisciti al gruppo
-                </button>
+        <div class="bottone" >
+            <button onclick="location.href='RichiestaCreazioneGS.jsp'" class="btn5">
+                Crea Gruppo Studio
+            </button>
+        </div>
+
+        <div class ="box">
+            <form action="listGSCategory" method="get">
+                <div class="comboBox">
+                    <div class="select" tabindex="1">
+                        <input class="selectopt" name="category" type="radio" id="opt0" checked>
+                        <label for="opt0" class="option">Seleziona il filtro</label>
+                        <input class="selectopt" name="category" type="radio" id="opt1" value="artistica">
+                        <label for="opt1" class="option">Artistica</label>
+                        <input class="selectopt" name="category" type="radio" id="opt2" value="umanistica">
+                        <label for="opt2" class="option">Umanistica</label>
+                        <input class="selectopt" name="category" type="radio" id="opt3" value="scientifico">
+                        <label for="opt3" class="option">Scientifico</label>
+                        <input class="selectopt" name="category" type="radio" id="opt4" value="informatica">
+                        <label for="opt4" class="option">Informatica</label>
+                        <input class="selectopt" name="category" type="radio" id="opt5" value="sanitario">
+                        <label for="opt5" class="option">Sanitaria</label>
+                        <input class="selectopt" name="category" type="radio" id="opt6" value="lingue">
+                        <label for="opt6" class="option">Lingue</label>
+                    </div>
+                </div>
+                <div class="bottone2">
+                    <button class="btn6" onsubmit="ApplicaFiltro">
+                        Filtra per materia
+                    </button>
+                </div>
             </form>
         </div>
-    </div>
 
+        <div class="gruppi">
+            <c:forEach var="gs" items="${listaGS}">
+                <form action="pagina-gs-servlet" method="get">
+                    <input type="hidden" name="nome" value="${gs.getNome()}">
+                    <div class="container">
+                        <div class="test_box box-01 col-xs-6 col-md-4">
+                            <div class="inner">
+                                <a href="pagina-gs-servlet" class="test_click">
+                                    <div class="flex_this">
+                                        <h1 class="test_title">${gs.getNome()}</h1>
+                                        <span class="test_link">
+                                                <input type="submit" class="test_link">Vai al Gruppo Studio</input>
+                                            </span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </c:forEach>
 
+        </div>
+
+    </section>
 </main>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script><script  src="./script.js"></script>
+
 </body>
 </html>
