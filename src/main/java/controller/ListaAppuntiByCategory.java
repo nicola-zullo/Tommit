@@ -22,7 +22,7 @@ public class ListaAppuntiByCategory extends HttpServlet {
         ArrayList<AppuntiBean> list = new ArrayList<>();
         list= action.listAppuntiByMateria(materia);
         String destPage="PaginaAppuntiCategoria.jsp";
-        request.setAttribute("listaAppunti", list);
+        request.setAttribute("listAppunti", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
         dispatcher.forward(request, response);
     }

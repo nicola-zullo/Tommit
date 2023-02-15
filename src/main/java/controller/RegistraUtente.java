@@ -23,17 +23,20 @@ public class RegistraUtente extends HttpServlet {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("pass");
+        String confPassword = request.getParameter("confPassword");
 
-        UtenteBean u = new UtenteBean();
-        u.setName(name);
-        u.setSurname(surname);
-        u.setCF(cf);
-        u.setUsername(username);
-        u.setEmail(email);
-        u.setPassword(password);
-        UtenteDAO utenteDAO = new UtenteDAO();
+            UtenteBean u = new UtenteBean();
+            u.setName(name);
+            u.setSurname(surname);
+            u.setCF(cf);
+            u.setUsername(username);
+            u.setEmail(email);
+            u.setPassword(password);
+            u.setConfermaPass(confPassword);
 
-        utenteDAO.doSave(u);
+            UtenteDAO utenteDAO = new UtenteDAO();
+
+            u = utenteDAO.doSave(u);
 
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
