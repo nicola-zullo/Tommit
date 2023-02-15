@@ -55,18 +55,17 @@
         <div class="gruppi">
             <div class="container">
                 <c:forEach var="item" items="${listaGS}">
-                    <form action="pagina-gs-servlet"><input type="hidden" name="nome" value="${item.getNome()}">
+
                         <div class="test_box box-01 col-xs-6 col-md-4">
                             <div class="inner" style="background-image:url('static/immagini/${item.getMateria()}.png')" >
-                                <a href="" class="test_click">
+                                <a href="pagina-gs-servlet?nome=${item.getNome()}" class="test_click">
                                     <div class="flex_this">
                                         <h1 class="test_title">${item.getNome()}</h1>
-                                        <input type="submit" value="${item.getNome()}">
                                     </div>
                                 </a>
                             </div>
                         </div>
-                    </form>
+
                 </c:forEach>
             </div>
         </div>
