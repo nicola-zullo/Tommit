@@ -21,7 +21,7 @@
 <section class="hero-unit">
 
     <div class="container">
-        <h1 class="titoloo">Appunti!</h1>
+        <h1 class="titoloo">Appunti</h1>
         <a class="pubblica" href="RichiestaAggiuntaAppunti.jsp">pubblica</a>
     </div>
 
