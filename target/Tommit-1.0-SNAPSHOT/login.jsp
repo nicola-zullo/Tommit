@@ -15,7 +15,7 @@
 
 <body>
 <div class="bg-img">
-  <%@ include file="/static/html/navbar.html"%>
+  <%@ include file="/navbar.jsp"%>
 
 <div class="content">
 
