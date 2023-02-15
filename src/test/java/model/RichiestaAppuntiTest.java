@@ -11,7 +11,11 @@ public class RichiestaAppuntiTest {
     public void TC_1_1_1() throws Exception{
         AppuntiBean appuntiBean = new AppuntiBean();
         appuntiBean.setTitolo("");
-        appuntiBean.setTesto("hjdankas");
+        appuntiBean.setTesto("Napoleone Bonaparte, spesso chiamato per antonomasia anche solo Napoleone (Ajaccio, " +
+                "15 agosto 1769[1] – Longwood, Isola di Sant'Elena, 5 maggio 1821), è stato un politico " +
+                "e generale francese, fondatore del Primo Impero francese e protagonista della prima fase " +
+                "della storia contemporanea europea, detta 'età napoleonica'.");
+
         appuntiBean.setMateria("Scientifico");
         Assertions.assertNull(dao.doSave(appuntiBean));
     }
@@ -37,9 +41,12 @@ public class RichiestaAppuntiTest {
     @Test
     public void TC_1_1_4() throws Exception{
         AppuntiBean appuntiBean = new AppuntiBean();
-        appuntiBean.setTitolo("");
-        appuntiBean.setTesto("Psicologia");
-        appuntiBean.setMateria("baksnksnalknsa");;
+        appuntiBean.setTitolo("Napoleone");
+        appuntiBean.setTesto("Napoleone Bonaparte, spesso chiamato per antonomasia anche solo Napoleone " +
+                "(Ajaccio, 15 agosto 1769[1] – Longwood, Isola di Sant'Elena, 5 maggio 1821), " +
+                "è stato un politico e generale francese, fondatore del Primo Impero francese e protagonista " +
+                "della prima fase della storia contemporanea europea, detta 'età napoleonica'.");
+        appuntiBean.setMateria("Letteratura");;
         Assertions.assertNull(dao.doSave(appuntiBean));
     }
 
@@ -47,7 +54,10 @@ public class RichiestaAppuntiTest {
     public void TC_1_1_5() throws Exception{
         AppuntiBean appuntiBean = new AppuntiBean();
         appuntiBean.setTitolo("Napoleone");
-        appuntiBean.setTesto("bdskjnslnls");
+        appuntiBean.setTesto("Napoleone Bonaparte, spesso chiamato per antonomasia anche solo Napoleone " +
+                        "(Ajaccio, 15 agosto 1769[1] – Longwood, Isola di Sant'Elena, 5 maggio 1821), " +
+                        "è stato un politico e generale francese, fondatore del Primo Impero francese e " +
+                        "protagonista della prima fase della storia contemporanea europea, detta 'età napoleonica'.");
         appuntiBean.setMateria("Umanistica");
         Assertions.assertNotNull(dao.doSave(appuntiBean));
     }
