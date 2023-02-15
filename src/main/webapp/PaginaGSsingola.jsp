@@ -23,9 +23,9 @@
     <%@ include file="navbar.jsp" %>
     <div class="testo" >
         <h1 class="titolo"> ${currentGS.getNome()} </h1>
-        <h2>${currentGS.getMateria()} </h2>
-        <h2>${currentGS.getLuogo()} </h2>
-        <h2 class="obbiettivi">${currentGS.getObiettivo()}</h2>
+        <h2>Materia: ${currentGS.getMateria()} </h2>
+        <h2>Luogo: ${currentGS.getLuogo()} </h2>
+        <h2 class="obbiettivi">Obiettivi: ${currentGS.getObiettivo()}</h2>
 
     </div>
 
