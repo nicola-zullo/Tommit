@@ -14,6 +14,13 @@ import java.util.ArrayList;
 
 @WebServlet(name="rifiuta-Appunti-servlet", value ="/rifiuta-Appunti-servlet")
 public class RifiutaAppunti extends HttpServlet {
+    /**
+     * Tramite model elimina la richiesta di approvazione AppuntiBean
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         //Elimina nel db il Appunti con nome == name(da input nella listAppunti accessibile solo da admin) e setta Stato a True

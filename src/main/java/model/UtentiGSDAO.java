@@ -4,6 +4,11 @@ import java.sql.*;
 
 public class UtentiGSDAO {
 
+    /**
+     * Salva l'iscrizione di un utente in un gruppostudio
+     * @param id_utente primary key utente
+     * @param nome_gs primary key gruppo studio
+     */
     public void doSave(int id_utente,String nome_gs) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
@@ -24,6 +29,11 @@ public class UtentiGSDAO {
         }
     }
 
+    /**
+     * Elimina escrizione dell'utente dal gruppo studio
+     * @param id_utente primary key utente
+     * @param nome_gs primary key gruppostudio
+     */
     public void doRemove(int id_utente,String nome_gs){
         try (Connection con = ConPool.getConnection()){
             PreparedStatement preparedStmt = con.prepareStatement("delete from utenti_gs where id_utenti ="+id_utente+"AND nome_gs ="+nome_gs);

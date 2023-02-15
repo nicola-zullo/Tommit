@@ -22,6 +22,7 @@ public class AppuntiBean {
     public AppuntiBean() {
     }
 
+
     public AppuntiBean(String titolo, String testo, String materia) {
         this.titolo = titolo;
         this.testo = testo;
@@ -67,9 +68,21 @@ public class AppuntiBean {
     public void setIdUtente(int idUtente) {
         this.idUtente = idUtente;
     }
-    public boolean controlloLunghezzaStringa(String str){
-        if (str.length()<=0)
+
+    /**
+     * Metodo che controlla se il titolo non è nullo,se il testo non è nullo e se la materia rientra tra quelle standard del sistema
+     * @param appunti oggetto AppuntiBean da controllare
+     * @return
+     */
+    public boolean controlliRichiesta(AppuntiBean appunti){
+
+        if (appunti.getTitolo() == "" || appunti.getTitolo() == null)
             return false;
+        if (appunti.getTesto() == "" || appunti.getTesto() == null)
+            return false;
+        if (!(appunti.getMateria().equalsIgnoreCase("umanistica") || appunti.getMateria().equalsIgnoreCase("scientifico") || appunti.getMateria().equalsIgnoreCase("artistica") || appunti.getMateria().equalsIgnoreCase("informatica") || appunti.getMateria().equalsIgnoreCase("lingue") || appunti.getMateria().equalsIgnoreCase("sanitario")))
+            return false;
+
         return true;
     }
 

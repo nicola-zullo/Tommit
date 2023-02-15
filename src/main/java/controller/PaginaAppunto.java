@@ -16,6 +16,13 @@ import java.util.ArrayList;
 @WebServlet(name = "pagina-appunto-servlet", value = "/pagina-appunto-servlet")
 
 public class PaginaAppunto extends HttpServlet {
+    /**
+     * Tramite model fornisce un AppuntoBean dato un id
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         AppuntiDAO action = new AppuntiDAO();

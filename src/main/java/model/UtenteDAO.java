@@ -5,10 +5,15 @@ import java.util.ArrayList;
 
 public class UtenteDAO {
 
+    /**
+     * Dopo aver controllato il corretto inserimento dell'Utente lo salva nel Database
+     * @param utente
+     * @return
+     */
     public UtenteBean doSave(UtenteBean utente) {
 
         //controlli
-        if(!controlliRegistrazione(utente))
+        if(!utente.controlliRegistrazione(utente))
             return null;
 
         try (Connection con = ConPool.getConnection()) {
@@ -39,23 +44,11 @@ public class UtenteDAO {
 
     }
 
-    public boolean controlliRegistrazione(UtenteBean utente){
-        if(!utente.controlloLunghezzaStringa(utente.getName(),50))
-            return false;
-        if(!utente.controlloLunghezzaStringa(utente.getSurname(),50))
-            return false;
-        if(!utente.controlloLunghezzaStringa(utente.getPassword(),16))
-            return false;
-        if (utente == null)
-            return false;
-        if (!utente.getPassword().equals(utente.getConfermaPass()))
-            return false;
-        if (!utente.getEmail().contains("@"))
-            return false;
 
-        return true;
-    }
-
+    /**
+     * Rimuove un Utente dal DB
+     * @param id primary key
+     */
     public void doRemove(int id){
         try (Connection con = ConPool.getConnection()){
             PreparedStatement preparedStmt = con.prepareStatement("delete from user where id ="+id+";");
@@ -65,6 +58,12 @@ public class UtenteDAO {
         }
     }
 
+    /**
+     * Restituisce un Utente data una primary key (ID)
+     * @param x primary key
+     * @return
+     * @throws SQLException
+     */
     public UtenteBean ricercaId(int x) throws SQLException{   //funxiona con la listaUtenti già presa dal db
 
         UtenteBean u = new UtenteBean();
@@ -89,6 +88,12 @@ public class UtenteDAO {
 
     }
 
+    /**
+     * Restiuisce un Utente dato username e password
+     * @param username
+     * @param password
+     * @return
+     */
     public UtenteBean doCheck(String username, String password) {
         UtenteBean utenteLoggato = new UtenteBean();
         try (Connection con = ConPool.getConnection()) {
@@ -114,6 +119,10 @@ public class UtenteDAO {
         }
     }
 
+    /**
+     * Aggiorn ai dati di un utente con dei nuovi
+     * @param u
+     */
     public void doUpdate(UtenteBean u){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("update user set Username='"+u.getUsername()+"', Name='"+u.getName()+"', Surname='"+u.getSurname()+"', Email='"+u.getEmail()+"', Password='"+u.getPassword()+"', CF='"+u.getCF()+"' where id='"+u.getId()+"'");
@@ -123,6 +132,10 @@ public class UtenteDAO {
         }
     }
 
+    /**
+     * Restituisce una lista di Utenti con Ruolo = 0
+     * @return
+     */
     public ArrayList<UtenteBean> listUser()
     {
         ArrayList<UtenteBean> list = new ArrayList<>();

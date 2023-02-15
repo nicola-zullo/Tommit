@@ -14,6 +14,14 @@ import java.sql.SQLException;
 
 @WebServlet(name="update-utente-servlet", value ="/update-utente-servlet")
     public class UpdateUtente extends HttpServlet {
+
+    /**
+     * Tramite model aggiorna i dati Utente
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
         public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             //prendo i dati utente MODIFICATI
             String name = request.getParameter("name");

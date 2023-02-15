@@ -14,6 +14,14 @@ import java.util.ArrayList;
 
 @WebServlet(name="approva-gs-servlet", value ="/approva-gs-servlet")
 public class ApprovaGS extends HttpServlet {
+
+    /**
+     * Implementa la funzionalità di approvazione di Gruppi Studio da parte di un Admin
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         //Trova nel db il GS con nome == name(da input nella listGS accessibile solo da admin) e setta Stato a True

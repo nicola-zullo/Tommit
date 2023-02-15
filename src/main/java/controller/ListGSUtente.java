@@ -15,6 +15,13 @@ import java.util.ArrayList;
 
 @WebServlet(name = "listUserGS", value = "/listUserGS")
 public class ListGSUtente extends HttpServlet {
+    /**
+     * Tramite model fornisce una lista di Gruppi Studio a cui si fa parte
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id= ((UtenteBean)request.getSession().getAttribute("utenteLoggato")).getId();
         GSDAO action = new GSDAO();
