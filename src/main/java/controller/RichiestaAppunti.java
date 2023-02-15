@@ -30,7 +30,7 @@ public class RichiestaAppunti extends HttpServlet {
         appunti.setStato(false);
         appunti.setTitolo(nome);
         AppuntiDAO dao = new AppuntiDAO();
-        dao.doSave(appunti);
+        appunti = dao.doSave(appunti);
         RequestDispatcher dispatcher = request.getRequestDispatcher("RichiestaAppuntiInviata.jsp");
         dispatcher.forward(request,response);
     }
