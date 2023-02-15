@@ -26,7 +26,7 @@ public class IscrizioneGS extends HttpServlet {
         utentiGSDAO.doSave(id_utente,nome_gs);
 
         //aggiungere pagina redirect
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("IscrizioneGSAvvenuta.jsp");
         dispatcher.forward(request,response);
 
     }
