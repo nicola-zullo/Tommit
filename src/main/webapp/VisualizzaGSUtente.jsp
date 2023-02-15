@@ -38,8 +38,8 @@
           <tbody>
           <tr>
             <td>${gs.getNome()}</td>
-            <td>${gs.getLuogo()}</td>
             <td>${gs.getMateria()}</td>
+            <td>${gs.getLuogo()}</td>
             <td>${gs.getObiettivo()}</td>
           </tbody>
         </c:forEach>
