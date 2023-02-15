@@ -8,6 +8,7 @@ public class RichiestaGSTest {
     private GSDAO dao = new GSDAO();
 
 
+
     @Test
     public void TC_1_2_1() throws Exception {
         GSBean gsBean = new GSBean();

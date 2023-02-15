@@ -73,7 +73,6 @@
             </c:forEach>
 
         </div>
-
     </section>
 </main>
 <!-- partial -->

@@ -23,7 +23,6 @@
                 Crea Gruppo Studio
             </button>
         </div>
-
         <div class ="box">
             <form action="listGSCategory" method="get">
                 <div class="comboBox">

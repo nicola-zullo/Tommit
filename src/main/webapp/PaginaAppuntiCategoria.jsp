@@ -26,7 +26,6 @@
     </div>
 
 
-
     <div class="appunti">
         <div class="container2">
             <c:forEach var="item" items="${listAppunti}">
