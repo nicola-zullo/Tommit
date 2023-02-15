@@ -54,7 +54,7 @@
 
         <div class="gruppi">
             <div class="container">
-                <c:forEach var="item" items="${listGS}">
+                <c:forEach var="item" items="${listaGS}">
                     <form action="pagina-gs-servlet"><input type="hidden" name="nome" value="${item.getNome()}">
                         <div class="test_box box-01 col-xs-6 col-md-4">
                             <div class="inner" style="background-image:url('static/immagini/${item.getMateria()}.png')" >
