@@ -55,7 +55,6 @@
         <div class="gruppi">
             <div class="container">
                 <c:forEach var="item" items="${listaGS}">
-
                         <div class="test_box box-01 col-xs-6 col-md-4">
                             <div class="inner" style="background-image:url('static/immagini/${item.getMateria()}.png')" >
                                 <a href="pagina-gs-servlet?nome=${item.getNome()}" class="test_click">
@@ -65,7 +64,6 @@
                                 </a>
                             </div>
                         </div>
-
                 </c:forEach>
             </div>
         </div>
