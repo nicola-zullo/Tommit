@@ -13,14 +13,16 @@ public class GSDAO {
 
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
-                    "INSERT INTO GS (nome, materia, luogo, obiettivi, stato)  VALUES(?,?,?,?,?)",
+                    "INSERT INTO gruppistudio (Nome, Materia, Luogo, Obiettivo, Stato, idCreatore)  VALUES(?,?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
             //associamo i "?" a i valori dell'appuntiBean
+
             ps.setString(1, gsBean.getNome());
             ps.setString(2, gsBean.getMateria());
             ps.setString(3, gsBean.getLuogo());
             ps.setString(4, gsBean.getObiettivo());
             ps.setBoolean(5, gsBean.getStato());
+            ps.setInt(6,gsBean.getIdCreatore());
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }
