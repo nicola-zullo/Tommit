@@ -18,25 +18,24 @@
 <body>
 <% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
 <%@ include file="navbar.jsp" %>
+<section class="hero-unit">
 
-<div class="wrapper">
     <div class="container">
         <h1 class="titoloo">Appunti!</h1>
         <a class="pubblica" href="RichiestaAggiuntaAppunti.jsp">pubblica</a>
     </div>
-</div>
 
 
-<section class="hero-unit">
-    <div class="container">
+
+<div class="appunti">
+    <div class="container2">
         <c:forEach var="item" items="${listAppunti}">
             <form action="pagina-appunto-servlet"><input type="hidden" name="id" value="${item.getId()}">
                 <div class="test_box box-01 col-xs-6 col-md-4">
-                    <div class="inner" style="background-image:url('static/immagini/${item.getTitolo()}.png')" >
-                        <a href="" class="test_click">
+                    <div class="inner" style="background-image:url('static/immagini/${item.getMateria()}.png')" >
+                        <a href="pagina-appunto-servlet?id=${item.getId()}" class="test_click">
                             <div class="flex_this">
                                 <h1 class="test_title">${item.getTitolo()}</h1>
-                                <input type="submit" value="${item.getTitolo()}">
                             </div>
                         </a>
                     </div>
@@ -44,6 +43,7 @@
             </form>
         </c:forEach>
     </div>
+</div>
 
 </section>
 </main>
