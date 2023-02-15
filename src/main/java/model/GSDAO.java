@@ -71,9 +71,9 @@ public class GSDAO {
             ResultSet rs = stmt.executeQuery("SELECT * from gruppistudio where Nome ='"+nome+"';");
             while (rs.next()) {
                 gs.setNome(rs.getString(1));
-                gs.setLuogo(rs.getString(2));
-                gs.setObiettivo(rs.getString(3));
-                gs.setMateria(rs.getString(4));
+                gs.setMateria(rs.getString(2));
+                gs.setLuogo(rs.getString(3));
+                gs.setObiettivo(rs.getString(4));
                 gs.setStato(rs.getBoolean(5));
                 gs.setIdCreatore(rs.getInt(6));
             }
