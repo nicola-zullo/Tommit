@@ -161,4 +161,73 @@ public class UtenteDAO {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Controlla se l'username è gia presente nel db
+     * @param username
+     * @return
+     */
+    public boolean controlloUsername(String username) {
+
+        boolean check;
+
+        try (Connection con = ConPool.getConnection()) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Username from user where Username ='" + username + "';");
+            if (rs.next()) {
+                check=true;
+            }else
+                check=false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return check;
+    }
+
+
+    /**
+     * Controlla se l'email fornita è presente nel database
+     * @param email
+     * @return
+     */
+    public boolean controlloEmail(String email) {
+
+        boolean check;
+
+        try (Connection con = ConPool.getConnection()) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Email from user where Email ='" + email + "';");
+            if (rs.next()) {
+                check=true;
+            }else
+                check=false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return check;
+    }
+
+
+    /**
+     * Controlla se il CF è gia presente nel database
+     * @param cf
+     * @return
+     */
+    public boolean controlloCF(String cf) {
+
+        boolean check;
+
+        try (Connection con = ConPool.getConnection()) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT CF from user where CF ='" + cf + "';");
+            if (rs.next()) {
+                check=true;
+            }else
+                check=false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return check;
+    }
+
 }

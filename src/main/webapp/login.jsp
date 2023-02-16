@@ -14,6 +14,31 @@
 </head>
 
 <body>
+
+<script>
+
+  function loadDoc() {
+    const xhttp = new XMLHttpRequest();
+    var username = document.getElementById("name").value;
+    xhttp.onload = function() {
+      if (this.response == "false"){
+        document.getElementById("bottone").disabled=true;
+        document.getElementById("bottone").style.background = "gray";
+        document.getElementById("infoUsername").innerHTML = "Utente non trovato";
+        document.getElementById("infoUsername").style.color = "red";
+      }else{
+        document.getElementById("bottone").disabled=false;
+        document.getElementById("bottone").style.background = "#e26742";
+        document.getElementById("infoUsername").innerHTML = "";
+        document.getElementById("infoUsername").style.color = "";
+      }
+    }
+    xhttp.open("GET", "username-servlet?username="+username);
+    xhttp.send();
+  }
+
+</script>
+
 <div class="bg-img">
   <%@ include file="/navbar.jsp"%>
 
@@ -31,10 +56,11 @@
     </div>
 
     <form class="login-form" action="accesso-utente-servlet" method="post">
-      <input type="text" name="username" placeholder="username" />
+      <input type="text" name="username" id="name" placeholder="username" onchange="loadDoc()" />
       <input type="password" name="password" placeholder="password" />
-      <button type="submit">Log in</button>
+      <button type="submit" id="bottone">Log in</button>
       <a href="Registrazione.jsp">Registrati!</a>
+      <span id="infoUsername"></span>
 
     </form>
   </div>
