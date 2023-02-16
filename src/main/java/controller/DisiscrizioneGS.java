@@ -1,5 +1,6 @@
 package controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -31,7 +32,14 @@ public class DisiscrizioneGS extends HttpServlet {
 
         utentiGSDAO.doRemove(id_utente,nome_gs);
 
+        new ListGSUtente().doGet(request,response);
 
+
+    }
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request,response);
     }
 
 }

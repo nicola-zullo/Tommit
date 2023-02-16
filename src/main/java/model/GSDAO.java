@@ -225,9 +225,9 @@ public class GSDAO {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT *\n" +
                     "from gruppistudio\n" +
-                    "where gruppistudio.Stato = 1 and (Nome) NOT IN ((SELECT Nome\n" +
+                    "where gruppistudio.Stato = 1 AND gruppistudio.Materia = '"+materia+"' and (Nome) NOT IN ((SELECT Nome\n" +
                     "                                                 from gruppistudio, utenti_gs\n" +
-                    "                                                 where gruppistudio.Nome = utenti_gs.nome_gs AND gruppistudio.Materia = '"+materia+"' AND utenti_gs.id_utenti = "+idUtente+"\n" +
+                    "                                                 where gruppistudio.Nome = utenti_gs.nome_gs AND utenti_gs.id_utenti ="+idUtente+"\n" +
                     "                                                 group by Nome))\n" +
                     "\n");
             ResultSet rs = ps.executeQuery();
