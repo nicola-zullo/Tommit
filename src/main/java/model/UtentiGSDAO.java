@@ -35,8 +35,9 @@ public class UtentiGSDAO {
      * @param nome_gs primary key gruppostudio
      */
     public void doRemove(int id_utente,String nome_gs){
+        System.out.println("/////DISISCRIZIONE GS///////");
         try (Connection con = ConPool.getConnection()){
-            PreparedStatement preparedStmt = con.prepareStatement("delete from utenti_gs where id_utenti ="+id_utente+"AND nome_gs ="+nome_gs);
+            PreparedStatement preparedStmt = con.prepareStatement("delete from utenti_gs where id_utenti ="+id_utente+" AND nome_gs = '"+nome_gs+"'");
             preparedStmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
