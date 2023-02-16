@@ -15,7 +15,6 @@ public class UtenteDAO {
         //controlli
         if(!utente.controlliRegistrazione(utente))
             return null;
-
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
                     "INSERT INTO user (Username, Name, Surname, Email, Password, CF)  VALUES(?,?,?,?,?,?)",
@@ -31,12 +30,11 @@ public class UtenteDAO {
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }
-
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
             int id = rs.getInt(1);
             utente.setId(id);
-
+            System.out.print(utente);
             return utente;
         } catch (SQLException e) {
             throw new RuntimeException(e);
