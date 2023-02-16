@@ -97,7 +97,7 @@ public class UtenteDAO {
         try (Connection con = ConPool.getConnection()) {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM user WHERE Username = '"+username+"' AND Password = '"+password + "'");
-            while(rs.next()) {
+            if(rs.next()) {
                 utenteLoggato.setId(rs.getInt(1));
                 utenteLoggato.setUsername(rs.getString(2));
                 utenteLoggato.setName(rs.getString(3));
@@ -106,12 +106,12 @@ public class UtenteDAO {
                 utenteLoggato.setPassword(rs.getString(6));
                 utenteLoggato.setCF(rs.getString(7));
                 utenteLoggato.setRuolo(rs.getBoolean(8));
-            }
-            if(utenteLoggato.getUsername()==null) {
+            }else {
+                System.out.println("///Utente user name pass NON trovato///");
                 return null;
-            }else{
-                return utenteLoggato;
             }
+                System.out.println("///Utente user name pass trovato///");
+                return utenteLoggato;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
