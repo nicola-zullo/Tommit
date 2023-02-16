@@ -9,7 +9,7 @@
   <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
   <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
-  <link rel="stylesheet" href="static/css/visualizzaUtenti.css">
+  <link rel="stylesheet" href="static/css/VisualizzaGSUtente.css">
 </head>
 
 
@@ -29,6 +29,7 @@
           <th>MATERIA</th>
           <th>LUOGO</th>
           <th>OBIETTIVO</th>
+          <th></th>
 
         </tr>
         </thead>
@@ -41,6 +42,7 @@
             <td>${gs.getMateria()}</td>
             <td>${gs.getLuogo()}</td>
             <td>${gs.getObiettivo()}</td>
+            <td><button class="btn4">abbandona</button></td>
           </tbody>
         </c:forEach>
 
