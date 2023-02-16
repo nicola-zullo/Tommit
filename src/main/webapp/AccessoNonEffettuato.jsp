@@ -12,9 +12,10 @@
 <div class="container">
   <div class="popup">
     <div class="popup-content">
-      <h2 class="popup-title">Registrazione non effettuata!</h2>
-      <p class="popup-body">La tua iscrizione al sito non &egrave; avvenuta con successo.</p>
-      <p class="popup-body">Controlla di aver compilato i campi correttamente </p>
+      <h2 class="popup-title">Accesso non effettuato!</h2>
+      <p class="popup-body">La combinazione di username e password non ha dato riscontri.</p>
+      <p class="popup-body">Controlla di aver compilato i campi correttamente</p>
+      <a href="login.jsp" class="popup-button">Accedi</a>
       <a href="Registrazione.jsp" class="popup-button">Registrazione</a>
     </div>
   </div>

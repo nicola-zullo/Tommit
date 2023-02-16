@@ -34,9 +34,9 @@ public class  AccessoUtente extends HttpServlet {
         String password = request.getParameter("password");
         UtenteDAO dao = new UtenteDAO();
         UtenteBean user = new UtenteBean();
-        user=dao.doCheck(username,password);
+        user = dao.doCheck(username,password);
         //verifica se l'utente è registrato oppure no
-            if(user!= null){
+            if(user != null){
                 if (user.isRuolo()==true){
                     /*Utente Admin*/
                         request.getSession().setAttribute("utenteLoggato", user);
@@ -50,7 +50,7 @@ public class  AccessoUtente extends HttpServlet {
                     dispatcher.forward(request, response);
                 }
             }else {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("AccessoNonEffettuato.jsp");
                 dispatcher.forward(request, response);
             }
 
