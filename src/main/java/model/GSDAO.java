@@ -248,4 +248,34 @@ public class GSDAO {
         }
     }
 
+    /**
+     * Restituisce una lista di GS di cui si fa parte
+     * @param idUtente
+     * @return
+     */
+    public ArrayList<GSBean> listGSIscritto(int idUtente) {
+        ArrayList<GSBean> list = new ArrayList<>();
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT *\n" +
+                    "    from gruppistudio, utenti_gs\n" +
+                    "    where gruppistudio.Nome = utenti_gs.nome_gs AND utenti_gs.id_utenti = "+idUtente+"\n" +
+                    "    group by Nome");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                GSBean gs = new GSBean();
+                gs.setNome(rs.getString("Nome"));
+                gs.setMateria(rs.getString("Materia"));
+                gs.setLuogo(rs.getString("Luogo"));
+                gs.setObiettivo(rs.getString("Obiettivo"));
+                gs.setIdCreatore(rs.getInt("idCreatore"));
+                gs.setStato(rs.getBoolean("stato"));
+                list.add(gs);
+            }
+            System.out.print(list);
+            return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

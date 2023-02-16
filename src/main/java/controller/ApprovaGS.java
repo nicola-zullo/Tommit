@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.GSBean;
 import model.GSDAO;
+import model.UtenteBean;
+import model.UtentiGSDAO;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +29,12 @@ public class ApprovaGS extends HttpServlet {
         //Trova nel db il GS con nome == name(da input nella listGS accessibile solo da admin) e setta Stato a True
         GSDAO dao = new GSDAO();
         dao.setTrue(name);
+
+        GSBean gsBean = new GSBean();
+        gsBean = dao.retriveGS(name);
+
+        UtentiGSDAO gsdao = new UtentiGSDAO();
+        gsdao.doSave(gsBean.getIdCreatore(),gsBean.getNome());
 
         //Aggiorna il parametro gsList per la jsp con il nuovo db aggiornato tramite listGS del dao
         ArrayList<GSBean> gsList;
