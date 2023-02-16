@@ -23,9 +23,23 @@ public class LoginTest {
         String password ="Test_PW_Sbagliata";
         Assertions.assertNull(dao.doCheck(email,password));
     }
-
     @Test
     public void TC_1_4_3() throws Exception{
+        UtenteBean u = new UtenteBean();
+        String email = "";
+        String password ="Test_PW_Corretta";
+        Assertions.assertNull(dao.doCheck(email,password));
+    }
+    @Test
+    public void TC_1_4_4() throws Exception{
+        UtenteBean u = new UtenteBean();
+        String email = "TEST_1_4_1_UN_Corretto";
+        String password ="";
+        Assertions.assertNull(dao.doCheck(email,password));
+    }
+
+    @Test
+    public void TC_1_4_5() throws Exception{
         UtenteBean u = new UtenteBean();
         String email = "TEST_1_4_1_UN_Corretto";
         String password ="Test_PW_Corretta";

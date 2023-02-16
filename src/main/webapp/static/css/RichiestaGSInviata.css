@@ -80,3 +80,9 @@ body {
 .popup .popup-button:hover {
     background-position: right center;
 }
+
+img{
+    position:absolute;
+    width:10%;
+    top:0px;
+}
