@@ -17,6 +17,13 @@ import java.io.IOException;
 public class RichiestaAppunti extends HttpServlet {
 
 
+    /**
+     * Processa la richiesta di approvazione per la pubblicazione di AppuntiBean
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nome = request.getParameter("nome");

@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 public class GSDAO {
 
+    /**
+     * Dopo aver controllato i parametri del GSBean lo salva nel Database.
+     * @param gsBean
+     * @return
+     */
     public GSBean doSave(GSBean gsBean) {
 
         if(!controlliRichiesta(gsBean))
@@ -35,6 +40,11 @@ public class GSDAO {
 
     }
 
+    /**
+     * Controlli di corretto inserimento di un GSBean
+     * @param gsBean
+     * @return
+     */
     private boolean controlliRichiesta(GSBean gsBean) {
 
         if (gsBean.getNome() == "" || gsBean.getNome() == null)
@@ -51,6 +61,10 @@ public class GSDAO {
     }
 
 
+    /**
+     * Rimuove un GSBean dal DataBase
+     * @param nome primary key
+     */
     public void doRemove(String nome){
 
         try (Connection con = ConPool.getConnection()){
@@ -62,6 +76,11 @@ public class GSDAO {
         }
     }
 
+    /**
+     * Restituisce un GS data una stringa
+     * @param nome primary key
+     * @return
+     */
     public GSBean retriveGS(String nome){
 
         GSBean gs = new GSBean();
@@ -84,7 +103,11 @@ public class GSDAO {
 
     }
 
-    //Setta il parametro stato del gs selezionato a True
+
+    /**
+     * Setta il parametro stato del gs selezionato a True
+     * @param name primary key
+     */
     public void setTrue(String name) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("select Stato from gruppistudio where Nome="+name);
@@ -95,7 +118,12 @@ public class GSDAO {
 
     }
 
-    //Lista ad Admin TUTTI i GS creati dagli Utenti sia approvati che in attesa
+    //
+
+    /**
+     * Restituisce una lista di tutti i GS con Stato = 0. Metodo usato esclusivamenta da Admin
+     * @return
+     */
     public ArrayList<GSBean> listGS()
     {
         ArrayList<GSBean> list = new ArrayList<>();
@@ -120,6 +148,11 @@ public class GSDAO {
         }
     }
 
+    /**
+     * Restituisce una lista di GS creati da Un Utente tramite id
+     * @param id primary key Utente
+     * @return
+     */
     public ArrayList<GSBean> listUserGS(int id)
     {
         ArrayList<GSBean> list = new ArrayList<>();
@@ -145,12 +178,23 @@ public class GSDAO {
         }
     }
 
-    public ArrayList<GSBean> listGSAccessibili()
+    /**
+     * Restituisce una lista di tutti i GS Accessibili dall'utente.I gruppi di cui si fa gia l'utente parte non verranno mostrati
+     * @param idUtente
+     * @return
+     */
+    public ArrayList<GSBean> listGSAccessibili(int idUtente)
     {
         ArrayList<GSBean> list = new ArrayList<>();
         try (Connection con = ConPool.getConnection())
         {
-            PreparedStatement ps = con.prepareStatement("select * from gruppistudio where Stato = 1");
+            PreparedStatement ps = con.prepareStatement("SELECT *\n" +
+                    "from gruppistudio\n" +
+                    "where gruppistudio.Stato = 1 and (Nome) NOT IN ((SELECT Nome\n" +
+                    "                                                 from gruppistudio, utenti_gs\n" +
+                    "                                                 where gruppistudio.Nome = utenti_gs.nome_gs AND utenti_gs.id_utenti = "+idUtente+"\n" +
+                    "                                                 group by Nome))\n" +
+                    "\n");
             ResultSet rs = ps.executeQuery();
             while(rs.next())
             {
@@ -169,10 +213,23 @@ public class GSDAO {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<GSBean> listGSByMateria(String materia) {
+
+    /**
+     * Restituisce una lista di GS data una materia..I gruppi di cui si fa gia l'utente parte non verranno mostrati
+     * @param materia
+     * @param idUtente
+     * @return
+     */
+    public ArrayList<GSBean> listGSByMateria(String materia,int idUtente) {
         ArrayList<GSBean> list = new ArrayList<>();
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("select * from gruppistudio where Stato ='1' and Materia='" + materia + "'");
+            PreparedStatement ps = con.prepareStatement("SELECT *\n" +
+                    "from gruppistudio\n" +
+                    "where gruppistudio.Stato = 1 and (Nome) NOT IN ((SELECT Nome\n" +
+                    "                                                 from gruppistudio, utenti_gs\n" +
+                    "                                                 where gruppistudio.Nome = utenti_gs.nome_gs AND gruppistudio.Materia = '"+materia+"' AND utenti_gs.id_utenti = "+idUtente+"\n" +
+                    "                                                 group by Nome))\n" +
+                    "\n");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 GSBean gs = new GSBean();

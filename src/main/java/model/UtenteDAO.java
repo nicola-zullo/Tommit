@@ -5,10 +5,15 @@ import java.util.ArrayList;
 
 public class UtenteDAO {
 
+    /**
+     * Dopo aver controllato il corretto inserimento dell'Utente lo salva nel Database
+     * @param utente
+     * @return
+     */
     public UtenteBean doSave(UtenteBean utente) {
 
         //controlli
-        if(!controlliRegistrazione(utente))
+        if(!utente.controlliRegistrazione(utente))
             return null;
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
@@ -37,23 +42,11 @@ public class UtenteDAO {
 
     }
 
-    public boolean controlliRegistrazione(UtenteBean utente){
-        if(!utente.controlloLunghezzaStringa(utente.getName(),50))
-            return false;
-        if(!utente.controlloLunghezzaStringa(utente.getSurname(),50))
-            return false;
-        if(!utente.controlloLunghezzaStringa(utente.getPassword(),16))
-            return false;
-        if (utente == null)
-            return false;
-        if (!utente.getPassword().equals(utente.getConfermaPass()))
-            return false;
-        if (!utente.getEmail().contains("@"))
-            return false;
 
-        return true;
-    }
-
+    /**
+     * Rimuove un Utente dal DB
+     * @param id primary key
+     */
     public void doRemove(int id){
         try (Connection con = ConPool.getConnection()){
             PreparedStatement preparedStmt = con.prepareStatement("delete from user where id ="+id+";");
@@ -63,6 +56,12 @@ public class UtenteDAO {
         }
     }
 
+    /**
+     * Restituisce un Utente data una primary key (ID)
+     * @param x primary key
+     * @return
+     * @throws SQLException
+     */
     public UtenteBean ricercaId(int x) throws SQLException{   //funxiona con la listaUtenti già presa dal db
 
         UtenteBean u = new UtenteBean();
@@ -87,6 +86,12 @@ public class UtenteDAO {
 
     }
 
+    /**
+     * Restiuisce un Utente dato username e password
+     * @param username
+     * @param password
+     * @return
+     */
     public UtenteBean doCheck(String username, String password) {
         UtenteBean utenteLoggato = new UtenteBean();
         try (Connection con = ConPool.getConnection()) {
@@ -112,6 +117,10 @@ public class UtenteDAO {
         }
     }
 
+    /**
+     * Aggiorn ai dati di un utente con dei nuovi
+     * @param u
+     */
     public void doUpdate(UtenteBean u){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("update user set Username='"+u.getUsername()+"', Name='"+u.getName()+"', Surname='"+u.getSurname()+"', Email='"+u.getEmail()+"', Password='"+u.getPassword()+"', CF='"+u.getCF()+"' where id='"+u.getId()+"'");
@@ -121,6 +130,10 @@ public class UtenteDAO {
         }
     }
 
+    /**
+     * Restituisce una lista di Utenti con Ruolo = 0
+     * @return
+     */
     public ArrayList<UtenteBean> listUser()
     {
         ArrayList<UtenteBean> list = new ArrayList<>();
@@ -148,4 +161,73 @@ public class UtenteDAO {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Controlla se l'username è gia presente nel db
+     * @param username
+     * @return
+     */
+    public boolean controlloUsername(String username) {
+
+        boolean check;
+
+        try (Connection con = ConPool.getConnection()) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Username from user where Username ='" + username + "';");
+            if (rs.next()) {
+                check=true;
+            }else
+                check=false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return check;
+    }
+
+
+    /**
+     * Controlla se l'email fornita è presente nel database
+     * @param email
+     * @return
+     */
+    public boolean controlloEmail(String email) {
+
+        boolean check;
+
+        try (Connection con = ConPool.getConnection()) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Email from user where Email ='" + email + "';");
+            if (rs.next()) {
+                check=true;
+            }else
+                check=false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return check;
+    }
+
+
+    /**
+     * Controlla se il CF è gia presente nel database
+     * @param cf
+     * @return
+     */
+    public boolean controlloCF(String cf) {
+
+        boolean check;
+
+        try (Connection con = ConPool.getConnection()) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT CF from user where CF ='" + cf + "';");
+            if (rs.next()) {
+                check=true;
+            }else
+                check=false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return check;
+    }
+
 }

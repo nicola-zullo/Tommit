@@ -13,6 +13,13 @@ import java.util.ArrayList;
 
 @WebServlet(name = "listGSAdmin", value = "/listGSAdmin")
 public class ListGSAdmin extends HttpServlet {
+    /**
+     * Tramite model fornisce una lista di Gruppi Studio da approvare
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         GSDAO action = new GSDAO();
         ArrayList<GSBean> list = new ArrayList<>();

@@ -8,19 +8,24 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.GSBean;
 import model.GSDAO;
+import model.UtenteBean;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 @WebServlet(name = "listGSCategory", value = "/listGSCategory")
 
+/**
+ * Tramite model fornisce una lista di Gruppi Studio data una categoria
+ */
 public class ListaGSByCategory extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String materia = request.getParameter("category");
         System.out.print(materia);
         GSDAO action = new GSDAO();
         ArrayList<GSBean> list = new ArrayList<>();
-        list= action.listGSByMateria(materia);
+        UtenteBean u = (UtenteBean) request.getSession().getAttribute("utenteLoggato");
+        list= action.listGSByMateria(materia,u.getId());
         String destPage="PaginaGS.jsp";
         request.setAttribute("listaGS", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);

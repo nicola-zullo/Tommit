@@ -14,6 +14,13 @@ import java.io.IOException;
 @WebServlet(name="registrazione-utente-servlet", value ="/registrazione-utente-servlet")
 public class RegistraUtente extends HttpServlet {
 
+    /**
+     * Tramite model processa la richiesta di Registrazione di un Utente
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -38,11 +45,13 @@ public class RegistraUtente extends HttpServlet {
 
             u = utenteDAO.doSave(u);
 
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("RegistrazioneEffettuata.jsp");
-
-        dispatcher.forward(request,response);
-
+        if (u == null){
+            RequestDispatcher dispatcher = request.getRequestDispatcher("RegistrazioneNonEffettuata.jsp");
+            dispatcher.forward(request, response);
+        }else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("RegistrazioneEffettuata.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 
 }

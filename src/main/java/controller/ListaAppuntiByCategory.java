@@ -15,6 +15,14 @@ import java.util.ArrayList;
 @WebServlet(name = "listAppuntiCategory", value = "/listAppuntiCategory")
 
 public class ListaAppuntiByCategory extends HttpServlet {
+
+    /**
+     * Tramite model fornisce una lista di appunti data una materia
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String materia = request.getParameter("category");
         System.out.print(materia);

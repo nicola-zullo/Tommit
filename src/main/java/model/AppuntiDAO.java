@@ -6,9 +6,14 @@ import java.util.regex.Pattern;
 
 public class AppuntiDAO {
 
-        public AppuntiBean doSave(AppuntiBean appuntiBean) {
+    /**
+     * Salva AppuntiBean nel Database
+     * @param appuntiBean
+     * @return
+     */
+    public AppuntiBean doSave(AppuntiBean appuntiBean) {
 
-            if(!controlliRichiesta(appuntiBean))
+            if(!appuntiBean.controlliRichiesta(appuntiBean))
                 return null;
 
         try (Connection con = ConPool.getConnection()) {
@@ -37,18 +42,10 @@ public class AppuntiDAO {
 
         }
 
-    public boolean controlliRichiesta(AppuntiBean appunti){
-
-            if (appunti.getTitolo() == "" || appunti.getTitolo() == null)
-                return false;
-            if (appunti.getTesto() == "" || appunti.getTesto() == null)
-                return false;
-            if (!(appunti.getMateria().equalsIgnoreCase("umanistica") || appunti.getMateria().equalsIgnoreCase("scientifico") || appunti.getMateria().equalsIgnoreCase("artistica") || appunti.getMateria().equalsIgnoreCase("informatica") || appunti.getMateria().equalsIgnoreCase("lingue") || appunti.getMateria().equalsIgnoreCase("sanitario")))
-                return false;
-
-            return true;
-    }
-
+    /**
+     * Rimuove un AppuntoBean dal Database
+     * @param id primary key appunti
+     */
     public void doRemove(int id) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement preparedStmt = con.prepareStatement("delete from appunti where id =" + id + ";");
@@ -58,7 +55,10 @@ public class AppuntiDAO {
         }
     }
 
-    //Setta il parametro stato degli appunti selezionati a True
+    /**
+     * Setta il parametro Stato dell' AppuntoBean selezionato a True
+     * @param id primary key appunti
+     */
     public void setTrue(int id) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("select stato from appunti where id=" + id);
@@ -69,6 +69,10 @@ public class AppuntiDAO {
 
     }
 
+    /**
+     * Ritorna una lista di AppuntiBean con Stato a 0
+     * @return
+     */
     public ArrayList<AppuntiBean> listAppuntiAdmin() {
         ArrayList<AppuntiBean> list = new ArrayList<>();
         try (Connection con = ConPool.getConnection()) {
@@ -91,6 +95,11 @@ public class AppuntiDAO {
         }
     }
 
+    /**
+     * Ritorna una lista di Appunti con Stato = 1
+     * @param id primary key Appunti
+     * @return
+     */
     public ArrayList<AppuntiBean> listUserAppunti(int id) {
         ArrayList<AppuntiBean> list = new ArrayList<>();
         try (Connection con = ConPool.getConnection()) {
@@ -112,6 +121,11 @@ public class AppuntiDAO {
         }
     }
 
+    /**
+     * Ritorna un lista di Appunti della materia selezionata
+     * @param materia
+     * @return
+     */
     public ArrayList<AppuntiBean> listAppuntiByMateria(String materia) {
         ArrayList<AppuntiBean> list = new ArrayList<>();
         try (Connection con = ConPool.getConnection()) {
@@ -134,6 +148,12 @@ public class AppuntiDAO {
         }
     }
 
+    /**
+     * Restituisce AppuntiBean se trova riscontro con l'id nel Database
+     * @param x primary key
+     * @return AppuntiBean
+     * @throws SQLException
+     */
     public AppuntiBean ricercaId(int x) throws SQLException {   //funxiona con la listaUtenti già presa dal db
 
         AppuntiBean a = new AppuntiBean();
@@ -156,4 +176,7 @@ public class AppuntiDAO {
         return a;
 
     }
+
+
+
 }

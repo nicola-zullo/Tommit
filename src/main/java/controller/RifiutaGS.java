@@ -14,6 +14,14 @@ import java.util.ArrayList;
 
 @WebServlet(name="rifiuta-gs-servlet", value ="/rifiuta-gs-servlet")
 public class RifiutaGS extends HttpServlet {
+
+    /**
+     * Tramite model elimina la richiesta di approvazione Gruppo Studio
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         //Elimina nel db il GS con nome == name(da input nella listGS accessibile solo da admin) e setta Stato a True

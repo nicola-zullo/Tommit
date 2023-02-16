@@ -16,6 +16,14 @@ import java.util.ArrayList;
 @WebServlet(name = "pagina-gs-servlet", value = "/pagina-gs-servlet")
 
 public class PaginaGS extends HttpServlet {
+
+    /**
+     * Tramite model fornisce una Gruppo Studio fornito un nome
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nome = request.getParameter("nome");
         GSDAO action = new GSDAO();
