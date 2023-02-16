@@ -15,6 +15,13 @@ import java.io.IOException;
 @WebServlet(name="richiesta-creazione-gs-servlet", value ="/richiesta-creazione-gs-servlet")
 public class RichiestaGS extends HttpServlet {
 
+    /**
+     * Processa la richiesta di approvazione per la pubblicazione di Gruppo Studio
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nome = request.getParameter("nome");
@@ -22,7 +29,7 @@ public class RichiestaGS extends HttpServlet {
         String luogo = request.getParameter("luogo");
         String obiettivo = request.getParameter("obiettivi");
         int id= Integer.parseInt(request.getParameter("id"));
-        GSBean gs= new GSBean();
+        GSBean gs = new GSBean();
         gs.setNome(nome);
         gs.setMateria(materia);
         gs.setLuogo(luogo);

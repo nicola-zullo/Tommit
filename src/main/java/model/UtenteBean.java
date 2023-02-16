@@ -84,9 +84,37 @@ public class UtenteBean {
 
     public void setCF (String CF){ this.CF = CF;}
 
+    /**
+     * Controlla se la lunghezza di una stringa è maggiore di un numero intero
+     * @param str
+     * @param x
+     * @return
+     */
     public boolean controlloLunghezzaStringa(String str,int x){
         if (str.length()>x)
             return false;
+        return true;
+    }
+
+    /**
+     * Controlla se il nome e il cognome sono maggiori di 50, se la password è maggiore di 16,se è stata inserita una email e se le passwrd coincidono. In caso contrario restituisce false
+     * @param utente
+     * @return
+     */
+    public boolean controlliRegistrazione(UtenteBean utente){
+        if(!utente.controlloLunghezzaStringa(utente.getName(),50))
+            return false;
+        if(!utente.controlloLunghezzaStringa(utente.getSurname(),50))
+            return false;
+        if(!utente.controlloLunghezzaStringa(utente.getPassword(),16))
+            return false;
+        if (utente == null)
+            return false;
+        if (!utente.getPassword().equals(utente.getConfermaPass()))
+            return false;
+        if (!utente.getEmail().contains("@"))
+            return false;
+
         return true;
     }
 

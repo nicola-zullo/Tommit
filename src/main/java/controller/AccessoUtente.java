@@ -18,8 +18,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 @WebServlet(urlPatterns = "/accesso-utente-servlet")
-public class AccessoUtente extends HttpServlet {
+public class  AccessoUtente extends HttpServlet {
 
+    /**
+     * Implementa la funzionalità di accesso al sito.
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

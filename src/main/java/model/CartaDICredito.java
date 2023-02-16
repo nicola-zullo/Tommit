@@ -14,6 +14,11 @@ public class CartaDICredito implements Pagamento {
         this.dataDiScadenza=scadenza;
     }
 
+    /**
+     * Metodo implementato da Pagamento
+     * @param importo
+     * @return ritorna una string di avvenuto oagamento
+     */
     @Override
     public String paga(int importo) {
         FondiDAO dao = new FondiDAO();

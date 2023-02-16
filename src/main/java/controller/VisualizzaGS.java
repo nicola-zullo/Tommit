@@ -15,6 +15,14 @@ import java.util.ArrayList;
 
 @WebServlet(name = "visualizza-gs", value = "/visualizza-gs")
 public class VisualizzaGS extends HttpServlet {
+
+    /**
+     * Tramite model fronisce un GruppoStudioBean dato un nome
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nome = request.getParameter("nome");
         System.out.println(nome);

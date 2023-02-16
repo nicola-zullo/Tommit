@@ -11,6 +11,13 @@ import java.io.IOException;
     @WebServlet("/DisconnessioneUtente")
     public class DisconnessioneUtente extends HttpServlet {
 
+        /**
+         * Termina la sessione per un Utente
+         * @param request
+         * @param response
+         * @throws ServletException
+         * @throws IOException
+         */
         public void doGet(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             request.getSession().invalidate();

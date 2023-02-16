@@ -14,6 +14,13 @@ import java.util.ArrayList;
 
 @WebServlet(name = "listAdminAppunti", value = "/listAdminAppunti")
 public class ListAppuntiAdmin extends HttpServlet {
+    /**
+     * Tramite model fornisce una lista di Appunti da approvare
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AppuntiDAO action = new AppuntiDAO();
         ArrayList<AppuntiBean> list = new ArrayList<>();

@@ -12,6 +12,13 @@ import java.io.IOException;
 
 @WebServlet(name="donazione", value ="/donazione")
 public class Donazione extends HttpServlet {
+    /**
+     * Implemneta la funzionalità di Donazione
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Fondi fondi = new Fondi();

@@ -10,7 +10,11 @@ public class PayPal implements Pagamento {
         this.password = password;
     }
 
-
+    /**
+     * Metodo implementato da Pagamento
+     * @param importo
+     * @return ritorna una string di avvenuto oagamento
+     */
     @Override
     public String paga(int importo) {
         FondiDAO dao = new FondiDAO();
