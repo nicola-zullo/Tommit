@@ -3,7 +3,7 @@ package model;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class UtenteDAOTest {
+public class RegistrazioneTest {
 
     private UtenteDAO dao = new UtenteDAO();
 
