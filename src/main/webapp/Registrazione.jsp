@@ -125,7 +125,7 @@
             <span id="infoCF"></span>
             <input type="text" name="username" placeholder="Username" id="username" onchange="controlloUsername()" required/>
             <span id="infoUsername"></span>
-            <input type="text" name="email" id="email" placeholder="Email" required onchange="controlloEmail()"/>
+            <input type="email" name="email" id="email" placeholder="Email" required onchange="controlloEmail()"/>
             <span id="infoEmail"></span>
             <input type="password" name="pass" id="pass" placeholder="Password" required/>
             <input type="password" name="confPassword" id="confPassword" placeholder="Conferma Password" required onchange="controlloConfermaPass()"/>
