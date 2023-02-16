@@ -42,7 +42,11 @@
             <td>${gs.getMateria()}</td>
             <td>${gs.getLuogo()}</td>
             <td>${gs.getObiettivo()}</td>
-            <td><button class="btn4" onclick="location.href='disiscrizione-gs?nome=${gs.getNome()}'">abbandona</button></td>
+            <td><form action="disiscrizione-gs" method="get">
+              <input type="hidden" name="nome" value="${gs.getNome()}">
+              <button class="btn4">abbandona</button>
+            </form>
+            </td>
           </tbody>
         </c:forEach>
 

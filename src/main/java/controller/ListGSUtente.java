@@ -26,7 +26,7 @@ public class ListGSUtente extends HttpServlet {
         int id= ((UtenteBean)request.getSession().getAttribute("utenteLoggato")).getId();
         GSDAO action = new GSDAO();
         ArrayList<GSBean> list = new ArrayList<>();
-        list= action.listUserGS(id);
+        list= action.listGSIscritto(id);
         String destPage="VisualizzaGSUtente.jsp";
         request.setAttribute("listGS", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
