@@ -28,7 +28,7 @@
             }else{
                 document.getElementById("button-blue").disabled=true;
                 document.getElementById("button-blue").style.background = "gray";
-                document.getElementById("infoNome").innerHTML = "Nome Gruppo Studio gia' in uso";
+                document.getElementById("infoNome").innerHTML = "Nome Gruppo Studio non valido.";
                 document.getElementById("infoNome").style.color = "red";
             }
         }
