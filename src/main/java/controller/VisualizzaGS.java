@@ -30,7 +30,7 @@ public class VisualizzaGS extends HttpServlet {
         GSBean gs = action.retriveGS(nome);
         System.out.println(gs.getNome()+gs.getLuogo());
         String destPage="PaginaGSsingola.jsp";
-        request.setAttribute("gruppo", gs);
+        request.setAttribute("currentGS", gs);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
         dispatcher.forward(request, response);
     }
