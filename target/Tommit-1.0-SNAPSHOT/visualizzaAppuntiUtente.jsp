@@ -22,6 +22,7 @@
 
 
     <div class="table-wrapper">
+      <h1 class="titolo">appunti che hai salvato </h1>
       <table class="fl-table">
         <thead>
         <tr>
