@@ -1,6 +1,8 @@
 package model;
 
 
+import model.dao.UtenteDAO;
+import model.entity.UtenteBean;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

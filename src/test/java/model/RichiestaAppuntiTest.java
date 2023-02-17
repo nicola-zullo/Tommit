@@ -1,5 +1,7 @@
 package model;
 
+import model.dao.AppuntiDAO;
+import model.entity.AppuntiBean;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

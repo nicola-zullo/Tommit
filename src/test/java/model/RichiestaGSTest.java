@@ -1,5 +1,7 @@
 package model;
 
+import model.dao.GSDAO;
+import model.entity.GSBean;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
