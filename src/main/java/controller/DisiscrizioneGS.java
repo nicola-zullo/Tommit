@@ -38,7 +38,7 @@ public class DisiscrizioneGS extends HttpServlet {
         //aggiorna la lista
         GSDAO action = new GSDAO();
         ArrayList<GSBean> list = new ArrayList<>();
-        list= action.listUserGS(id_utente);
+        list= action.listGSIscritto(id_utente);
         String destPage="VisualizzaGSUtente.jsp";
         request.setAttribute("listGS", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
