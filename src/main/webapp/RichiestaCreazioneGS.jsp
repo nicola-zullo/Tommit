@@ -1,3 +1,4 @@
+<%@ page import="model.entity.UtenteBean" %>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -14,6 +15,29 @@
 </head>
 <body>
 <% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
+
+<script>
+    function controlloNomeGS() {
+        const xhttp = new XMLHttpRequest();
+        var nomeGruppo = document.getElementById("nomegruppo").value;
+        xhttp.onload = function() {
+            if (this.response == "false"){
+                document.getElementById("button-blue").disabled=false;
+                document.getElementById("button-blue").style.background = "#ff0000";
+                document.getElementById("infoNome").innerHTML = "";
+                document.getElementById("infoNome").style.color = "";
+            }else{
+                document.getElementById("button-blue").disabled=true;
+                document.getElementById("button-blue").style.background = "gray";
+                document.getElementById("infoNome").innerHTML = "Nome Gruppo Studio non valido.";
+                document.getElementById("infoNome").style.color = "red";
+            }
+        }
+        xhttp.open("GET", "nome-gs-servlet?nome="+nomeGruppo);
+        xhttp.send();
+    }
+</script>
+
 <div id="form-main">
     <%@ include file="/navbar.jsp"%>
 
@@ -23,7 +47,7 @@
         <form class="form" id="form1" action="richiesta-creazione-gs-servlet" method="post">
             <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
             <p class="nome">
-                <input name="nome" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Nome Gruppo" id="nomegruppo" />
+                <input name="nome" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Nome Gruppo" id="nomegruppo" onchange="controlloNomeGS()" required />
             </p>
 
             <p class = "materia">
@@ -39,16 +63,16 @@
             </p>
 
             <p class="luogo">
-                <input name="luogo" type="text" class="validate[required,custom[email]] feedback-input" id="luogo" placeholder="Luogo di incontro" />
+                <input name="luogo" type="text" class="validate[required,custom[email]] feedback-input" id="luogo" placeholder="Luogo di incontro" required />
             </p>
 
             <p class="obiettivi">
-                <textarea name="obiettivi" class="validate[required,length[6,300]] feedback-input" id="obiettivi" placeholder="Obiettivi"></textarea>
+                <textarea name="obiettivi" class="validate[required,length[6,300]] feedback-input" id="obiettivi" placeholder="Obiettivi" required></textarea>
             </p>
 
-
+            <span id="infoNome"></span>
             <div class="submit">
-                <input type="submit" value="Richiedi approvazione"  id="button-blue"/>
+                <input type="submit" value="Richiedi approvazione"  id="button-blue" disabled="true"/>
                 <div class="ease"></div>
             </div>
         </form>

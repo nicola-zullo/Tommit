@@ -1,4 +1,4 @@
-<%--
+<%@ page import="model.entity.UtenteBean" %><%--
   Created by IntelliJ IDEA.
   User: laimb
   Date: 10/02/2023

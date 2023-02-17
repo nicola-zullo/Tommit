@@ -59,3 +59,14 @@ create table donazione
         primary key,
     totale int null
 );
+
+create table utenti_appunti
+(
+    id_utenti  int not null,
+    id_appunti int null,
+    constraint utenti_appunti_appunti_id_fk
+        foreign key (id_appunti) references appunti (id),
+    constraint utenti_appunti_user_id_fk
+        foreign key (id_utenti) references user (id)
+);
+
