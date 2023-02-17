@@ -1,4 +1,3 @@
-<%@ page import="model.TimerBean" %>
 <!DOCTYPE html>
 <html lang="en" >
 
