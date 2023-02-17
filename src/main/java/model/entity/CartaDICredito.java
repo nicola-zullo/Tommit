@@ -1,6 +1,7 @@
 package model.entity;
 
 import model.dao.FondiDAO;
+import model.entity.pagamento.Pagamento;
 
 public class CartaDICredito implements Pagamento {
 

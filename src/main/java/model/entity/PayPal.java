@@ -1,7 +1,7 @@
 package model.entity;
 
 import model.dao.FondiDAO;
-import model.entity.Pagamento;
+import model.entity.pagamento.Pagamento;
 
 public class PayPal implements Pagamento {
 

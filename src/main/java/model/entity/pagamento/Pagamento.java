@@ -1,4 +1,4 @@
-package model.entity;
+package model.entity.pagamento;
 
 public interface Pagamento {
 
