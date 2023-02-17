@@ -22,6 +22,7 @@
 
 
     <div class="table-wrapper">
+      <h1 class="titolo">gruppi da approvare</h1>
       <table class="fl-table">
         <thead>
         <tr>
