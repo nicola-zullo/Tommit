@@ -1,4 +1,4 @@
-<%@ page import="model.UtenteBean" %>
+<%@ page import="model.entity.UtenteBean" %>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -10,6 +10,7 @@
 <body>
 <% if(((UtenteBean)request.getSession().getAttribute("utenteLoggato"))!=null ){ %>
 <div class="container">
+  <img src="static/immagini/logo.png">
   <div class="popup">
     <div class="popup-content">
       <h2 class="popup-title">Richiesta inviata!</h2>

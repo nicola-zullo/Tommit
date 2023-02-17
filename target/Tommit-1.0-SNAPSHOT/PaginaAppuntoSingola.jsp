@@ -1,4 +1,5 @@
-<%@ page import="model.AppuntiBean" %>
+<%@ page import="model.entity.AppuntiBean" %>
+<%@ page import="model.entity.UtenteBean" %>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -21,7 +22,7 @@
     <section class="hero-unit">
         <%@ include file="/navbar.jsp"%>
 <!-- partial:index.partial.html -->
-        <form>
+
             <div class="rating">
                 <input type='radio' hidden name='rate' id='rating_opt5' data-idx='0'>
                 <label for='rating_opt5'><span>Uno dei migliori!</span></label>
@@ -38,8 +39,16 @@
                 <input type='radio' hidden name='rate' id='rating_opt1' data-idx='4'>
                 <label for='rating_opt1'><span>Non sprecare il tuo tempo!</span></label>
             </div>
-        </form>
+
         <div>
+            <div class="bottone" >
+                <form action="salva-appunti">
+                <button class="btn2">
+                        <input type="hidden" name="idAppunti" value="${currentAppunto.getId()}">
+                    Salva appunti
+                </button>
+                </form>
+            </div>
             <h1> ${currentAppunto.getTitolo()}</h1>
             <p>${currentAppunto.getTesto()}</p>
         </div>
