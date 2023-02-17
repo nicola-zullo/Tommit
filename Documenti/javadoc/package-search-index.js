@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"controller.appunti"},{"l":"controller.donazione"},{"l":"controller.gruppostudio"},{"l":"controller.login"},{"l":"controller.registrazione"},{"l":"controller.utils"},{"l":"model"},{"l":"model.dao"},{"l":"model.entity"},{"l":"model.entity.pagamento"}];updateSearchResults();
