@@ -37,6 +37,10 @@
           <tr>
             <td>${appunti.getTitolo()}</td>
             <td>${appunti.getMateria()}</td>
+            <td><form action="elimina-appunti-utente" method="get">
+              <input type="hidden" name="idAppunti" value="${appunti.getId()}">
+              <button class="btn4">abbandona</button>
+            </form>
           </tbody>
         </c:forEach>
       </table>

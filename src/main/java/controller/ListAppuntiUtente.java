@@ -19,7 +19,7 @@ public class ListAppuntiUtente extends HttpServlet {
         int id= ((UtenteBean)request.getSession().getAttribute("utenteLoggato")).getId();
         AppuntiDAO action = new AppuntiDAO();
         ArrayList<AppuntiBean> list = new ArrayList<>();
-        list= action.listUserAppunti(id);
+        list= action.listAppuntiSalvati(id);
         String destPage="visualizzaAppuntiUtente.jsp";
         request.setAttribute("listAppunti", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
