@@ -46,7 +46,7 @@
         <form class="form" id="form1" action="richiesta-creazione-gs-servlet" method="post">
             <input type="hidden" name="id" value ='${utenteLoggato.getId()}' placeholder ="Id" />
             <p class="nome">
-                <input name="nome" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Nome Gruppo" id="nomegruppo" onchange="controlloNomeGS()" />
+                <input name="nome" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Nome Gruppo" id="nomegruppo" onchange="controlloNomeGS()" required />
             </p>
 
             <p class = "materia">
@@ -62,16 +62,16 @@
             </p>
 
             <p class="luogo">
-                <input name="luogo" type="text" class="validate[required,custom[email]] feedback-input" id="luogo" placeholder="Luogo di incontro" />
+                <input name="luogo" type="text" class="validate[required,custom[email]] feedback-input" id="luogo" placeholder="Luogo di incontro" required />
             </p>
 
             <p class="obiettivi">
-                <textarea name="obiettivi" class="validate[required,length[6,300]] feedback-input" id="obiettivi" placeholder="Obiettivi"></textarea>
+                <textarea name="obiettivi" class="validate[required,length[6,300]] feedback-input" id="obiettivi" placeholder="Obiettivi" required></textarea>
             </p>
 
             <span id="infoNome"></span>
             <div class="submit">
-                <input type="submit" value="Richiedi approvazione"  id="button-blue"/>
+                <input type="submit" value="Richiedi approvazione"  id="button-blue" disabled="true"/>
                 <div class="ease"></div>
             </div>
         </form>
