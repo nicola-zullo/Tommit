@@ -21,22 +21,26 @@
 
 <main>
     <%@ include file="navbar.jsp" %>
+
+    <input type="hidden" id="idUtente" value="${utenteLoggato.getId()}">
     <div class="testo" >
         <h1 class="titolo"> ${currentGS.getNome()} </h1>
         <h2>Materia: ${currentGS.getMateria()} </h2>
         <h2>Luogo: ${currentGS.getLuogo()} </h2>
         <h2 class="obbiettivi">Obiettivi: ${currentGS.getObiettivo()}</h2>
-
     </div>
 
     <div class="wrapper">
         <img src="static/immagini/${currentGS.getMateria()}.png" class="w3-border" alt="my image">
         <div class="bottone">
-            <form action="iscrizione-gs" method="post">
-                <input type="hidden" value="${currentGS.getNome()}" name="nome">
-                <button class="btn5">
+            <form action="iscrizione-gs" id="iscrizione-servlet" method="post">
+                <input type="hidden" id="nomegruppo" value="${currentGS.getNome()}" name="nome">
+                <button onload="controlloUtenteGS()" class="btn5" id="iscrizioneButton">
                     Unisciti al gruppo
-                </button>
+                </button><br><br><br>
+                <span id="infoIscrizione">
+                    <h4>${message}</h4>
+                </span>
             </form>
         </div>
     </div>

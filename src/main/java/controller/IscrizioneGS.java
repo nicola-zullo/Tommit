@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.GSBean;
+import model.GSDAO;
 import model.UtenteBean;
 import model.UtentiGSDAO;
 
@@ -23,18 +25,24 @@ public class IscrizioneGS extends HttpServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
             UtenteBean u = (UtenteBean) request.getSession().getAttribute("utenteLoggato");
             int id_utente = u.getId();
             String nome_gs = request.getParameter("nome");//prendere da un hidden param nome grupposStudio
-
-        UtentiGSDAO utentiGSDAO = new UtentiGSDAO();
-
-        utentiGSDAO.doSave(id_utente,nome_gs);
-
-        //aggiungere pagina redirect
-        RequestDispatcher dispatcher = request.getRequestDispatcher("IscrizioneGSAvvenuta.jsp");
-        dispatcher.forward(request,response);
+            String url ="";
+            GSDAO gsDao = new GSDAO();
+            UtentiGSDAO utentiGSdao = new UtentiGSDAO();
+            GSBean gs = gsDao.retriveGS(nome_gs);
+            if(utentiGSdao.doCheck(id_utente,nome_gs)){
+                String message="Sei già iscritto";
+                request.setAttribute("message", message);
+                request.setAttribute("currentGS", gs);
+                url="PaginaGSsingola.jsp";
+            }else{
+                utentiGSdao.doSave(id_utente,nome_gs);
+                url="IscrizioneGSAvvenuta.jsp";
+            }
+            RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+            dispatcher.forward(request,response);
 
     }
 
