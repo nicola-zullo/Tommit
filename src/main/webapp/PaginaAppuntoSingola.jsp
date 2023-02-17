@@ -40,6 +40,11 @@
             </div>
         </form>
         <div>
+            <div class="bottone" >
+                <button onclick="location.href='RichiestaCreazioneGS.jsp'" class="btn2">
+                    Salva appunti
+                </button>
+            </div>
             <h1> ${currentAppunto.getTitolo()}</h1>
             <p>${currentAppunto.getTesto()}</p>
         </div>
