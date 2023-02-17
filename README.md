@@ -1,6 +1,6 @@
 # Tommit
-Guerrera Marco
-Lamberti Salvatore
+Guerrera Marco 0512113130
+Lamberti Salvatore 0512110844
 Napolitano Margherita Maria 0512110799
 Zullo Nicola Mario 0512111942
 
