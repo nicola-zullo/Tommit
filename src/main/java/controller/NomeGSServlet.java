@@ -16,19 +16,24 @@ public class NomeGSServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-            String username = request.getParameter("nome");
-            GSDAO dao = new GSDAO();
-
-            if (dao.controlloNomeGS(username)){
-                System.out.println("Username:"+username+" gia presente");
+        String username = request.getParameter("nome");
+        GSDAO dao = new GSDAO();
+        if (username != "") {
+            if (dao.controlloNomeGS(username)) {
+                System.out.println("Username:" + username + " gia presente");
                 response.setContentType("text/html;charset=UTF-8");
                 response.getWriter().write("true");
-            }else {
-                System.out.println("Username:"+username+" non presente");
+            } else {
+                System.out.println("Username:" + username + " non presente");
                 response.setContentType("text/html;charset=UTF-8");
                 response.getWriter().write("false");
             }
 
+        }else{
+            response.setContentType("text/html;charset=UTF-8");
+            response.getWriter().write("true");
+        }
     }
+
 
 }
