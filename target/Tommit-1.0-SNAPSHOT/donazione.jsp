@@ -21,7 +21,7 @@
 
 <div class="wrapperino">
     <div class="immagine">
-        <img  src="static/immagini/Logo.png">
+        <img  src="static/immagini/logo.png">
     </div>
 <label for="metodo">Metodo Di Pagamento</label>
 <select class="info" name="metodo" id="metodo" onchange="popolaNome(this.id)" required>

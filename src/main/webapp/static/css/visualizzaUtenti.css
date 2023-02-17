@@ -45,3 +45,15 @@ h2{
     color: white;
 
 }
+
+.titolo{
+    font-family: "Exo", sans-serif;
+    font-size: 2vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color:#d9edf7;
+    text-align:center;
+
+}
