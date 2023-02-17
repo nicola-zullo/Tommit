@@ -38,5 +38,36 @@ h3{
 }
 
 
+.row{
+    width:100%;
+}
+
+#utenti{
+    margin:auto;
+
+}
+
+.bt1{
+    top:3vw;
+    position:relative;
+    left:50%;
+    right:50%;
+}
 
 
+.carte{
+    width:100%;
+    position:relative;
+    height:5vw;
+}
+.carta1{
+    left:20vw;
+    position:absolute;
+    width:20vw;
+}
+
+.carta2{
+    width:20vw;
+    right:20vw;
+    position:absolute;
+}
