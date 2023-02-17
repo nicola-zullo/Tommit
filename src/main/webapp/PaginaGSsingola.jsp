@@ -1,4 +1,4 @@
-<%@ page import="model.GSBean" %><%--
+<%@ page import="model.entity.GSBean" %><%--
   Created by IntelliJ IDEA.
   User: laimb
   Date: 09/02/2023

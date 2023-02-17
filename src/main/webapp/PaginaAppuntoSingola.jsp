@@ -1,4 +1,5 @@
-<%@ page import="model.AppuntiBean" %>
+<%@ page import="model.entity.AppuntiBean" %>
+<%@ page import="model.entity.UtenteBean" %>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
