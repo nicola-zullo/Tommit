@@ -14,7 +14,7 @@
   <div class="popup">
     <div class="popup-content">
       <h2 class="popup-title">Non sei Registrato!</h2>
-      <a href="index.jsp.jsp" class="popup-button">torna alla home </a>
+      <a href="index.jsp" class="popup-button">torna alla home </a>
       <a href="Registrazione.jsp" class="popup-button">Registrazione</a>
     </div>
   </div>
