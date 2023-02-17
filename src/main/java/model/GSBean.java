@@ -49,6 +49,21 @@ public class GSBean {
         this.obiettivo = obiettivo;
     }
 
+    public boolean controlliRichiesta(GSBean gsBean) {
+
+        if (gsBean.getNome() == "" || gsBean.getNome() == null)
+            return false;
+        if (gsBean.getObiettivo() == "" || gsBean.getObiettivo() == null)
+            return false;
+        if (gsBean.getLuogo() == "" || gsBean.getLuogo() == null)
+            return false;
+        if (!(gsBean.getMateria().equalsIgnoreCase("umanistica") || gsBean.getMateria().equalsIgnoreCase("scientifico") || gsBean.getMateria().equalsIgnoreCase("artistica") || gsBean.getMateria().equalsIgnoreCase("informatica") || gsBean.getMateria().equalsIgnoreCase("lingue") || gsBean.getMateria().equalsIgnoreCase("sanitario")))
+            return false;
+
+
+        return true;
+    }
+
     @Override
     public String toString() {
         return "GSBean{" +
