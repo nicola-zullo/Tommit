@@ -126,10 +126,15 @@ public class AppuntiDAO {
      * @param materia
      * @return
      */
-    public ArrayList<AppuntiBean> listAppuntiByMateria(String materia) {
+    public ArrayList<AppuntiBean> listAppuntiByMateria(String materia,int userId) {
         ArrayList<AppuntiBean> list = new ArrayList<>();
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("select * from appunti where stato ='1' and materia='" + materia + "'");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM appunti where stato = 1 and materia = '"+materia+"' and (id) NOT IN (\n" +
+                    "    Select id\n" +
+                    "    from appunti, utenti_appunti\n" +
+                    "    where appunti.id = utenti_appunti.id_appunti and utenti_appunti.id_utenti = "+userId+"\n" +
+                    "    group by id\n" +
+                    "    )");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 AppuntiBean appuntiBean = new AppuntiBean();
@@ -177,6 +182,31 @@ public class AppuntiDAO {
 
     }
 
+
+    public ArrayList<AppuntiBean> listAppuntiSalvati(int idUtente) {
+        ArrayList<AppuntiBean> list = new ArrayList<>();
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT *\n" +
+                    "    from appunti, utenti_appunti\n" +
+                    "    where appunti.id = utenti_appunti.id_appunti AND utenti_appunti.id_utenti = "+idUtente+"\n" +
+                    "    group by id");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                AppuntiBean app = new AppuntiBean();
+                app.setId(rs.getInt("id"));
+                app.setTesto(rs.getString("testo"));
+                app.setMateria(rs.getString("materia"));
+                app.setIdUtente(rs.getInt("creatore"));
+                app.setStato(rs.getBoolean("stato"));
+                app.setTitolo(rs.getString("titolo"));
+                list.add(app);
+            }
+            System.out.print(list);
+            return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 }

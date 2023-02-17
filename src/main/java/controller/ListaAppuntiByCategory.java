@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.AppuntiBean;
 import model.AppuntiDAO;
+import model.UtenteBean;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,7 +29,9 @@ public class ListaAppuntiByCategory extends HttpServlet {
         System.out.print(materia);
         AppuntiDAO action = new AppuntiDAO();
         ArrayList<AppuntiBean> list = new ArrayList<>();
-        list= action.listAppuntiByMateria(materia);
+        UtenteBean u = (UtenteBean) request.getSession().getAttribute("utenteLoggato");
+        int userId = u.getId();
+        list= action.listAppuntiByMateria(materia,userId);
         String destPage="PaginaAppuntiCategoria.jsp";
         request.setAttribute("listAppunti", list);
         RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);

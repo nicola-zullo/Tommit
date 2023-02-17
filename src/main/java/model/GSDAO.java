@@ -278,4 +278,26 @@ public class GSDAO {
         }
     }
 
+    /**
+     * Controlla se è gia presente un GS con il nome fornito
+     * @param nome
+     * @return
+     */
+    public boolean controlloNomeGS(String nome) {
+
+        boolean check;
+
+        try (Connection con = ConPool.getConnection()) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Nome from gruppistudio where Nome ='" + nome + "';");
+            if (rs.next()) {
+                check=true;
+            }else
+                check=false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return check;
+    }
+
 }
