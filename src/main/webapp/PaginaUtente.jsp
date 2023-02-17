@@ -28,7 +28,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-3 col-sm-6 col-12">
+        <div class="carte">
+        <div class="carta1">
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
@@ -47,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-sm-6 col-12">
+        <div class="carta2">
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
@@ -66,6 +67,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <div class="col-12 mt-3 mb-1">
             <h4 style="color: white" class="text-dati">Ecco i tuoi dati!</h4>
@@ -90,12 +92,11 @@
                     <td>${utenteLoggato.getPassword()}</td>
                 </tr>
             </table>
-
+            <button class="bt1" style="background-color: #b20002"><a style="color: white" href="ModificaDatiUtenti.jsp"><span>Modifica dati</span></a> </button>
         </div>
 
     </div>
 
-    <button style="background-color: #b20002"><a style="color: white" href="ModificaDatiUtenti.jsp"><span>Modifica dati</span></a> </button>
 </div>
 <%} else{ response.sendRedirect("./utenteNonRegistrato.jsp");}%>
 </body>

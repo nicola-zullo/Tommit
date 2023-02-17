@@ -10,6 +10,7 @@
 <body>
 
 <div class="container">
+  <img src="static/immagini/logo.png">
   <div class="popup">
     <div class="popup-content">
       <h2 class="popup-title">Registrazione effettuata!</h2>
